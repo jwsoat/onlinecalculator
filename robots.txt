@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /draft/
+
+Sitemap: https://onlinecalculator.co.nz/sitemap.xml

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calorie Calculator NZ — Daily Calorie Needs (TDEE) | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free NZ calorie calculator. Find your daily kilojoule / calorie needs (BMR &amp; TDEE) using the Mifflin-St Jeor formula with NZ healthy-eating guidance.">
+  <meta name="keywords" content="calorie calculator NZ, kilojoule calculator, TDEE, BMR, daily calories, Mifflin-St Jeor">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/health/calorie-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <style>:root { --accent: #dc2626; --accent-light: #fef2f2; --accent-dark: #991b1b; }</style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Health","item":"https://onlinecalculator.co.nz/health/"},
+    {"@type":"ListItem","position":3,"name":"Calorie Calculator","item":"https://onlinecalculator.co.nz/health/calorie-calculator/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/health/">Health</a> <span>›</span> <span>Calorie Calculator</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">🥗</span>
+          <h1>Calorie Calculator <span class="nz-badge">🇳🇿 kJ &amp; kcal</span></h1>
+        </div>
+        <p>Daily calorie and kilojoule needs using Mifflin-St Jeor.</p>
+      </div>
+      <div class="calc-body">
+
+        <div class="input-row">
+          <div class="field-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" value="30" min="10" max="100" step="1" oninput="calculate()" autofocus>
+          </div>
+          <div class="field-group">
+            <label for="sex">Sex</label>
+            <select id="sex" onchange="calculate()">
+              <option value="male" selected>Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="field-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" value="75" min="20" max="300" step="0.5" oninput="calculate()">
+          </div>
+          <div class="field-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" value="175" min="100" max="250" step="1" oninput="calculate()">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="activity">Activity Level</label>
+          <select id="activity" onchange="calculate()">
+            <option value="1.2">Sedentary (little/no exercise)</option>
+            <option value="1.375">Light (1–3 sessions/wk)</option>
+            <option value="1.55" selected>Moderate (3–5 sessions/wk)</option>
+            <option value="1.725">Active (6–7 sessions/wk)</option>
+            <option value="1.9">Very active (physical job + training)</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="goal">Goal</label>
+          <select id="goal" onchange="calculate()">
+            <option value="0.8">Lose weight (-20%)</option>
+            <option value="0.9">Lose slowly (-10%)</option>
+            <option value="1" selected>Maintain weight</option>
+            <option value="1.1">Gain slowly (+10%)</option>
+            <option value="1.2">Gain (+20%)</option>
+          </select>
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row"><span class="breakdown-label">Target Daily Calories</span><span class="breakdown-value" id="r-target">0 kcal</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">In Kilojoules (NZ standard)</span><span class="breakdown-value" id="r-kj">0 kJ</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">BMR (rest only)</span><span class="breakdown-value" id="r-bmr">0 kcal</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Maintenance (TDEE)</span><span class="breakdown-value" id="r-tdee">0 kcal</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>BMR &amp; TDEE Explained</h2>
+      <p><strong>BMR (Basal Metabolic Rate)</strong> = calories burned at rest, just to keep your body running.<br>
+      <strong>TDEE (Total Daily Energy Expenditure)</strong> = BMR × activity multiplier. This is your "maintenance" intake — eat this much and your weight stays steady.</p>
+      <h3>Mifflin-St Jeor Formula</h3>
+      <div class="formula-box">
+        <div><span>Men:</span> BMR = 10 × kg + 6.25 × cm − 5 × age + 5</div>
+        <div style="margin-top:8px"><span>Women:</span> BMR = 10 × kg + 6.25 × cm − 5 × age − 161</div>
+      </div>
+      <h3>NZ Kilojoules</h3>
+      <p>NZ food labels use kilojoules (kJ), not calories. <strong>1 kcal = 4.184 kJ.</strong> The MoH suggests an average adult eats around 8,700 kJ/day (~2,080 kcal). Actual needs vary widely.</p>
+      <h3>NZ Healthy Eating Guidelines</h3>
+      <p>The Ministry of Health recommends: lots of vegetables and fruit, choose whole grains, eat protein with each meal (legumes, fish, eggs, lean meat), limit highly processed and high-sugar foods. Calories are one variable — food quality matters too.</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How fast should I lose weight? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">A 0.5–1 kg per week loss (a deficit of ~500–1000 kcal/day from TDEE) is usually sustainable. Faster losses often come back fast or cause muscle loss.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is this accurate? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Mifflin-St Jeor is the most accurate population formula but individual variation is ±10–15%. Adjust your intake based on real-world results over 2–4 weeks.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>❤️ Health Tools</h3>
+      <a href="/health/bmi-calculator/" class="related-link">⚖️ BMI Calculator</a>
+      <a href="/health/ideal-weight/" class="related-link">🏋️ Ideal Weight</a>
+      <a href="/health/pregnancy-due-date/" class="related-link">🤱 Pregnancy Due Date</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/health/">Health</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Informational only. See a GP or dietitian for personal advice.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  function calculate() {
+    const age = parseFloat(document.getElementById('age').value) || 0;
+    const sex = document.getElementById('sex').value;
+    const w = parseFloat(document.getElementById('weight').value) || 0;
+    const h = parseFloat(document.getElementById('height').value) || 0;
+    const act = parseFloat(document.getElementById('activity').value);
+    const goal = parseFloat(document.getElementById('goal').value);
+    const bmr = sex === 'male' ? (10*w + 6.25*h - 5*age + 5) : (10*w + 6.25*h - 5*age - 161);
+    const tdee = bmr * act;
+    const target = tdee * goal;
+    document.getElementById('r-bmr').textContent = Math.round(bmr).toLocaleString('en-NZ') + ' kcal';
+    document.getElementById('r-tdee').textContent = Math.round(tdee).toLocaleString('en-NZ') + ' kcal';
+    document.getElementById('r-target').textContent = Math.round(target).toLocaleString('en-NZ') + ' kcal';
+    document.getElementById('r-kj').textContent = Math.round(target * 4.184).toLocaleString('en-NZ') + ' kJ';
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>

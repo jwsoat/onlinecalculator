@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator NZ — Body Mass Index | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free NZ BMI calculator. Metric or imperial, with NZ Ministry of Health categories. Includes adjusted thresholds note for Māori and Pacific peoples.">
+  <meta name="keywords" content="BMI calculator NZ, body mass index, NZ health, healthy weight, BMI metric imperial">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/health/bmi-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <style>:root { --accent: #dc2626; --accent-light: #fef2f2; --accent-dark: #991b1b; }</style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Health","item":"https://onlinecalculator.co.nz/health/"},
+    {"@type":"ListItem","position":3,"name":"BMI Calculator","item":"https://onlinecalculator.co.nz/health/bmi-calculator/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/health/">Health</a> <span>›</span> <span>BMI Calculator</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">⚖️</span>
+          <h1>BMI Calculator <span class="nz-badge">🇳🇿 NZ</span></h1>
+        </div>
+        <p>Calculate your Body Mass Index with NZ Ministry of Health categories.</p>
+      </div>
+      <div class="calc-body">
+
+        <div class="mode-toggle">
+          <button class="mode-btn active" id="btn-metric" onclick="setUnit('metric')">Metric (kg/cm)</button>
+          <button class="mode-btn" id="btn-imp" onclick="setUnit('imperial')">Imperial (lb/ft)</button>
+        </div>
+
+        <div id="metric-inputs">
+          <div class="input-row">
+            <div class="field-group">
+              <label for="weight-kg">Weight (kg)</label>
+              <input type="number" id="weight-kg" value="70" min="20" max="300" step="0.1" oninput="calculate()" autofocus>
+            </div>
+            <div class="field-group">
+              <label for="height-cm">Height (cm)</label>
+              <input type="number" id="height-cm" value="175" min="100" max="250" step="1" oninput="calculate()">
+            </div>
+          </div>
+        </div>
+
+        <div id="imperial-inputs" style="display:none">
+          <div class="input-row">
+            <div class="field-group">
+              <label for="weight-lb">Weight (lb)</label>
+              <input type="number" id="weight-lb" value="154" min="50" max="700" step="0.5" oninput="calculate()">
+            </div>
+            <div class="field-group">
+              <label for="height-ft">Height (ft)</label>
+              <input type="number" id="height-ft" value="5" min="3" max="8" step="1" oninput="calculate()">
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="height-in">+ inches</label>
+            <input type="number" id="height-in" value="9" min="0" max="11" step="1" oninput="calculate()">
+          </div>
+        </div>
+
+        <div class="breakdown" style="margin-top:18px">
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row"><span class="breakdown-label">Your BMI</span><span class="breakdown-value" id="r-bmi">0.0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Category</span><span class="breakdown-value" id="r-cat" style="font-size:14px">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Healthy Range (your height)</span><span class="breakdown-value" id="r-range">—</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>BMI Categories (NZ Ministry of Health)</h2>
+      <table class="tax-table" style="width:100%;border-collapse:collapse;font-size:13.5px;background:var(--surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);margin:14px 0">
+        <thead><tr><th style="padding:10px 14px;text-align:left;background:var(--bg)">BMI Range</th><th style="padding:10px 14px;text-align:left;background:var(--bg)">Category</th></tr></thead>
+        <tbody>
+          <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace">&lt; 18.5</td><td style="padding:10px 14px;border-bottom:1px solid var(--border)">Underweight</td></tr>
+          <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace">18.5 – 24.9</td><td style="padding:10px 14px;border-bottom:1px solid var(--border)">Healthy weight</td></tr>
+          <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace">25.0 – 29.9</td><td style="padding:10px 14px;border-bottom:1px solid var(--border)">Overweight</td></tr>
+          <tr><td style="padding:10px 14px;font-family:'DM Mono',monospace">≥ 30.0</td><td style="padding:10px 14px">Obese</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Adjusted Thresholds for Māori &amp; Pacific Peoples</h3>
+      <p>Some NZ health guidelines use higher thresholds for Māori and Pacific peoples: overweight ≥ 26, obese ≥ 32. This reflects body composition differences. Your GP can interpret BMI in the context of muscle mass, waist circumference, and overall health.</p>
+
+      <h3>BMI Limitations</h3>
+      <p>BMI is a screening tool, not a diagnostic. It doesn't distinguish between muscle and fat, so athletes often score "overweight" or "obese" despite being lean. Waist-to-height ratio and waist circumference are often better indicators of metabolic risk.</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What is the BMI formula? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">BMI = weight (kg) ÷ height (m)². For imperial: BMI = weight (lb) ÷ height (in)² × 703.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is BMI accurate for children? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">No — children need age-and-sex-specific BMI percentile charts, not adult cut-offs. See your GP or Plunket nurse for child weight assessments.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>❤️ Health Tools</h3>
+      <a href="/health/calorie-calculator/" class="related-link">🥗 Calorie Calculator</a>
+      <a href="/health/ideal-weight/" class="related-link">🏋️ Ideal Weight</a>
+      <a href="/health/pregnancy-due-date/" class="related-link">🤱 Pregnancy Due Date</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>🔗 NZ Health Info</h3>
+      <div style="font-size:13px"><a href="https://www.health.govt.nz" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">health.govt.nz ↗</a></div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/health/">Health</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Informational only, not medical advice. See your GP.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  let unit = 'metric';
+  function setUnit(u) {
+    unit = u;
+    document.getElementById('btn-metric').classList.toggle('active', u === 'metric');
+    document.getElementById('btn-imp').classList.toggle('active', u === 'imperial');
+    document.getElementById('metric-inputs').style.display = u === 'metric' ? 'block' : 'none';
+    document.getElementById('imperial-inputs').style.display = u === 'imperial' ? 'block' : 'none';
+    calculate();
+  }
+  function calculate() {
+    let kg, m;
+    if (unit === 'metric') {
+      kg = parseFloat(document.getElementById('weight-kg').value) || 0;
+      m = (parseFloat(document.getElementById('height-cm').value) || 0) / 100;
+    } else {
+      const lb = parseFloat(document.getElementById('weight-lb').value) || 0;
+      const ft = parseFloat(document.getElementById('height-ft').value) || 0;
+      const inches = parseFloat(document.getElementById('height-in').value) || 0;
+      kg = lb * 0.453592;
+      m = (ft * 12 + inches) * 0.0254;
+    }
+    const bmi = m > 0 ? kg / (m * m) : 0;
+    let cat = '—';
+    if (bmi > 0) {
+      if (bmi < 18.5) cat = 'Underweight';
+      else if (bmi < 25) cat = '✅ Healthy weight';
+      else if (bmi < 30) cat = 'Overweight';
+      else cat = 'Obese';
+    }
+    const minW = 18.5 * m * m, maxW = 24.9 * m * m;
+    document.getElementById('r-bmi').textContent = bmi.toFixed(1);
+    document.getElementById('r-cat').textContent = cat;
+    if (m > 0) {
+      if (unit === 'metric') document.getElementById('r-range').textContent = minW.toFixed(1) + ' – ' + maxW.toFixed(1) + ' kg';
+      else document.getElementById('r-range').textContent = (minW * 2.2046).toFixed(1) + ' – ' + (maxW * 2.2046).toFixed(1) + ' lb';
+    }
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>

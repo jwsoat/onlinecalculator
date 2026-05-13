@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAYE Calculator NZ 2026 — Take-Home Pay, Student Loan, IETC | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Full-featured NZ PAYE calculator: 2026 tax brackets, ACC levy, KiwiSaver (3.5% min), student loan, IETC, secondary tax codes, overtime, holiday pay, payroll giving, child support, proration.">
+  <meta name="keywords" content="PAYE calculator NZ, net salary calculator New Zealand, NZ tax calculator 2026, take home pay NZ, student loan NZ, IETC, secondary tax, payroll giving">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/finance/paye-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Finance","item":"https://onlinecalculator.co.nz/finance/"},
+    {"@type":"ListItem","position":3,"name":"PAYE Calculator","item":"https://onlinecalculator.co.nz/finance/paye-calculator/"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is the tax-free threshold in NZ?","acceptedAnswer":{"@type":"Answer","text":"New Zealand does not have a tax-free threshold. The first $15,600 of income is taxed at 10.5%."}},
+    {"@type":"Question","name":"Is the top tax rate in NZ really 39%?","acceptedAnswer":{"@type":"Answer","text":"Yes. The 39% rate applies to income above $180,000 per year, introduced 1 April 2021."}},
+    {"@type":"Question","name":"What is the IETC?","acceptedAnswer":{"@type":"Answer","text":"The Independent Earner Tax Credit gives up to $520/year ($10/week) to NZ tax residents earning $24,000-$70,000 who don't receive Working for Families or a student-loan-related benefit. The full $520 applies between $24,000 and $66,000, then abates 13c per $1 over $66,000, reaching zero at $70,000."}}
+  ]}
+  </script>
+
+  <style>
+    :root { --accent: #1d4ed8; --accent-light: #eff6ff; --accent-dark: #1e3a8a; }
+    .eff-rate-box { background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; margin-top: 16px; }
+    .eff-rate-num { font-size: 32px; font-weight: 700; font-family: 'DM Mono', monospace; color: var(--accent); letter-spacing: -1px; }
+    .eff-rate-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+    .tax-table { width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--surface); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); margin: 14px 0; }
+    .tax-table th { background: var(--bg); padding: 10px 14px; text-align: left; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .tax-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); font-family: 'DM Mono', monospace; font-size: 13px; }
+    .tax-table tr:last-child td { border-bottom: none; }
+    /* Advanced sections (collapsible) */
+    details.adv { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 0; margin-bottom: 14px; overflow: hidden; }
+    details.adv > summary { padding: 12px 14px; font-size: 13.5px; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    details.adv > summary::-webkit-details-marker { display: none; }
+    details.adv > summary::after { content: '▾'; transition: transform 0.2s; color: var(--muted); font-size: 12px; }
+    details.adv[open] > summary::after { transform: rotate(180deg); }
+    details.adv[open] > summary { border-bottom: 1px solid var(--border); background: var(--surface); }
+    details.adv > div.adv-body { padding: 14px; background: var(--surface); }
+    /* Breakdown subtotals */
+    .subtotal-row { background: var(--bg); border-top: 2px solid var(--border); }
+    .subtotal-row .breakdown-label { font-weight: 700; color: var(--text); text-transform: uppercase; font-size: 12px; letter-spacing: 0.05em; }
+    .subtotal-row .breakdown-value { font-weight: 700; }
+    .positive { color: #15803d; }
+    .info-row { background: var(--bg); border-top: 2px dashed var(--border); }
+    .info-row .breakdown-label { font-size: 12px; color: var(--muted); }
+    .info-row .breakdown-value { color: var(--accent-dark); }
+    .hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    @media (max-width: 480px) { .row-3 { grid-template-columns: 1fr; } }
+    select:disabled { opacity: 0.55; cursor: not-allowed; background: var(--bg); color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/finance/">Finance</a> <span>›</span> <span>PAYE Calculator</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">💰</span>
+          <h1>PAYE Calculator <span class="nz-badge">🇳🇿 2025–26</span></h1>
+        </div>
+        <p>Full take-home pay calculator with 2026 brackets, KiwiSaver 3.5%, student loan, IETC, secondary tax, overtime, holiday pay, payroll giving, and more.</p>
+      </div>
+      <div class="calc-body">
+
+        <!-- PAY PERIOD -->
+        <div class="field-group">
+          <label>Pay Period</label>
+          <div class="period-toggle">
+            <button class="period-btn active" onclick="setPeriod('annual')">Annual</button>
+            <button class="period-btn" onclick="setPeriod('monthly')">Monthly</button>
+            <button class="period-btn" onclick="setPeriod('fortnightly')">Fortnightly</button>
+            <button class="period-btn" onclick="setPeriod('weekly')">Weekly</button>
+            <button class="period-btn" onclick="setPeriod('hourly')">Hourly</button>
+          </div>
+        </div>
+
+        <!-- SALARY -->
+        <div class="field-group">
+          <label for="income" id="income-label">Annual Salary / Income</label>
+          <div class="input-group">
+            <span class="input-prefix">$</span>
+            <input type="number" id="income" class="has-prefix" placeholder="70,000" min="0" step="100" oninput="calculate()" autofocus>
+          </div>
+        </div>
+
+        <!-- STANDARD HOURS — always visible, used for hourly conversion + threshold checks -->
+        <div class="field-group">
+          <label for="hours-pw">Standard Hours per Week</label>
+          <input type="number" id="hours-pw" value="40" min="1" max="80" step="0.5" oninput="calculate()">
+          <p class="hint">Used to derive the hourly figure and the hourly minimum-wage check.</p>
+        </div>
+
+        <!-- SALARY TYPE -->
+        <div class="field-group">
+          <label>What does this amount represent?</label>
+          <div class="mode-toggle">
+            <button class="mode-btn active" id="btn-gross" onclick="setSalaryType('gross')">Gross only</button>
+            <button class="mode-btn" id="btn-tr" onclick="setSalaryType('tr')">Inc. employer KiwiSaver</button>
+          </div>
+          <p class="hint" id="salary-type-hint">Standard offer letter — employer KiwiSaver is paid on top.</p>
+        </div>
+
+        <!-- TAX CODE & STANDARD DEDUCTIONS -->
+        <div class="row-2">
+          <div class="field-group">
+            <label for="tax-code">Tax Code</label>
+            <select id="tax-code" onchange="calculate()">
+              <option value="M" selected>M — Primary income</option>
+              <option value="ME">ME — Primary + IETC eligible</option>
+              <option value="SB">SB — Secondary (10.5%)</option>
+              <option value="S">S — Secondary (17.5%)</option>
+              <option value="SH">SH — Secondary (30%)</option>
+              <option value="ST">ST — Secondary (33%)</option>
+              <option value="SA">SA — Secondary (39%)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="kiwisaver-rate">KiwiSaver Rate</label>
+            <select id="kiwisaver-rate" onchange="calculate()">
+              <option value="0">Not enrolled / 0%</option>
+              <option value="0.035" selected>3.5% (min from 1 Apr 2026)</option>
+              <option value="0.04">4%</option>
+              <option value="0.06">6%</option>
+              <option value="0.08">8%</option>
+              <option value="0.10">10%</option>
+            </select>
+          </div>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" id="has-sl" onchange="setHasSL(this.checked)">
+          <label for="has-sl">Has student loan (add 12% over the threshold)</label>
+        </div>
+        <p class="hint" id="sl-hint" style="margin-top:-6px;margin-bottom:14px;display:none">Tax code locked to its SL variant. Untick to change.</p>
+        <div class="check-row">
+          <input type="checkbox" id="no-acc" onchange="calculate()">
+          <label for="no-acc">Exempt from ACC levy (e.g. non-earner, overseas)</label>
+        </div>
+
+        <!-- ADDITIONAL INCOME -->
+        <details class="adv">
+          <summary>➕ Additional income (overtime, raises, holiday pay)</summary>
+          <div class="adv-body">
+            <div class="row-2">
+              <div class="field-group">
+                <label for="ot-hours">Overtime hours/week</label>
+                <input type="number" id="ot-hours" value="0" min="0" step="0.5" oninput="calculate()">
+              </div>
+              <div class="field-group">
+                <label for="ot-rate">Overtime multiplier</label>
+                <select id="ot-rate" onchange="calculate()">
+                  <option value="1">1× (standard rate)</option>
+                  <option value="1.25">1.25×</option>
+                  <option value="1.5" selected>1.5× (time and a half)</option>
+                  <option value="2">2× (double time)</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-group">
+              <label for="raise">Apply pay rise (%) — preview a future salary</label>
+              <input type="number" id="raise" value="0" min="-50" max="100" step="0.5" oninput="calculate()">
+              <p class="hint">e.g. enter <code>5</code> to see what a 5% rise would look like.</p>
+            </div>
+            <div class="check-row">
+              <input type="checkbox" id="holiday-pay" onchange="calculate()">
+              <label for="holiday-pay">Include 8% holiday pay on top (casual / fixed-term workers)</label>
+            </div>
+          </div>
+        </details>
+
+        <!-- OTHER DEDUCTIONS -->
+        <details class="adv">
+          <summary>➖ Other deductions (payroll giving, child support, court fines)</summary>
+          <div class="adv-body">
+            <div class="field-group">
+              <label for="payroll-giving">Payroll giving (annual donation $)</label>
+              <div class="input-group"><span class="input-prefix">$</span><input type="number" id="payroll-giving" class="has-prefix" value="0" min="0" step="10" oninput="calculate()"></div>
+              <p class="hint">You receive a 33.33% tax credit immediately, reducing your PAYE.</p>
+            </div>
+            <div class="row-2">
+              <div class="field-group">
+                <label for="child-support">Child support / yr</label>
+                <div class="input-group"><span class="input-prefix">$</span><input type="number" id="child-support" class="has-prefix" value="0" min="0" step="10" oninput="calculate()"></div>
+              </div>
+              <div class="field-group">
+                <label for="court-fines">Court fines / yr</label>
+                <div class="input-group"><span class="input-prefix">$</span><input type="number" id="court-fines" class="has-prefix" value="0" min="0" step="10" oninput="calculate()"></div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- PRORATION -->
+        <details class="adv">
+          <summary>📅 Proration (partial year)</summary>
+          <div class="adv-body">
+            <div class="field-group">
+              <label for="weeks-worked">Weeks worked in the year</label>
+              <input type="number" id="weeks-worked" value="52" min="1" max="53" step="0.1" oninput="calculate()">
+              <p class="hint">Leave at 52 for a full year. Use this for mid-year starts, parental leave, or fixed-term contracts.</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- DISPLAY SETTINGS -->
+        <details class="adv">
+          <summary>⚙️ Display settings</summary>
+          <div class="adv-body">
+            <div class="row-2">
+              <div class="field-group">
+                <label for="decimals">Decimal places</label>
+                <select id="decimals" onchange="calculate()">
+                  <option value="0" selected>0 (whole dollars)</option>
+                  <option value="2">2 (cents)</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="weeks-yr">Weeks per year</label>
+                <select id="weeks-yr" onchange="calculate()">
+                  <option value="52" selected>52 (IRD convention)</option>
+                  <option value="52.1786">52.18 (365.25 ÷ 7, exact)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- BREAKDOWN -->
+        <div class="breakdown">
+          <div class="breakdown-header">Your Pay Breakdown (Annual)</div>
+          <div class="breakdown-table">
+            <div class="breakdown-row" id="row-package" style="display:none"><span class="breakdown-label">Total Package (entered)</span><span class="breakdown-value" id="r-package">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label" id="lbl-gross">Base Gross Income</span><span class="breakdown-value" id="r-gross">$0</span></div>
+            <div class="breakdown-row" id="row-ot" style="display:none"><span class="breakdown-label">+ Overtime</span><span class="breakdown-value positive" id="r-ot">$0</span></div>
+            <div class="breakdown-row" id="row-raise" style="display:none"><span class="breakdown-label">+ Pay rise applied</span><span class="breakdown-value positive" id="r-raise">$0</span></div>
+            <div class="breakdown-row" id="row-hp" style="display:none"><span class="breakdown-label">+ Holiday pay (8%)</span><span class="breakdown-value positive" id="r-hp">$0</span></div>
+            <div class="breakdown-row subtotal-row"><span class="breakdown-label">Total Taxable</span><span class="breakdown-value" id="r-taxable">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label" id="lbl-tax">Income Tax (PAYE, M)</span><span class="breakdown-value negative" id="r-tax">-$0</span></div>
+            <div class="breakdown-row" id="row-sl" style="display:none"><span class="breakdown-label">− Student Loan (12%)</span><span class="breakdown-value negative" id="r-sl">-$0</span></div>
+            <div class="breakdown-row" id="row-ietc" style="display:none"><span class="breakdown-label">+ IETC tax credit</span><span class="breakdown-value positive" id="r-ietc">$0</span></div>
+            <div class="breakdown-row" id="row-pg-credit" style="display:none"><span class="breakdown-label">+ Payroll giving credit (33.33%)</span><span class="breakdown-value positive" id="r-pg-credit">$0</span></div>
+            <div class="breakdown-row subtotal-row"><span class="breakdown-label">After Tax</span><span class="breakdown-value" id="r-after-tax">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">− ACC Earner Levy (1.67%)</span><span class="breakdown-value negative" id="r-acc">-$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">− KiwiSaver (employee)</span><span class="breakdown-value negative" id="r-ks">-$0</span></div>
+            <div class="breakdown-row" id="row-pg" style="display:none"><span class="breakdown-label">− Payroll giving (donation)</span><span class="breakdown-value negative" id="r-pg">-$0</span></div>
+            <div class="breakdown-row" id="row-cs" style="display:none"><span class="breakdown-label">− Child support</span><span class="breakdown-value negative" id="r-cs">-$0</span></div>
+            <div class="breakdown-row" id="row-cf" style="display:none"><span class="breakdown-label">− Court fines</span><span class="breakdown-value negative" id="r-cf">-$0</span></div>
+            <div class="breakdown-row take-home-row"><span class="breakdown-label">Take-Home Pay (Annual)</span><span class="breakdown-value" id="r-takehome">$0</span></div>
+            <div class="breakdown-row info-row"><span class="breakdown-label">+ Employer KiwiSaver (info)</span><span class="breakdown-value" id="r-emp-ks">$0</span></div>
+          </div>
+        </div>
+
+        <div class="eff-rate-box">
+          <div class="eff-rate-num" id="r-eff-rate">0.0%</div>
+          <div class="eff-rate-label">Effective Tax Rate</div>
+        </div>
+
+        <div class="breakdown" style="margin-top:16px">
+          <div class="breakdown-header">Per Period Breakdown (Take-Home)</div>
+          <div class="breakdown-table">
+            <div class="breakdown-row"><span class="breakdown-label" style="font-weight:600">Per Month</span><span class="breakdown-value" id="r-monthly">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label" style="font-weight:600">Per Fortnight</span><span class="breakdown-value" id="r-fortnightly">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label" style="font-weight:600">Per Week</span><span class="breakdown-value" id="r-weekly">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label" style="font-weight:600">Per Hour (gross)</span><span class="breakdown-value" id="r-hourly-gross">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label" style="font-weight:600">Per Hour (take-home)</span><span class="breakdown-value" id="r-hourly-net">$0</span></div>
+          </div>
+          <p class="hint" id="minwage-hint" style="margin-top:8px"></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>2025–2026 NZ Tax Brackets</h2>
+      <p>New Zealand uses a progressive tax system. You only pay the higher rate on income above each threshold.</p>
+      <table class="tax-table">
+        <thead><tr><th>Income Band</th><th>Tax Rate</th></tr></thead>
+        <tbody>
+          <tr><td>$0 – $15,600</td><td>10.5%</td></tr>
+          <tr><td>$15,601 – $53,500</td><td>17.5%</td></tr>
+          <tr><td>$53,501 – $78,100</td><td>30%</td></tr>
+          <tr><td>$78,101 – $180,000</td><td>33%</td></tr>
+          <tr><td>Over $180,000</td><td>39%</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Secondary Tax Codes</h3>
+      <p>If you have a second job, the second employer uses a secondary tax code. Pick the one matching your <strong>total</strong> income from all jobs combined:</p>
+      <table class="tax-table">
+        <thead><tr><th>Code</th><th>Total Income</th><th>Flat Rate</th></tr></thead>
+        <tbody>
+          <tr><td>SB</td><td>≤ $15,600</td><td>10.5%</td></tr>
+          <tr><td>S</td><td>$15,601 – $53,500</td><td>17.5%</td></tr>
+          <tr><td>SH</td><td>$53,501 – $78,100</td><td>30%</td></tr>
+          <tr><td>ST</td><td>$78,101 – $180,000</td><td>33%</td></tr>
+          <tr><td>SA</td><td>Over $180,000</td><td>39%</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Student Loan Repayments</h3>
+      <p>If you have an NZ student loan, you repay <strong>12% of income above the threshold</strong>. The 2025–26 annual threshold is $24,128 ($464/week, $928/fortnight). Repayments are deducted automatically by your employer when you use a tax code ending in "SL".</p>
+
+      <h3>Independent Earner Tax Credit (IETC)</h3>
+      <p>The IETC gives up to <strong>$520/year ($10/week)</strong> to NZ tax residents earning $24,000–$70,000 who don't receive Working for Families or a student-loan-related benefit. The full $520 applies from $24,000 to $66,000; above $66,000 it abates 13c per $1 of extra income and is fully gone by $70,000. Pick the <strong>ME</strong> tax code to claim it. (Thresholds lifted from $44k/$48k in Budget 2024.)</p>
+
+      <h3>ACC Earner Levy 2025–26</h3>
+      <p>The ACC earner levy is <strong>$1.67 per $100 of liable earnings</strong> (1.67%), capped at annual earnings of <strong>$142,283</strong>. Maximum levy payable is $2,376.12 per year.</p>
+
+      <h3>Payroll Giving</h3>
+      <p>If your employer offers payroll giving, donations to registered charities deducted via PAYE earn an immediate <strong>33.33% tax credit</strong>. A $1,000 annual donation effectively costs you only ~$667 because $333 of your tax is rebated.</p>
+
+      <h2 style="margin-top:28px">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's "Total Remuneration" and how do I know which to choose? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Most NZ offer letters quote a <strong>gross-only</strong> salary — e.g. "$80,000 plus 3.5% employer KiwiSaver." Keep the toggle on "Gross only." Some employers (senior roles, government, startups) instead offer "<strong>Total Remuneration / TR</strong>" — a single all-in figure that already includes the employer KiwiSaver. $80,000 TR means your actual gross is $80,000 ÷ 1.035 ≈ $77,295. Check your offer letter — it should say which model applies.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">When do I use a secondary tax code? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">When you have more than one job. Your <em>main</em> employer uses M (or ME). Each additional employer uses S/SH/ST/SA based on your <em>total</em> income across all jobs. The secondary code is a flat rate so you don't double-count the lower brackets.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does KiwiSaver reduce my taxable income? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">No. NZ KiwiSaver contributions are deducted from your <em>after-tax</em> pay, so they don't reduce your PAYE.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's 8% holiday pay? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Casual and fixed-term workers can be paid an extra 8% on top of their gross wages each pay, in lieu of accruing 4 weeks of annual leave (8% ≈ 4 ÷ 52). Permanent staff usually accrue leave rather than receive 8% each pay.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's the IETC? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">The Independent Earner Tax Credit — up to $520/year ($10/week) — for NZ tax residents earning $24,000–$70,000 who don't receive Working for Families or student-loan-related benefits. Full credit applies up to $66,000; abates 13c per $1 between $66,000 and $70,000.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is the top tax rate in NZ really 39%? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Yes. The 39% rate applies to income above $180,000 per year, introduced 1 April 2021. A $180,000 salary has an effective rate of about 30.2% because most income is taxed at lower bands.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🇳🇿 NZ Finance Tools</h3>
+      <a href="/finance/gst-calculator/" class="related-link">🧾 GST Calculator</a>
+      <a href="/finance/kiwisaver-calculator/" class="related-link">🥝 KiwiSaver Projection</a>
+      <a href="/finance/mortgage-calculator/" class="related-link">🏦 Mortgage Calculator</a>
+      <a href="/finance/compound-interest/" class="related-link">📈 Compound Interest</a>
+      <a href="/finance/loan-calculator/" class="related-link">📋 Loan Repayment</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>💡 Did you know?</h3>
+      <div class="tip-box">
+        The NZ median salary is approximately <strong>$62,000</strong>. At this income the effective tax rate is about 19.2%, well below the 30% marginal rate.
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <h3>🔗 IRD Resources</h3>
+      <div style="font-size:13px">
+        <a href="https://www.ird.govt.nz" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;display:block;padding:6px 0;border-bottom:1px solid var(--border)">ird.govt.nz ↗</a>
+        <a href="https://www.ird.govt.nz/income-tax/income-tax-for-individuals/tax-rates-for-individuals" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;display:block;padding:6px 0">NZ Tax Rates ↗</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="/">Home</a><a href="/finance/">Finance</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a>
+  </div>
+  <p>© 2026 OnlineCalculator.co.nz — Figures are estimates only; consult a tax professional for advice.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  // --- NZ 2025-26 constants ---
+  const TAX_BRACKETS = [
+    { upTo: 15600,  rate: 0.105 },
+    { upTo: 53500,  rate: 0.175 },
+    { upTo: 78100,  rate: 0.30 },
+    { upTo: 180000, rate: 0.33 },
+    { upTo: Infinity, rate: 0.39 },
+  ];
+  const SECONDARY_RATES = { SB: 0.105, S: 0.175, SH: 0.30, ST: 0.33, SA: 0.39 };
+  const ACC_RATE = 0.0167;
+  const ACC_CAP = 142283;
+  const SL_RATE = 0.12;
+  const SL_THRESHOLD = 24128;     // 2025-26 annual repayment threshold
+  const IETC_MAX = 520;
+  const IETC_FULL_FROM = 24000;
+  const IETC_ABATE_FROM = 66000;
+  const IETC_ABATE_TO = 70000;
+  const IETC_ABATE_RATE = 0.13;
+  const PG_CREDIT_RATE = 1 / 3;   // 33.33% payroll giving credit
+  const EMPLOYER_KS_RATE = 0.035;
+  const HOLIDAY_PAY_RATE = 0.08;
+  const NZ_MIN_WAGE = 23.95;       // NZ adult minimum wage from 1 April 2026 (MBIE)
+
+  // --- State ---
+  let period = 'annual';
+  let salaryType = 'gross';
+  const periodLabels = { annual: 'Annual Salary / Income', monthly: 'Monthly Salary', fortnightly: 'Fortnightly Pay', weekly: 'Weekly Pay', hourly: 'Hourly Rate' };
+  // Period-appropriate placeholders, all derived from $70,000/yr at 40 hrs/wk (the annual baseline)
+  const periodPlaceholders = { annual: '70,000', monthly: '5,833', fortnightly: '2,692', weekly: '1,346', hourly: '33.65' };
+
+  function setPeriod(p) {
+    period = p;
+    document.querySelectorAll('.period-btn').forEach((b, i) => {
+      b.classList.toggle('active', ['annual','monthly','fortnightly','weekly','hourly'][i] === p);
+    });
+    document.getElementById('income-label').textContent = periodLabels[p];
+    document.getElementById('income').placeholder = periodPlaceholders[p];
+    calculate();
+  }
+
+  const TAX_CODE_LABELS = {
+    M:  { off: 'M — Primary income',           on: 'MSL — Primary + student loan' },
+    ME: { off: 'ME — Primary + IETC eligible', on: 'MESL — Primary + IETC + student loan' },
+    SB: { off: 'SB — Secondary (10.5%)',       on: 'SBSL — Secondary 10.5% + student loan' },
+    S:  { off: 'S — Secondary (17.5%)',        on: 'SSL — Secondary 17.5% + student loan' },
+    SH: { off: 'SH — Secondary (30%)',         on: 'SHSL — Secondary 30% + student loan' },
+    ST: { off: 'ST — Secondary (33%)',         on: 'STSL — Secondary 33% + student loan' },
+    SA: { off: 'SA — Secondary (39%)',         on: 'SASL — Secondary 39% + student loan' },
+  };
+
+  function setHasSL(checked) {
+    const select = document.getElementById('tax-code');
+    Array.from(select.options).forEach(opt => {
+      const labels = TAX_CODE_LABELS[opt.value];
+      if (labels) opt.textContent = labels[checked ? 'on' : 'off'];
+    });
+    select.disabled = checked;
+    document.getElementById('sl-hint').style.display = checked ? 'block' : 'none';
+    calculate();
+  }
+
+  function setSalaryType(t) {
+    salaryType = t;
+    document.getElementById('btn-gross').classList.toggle('active', t === 'gross');
+    document.getElementById('btn-tr').classList.toggle('active', t === 'tr');
+    document.getElementById('salary-type-hint').textContent = t === 'gross'
+      ? 'Standard offer letter — employer KiwiSaver is paid on top.'
+      : 'Total Remuneration / TR package — employer KiwiSaver is included in this figure.';
+    document.getElementById('row-package').style.display = t === 'tr' ? 'flex' : 'none';
+    document.getElementById('lbl-gross').textContent = t === 'tr' ? 'Gross Income (for PAYE)' : 'Base Gross Income';
+    calculate();
+  }
+
+  // --- Tax helpers ---
+  function primaryTax(annual) {
+    let tax = 0, prev = 0;
+    for (const b of TAX_BRACKETS) {
+      if (annual <= b.upTo) { tax += (annual - prev) * b.rate; return tax; }
+      tax += (b.upTo - prev) * b.rate;
+      prev = b.upTo;
+    }
+    return tax;
+  }
+  function calcTax(code, annual) {
+    if (code === 'M' || code === 'ME') return primaryTax(annual);
+    return annual * (SECONDARY_RATES[code] || 0.33);
+  }
+  function calcIETC(code, annual) {
+    if (code !== 'ME') return 0;
+    if (annual < IETC_FULL_FROM) return 0;
+    if (annual >= IETC_ABATE_TO) return 0;
+    if (annual <= IETC_ABATE_FROM) return IETC_MAX;
+    return Math.max(0, IETC_MAX - (annual - IETC_ABATE_FROM) * IETC_ABATE_RATE);
+  }
+  function calcStudentLoan(hasSL, annual) {
+    if (!hasSL || annual <= SL_THRESHOLD) return 0;
+    return (annual - SL_THRESHOLD) * SL_RATE;
+  }
+
+  // --- Formatting ---
+  function getDecimals() { return parseInt(document.getElementById('decimals').value); }
+  function fmt(n) {
+    const d = getDecimals();
+    if (d === 0) return '$' + Math.round(n).toLocaleString('en-NZ');
+    return '$' + n.toLocaleString('en-NZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function showRow(id, show) { document.getElementById(id).style.display = show ? 'flex' : 'none'; }
+
+  // --- Main calc ---
+  function calculate() {
+    // Inputs
+    const raw = parseFloat(document.getElementById('income').value) || 0;
+    const ksRate = parseFloat(document.getElementById('kiwisaver-rate').value) || 0;
+    const noAcc = document.getElementById('no-acc').checked;
+    const hrs = parseFloat(document.getElementById('hours-pw').value) || 40;
+    const taxCode = document.getElementById('tax-code').value;
+    const hasSL = document.getElementById('has-sl').checked;
+    const otHours = parseFloat(document.getElementById('ot-hours').value) || 0;
+    const otRate = parseFloat(document.getElementById('ot-rate').value) || 1.5;
+    const raisePct = (parseFloat(document.getElementById('raise').value) || 0) / 100;
+    const holidayPay = document.getElementById('holiday-pay').checked;
+    const payrollGiving = parseFloat(document.getElementById('payroll-giving').value) || 0;
+    const childSupport = parseFloat(document.getElementById('child-support').value) || 0;
+    const courtFines = parseFloat(document.getElementById('court-fines').value) || 0;
+    const weeksWorked = parseFloat(document.getElementById('weeks-worked').value) || 52;
+    const weeksPerYear = parseFloat(document.getElementById('weeks-yr').value) || 52;
+
+    // 1. Convert input to annual based on period
+    let entered;
+    if (period === 'annual') entered = raw;
+    else if (period === 'monthly') entered = raw * 12;
+    else if (period === 'fortnightly') entered = raw * (weeksPerYear / 2);
+    else if (period === 'weekly') entered = raw * weeksPerYear;
+    else entered = raw * hrs * weeksPerYear;  // hourly
+
+    // 2. TR adjustment — strip employer KS from the entered figure
+    const enrolled = ksRate > 0;
+    let baseGross = (salaryType === 'tr' && enrolled) ? entered / (1 + EMPLOYER_KS_RATE) : entered;
+
+    // 3. Pay rise
+    const raiseAmt = baseGross * raisePct;
+    const grossAfterRaise = baseGross + raiseAmt;
+
+    // 4. Proration
+    const prorated = grossAfterRaise * (weeksWorked / weeksPerYear);
+
+    // 5. Overtime — paid at (annual / (hrs × weeksPerYear)) × multiplier × hours × weeksWorked
+    const baseHourly = prorated / (hrs * weeksWorked);
+    const otAnnual = otHours * weeksWorked * baseHourly * otRate;
+
+    // 6. Holiday pay
+    const hpAnnual = holidayPay ? (prorated + otAnnual) * HOLIDAY_PAY_RATE : 0;
+
+    // Total taxable income
+    const taxable = prorated + otAnnual + hpAnnual;
+
+    // 7. PAYE
+    const tax = calcTax(taxCode, taxable);
+
+    // 8. Student loan
+    const sl = calcStudentLoan(hasSL, taxable);
+
+    // 9. IETC credit
+    const ietc = calcIETC(taxCode, taxable);
+
+    // 10. Payroll giving credit (reduces PAYE)
+    const pgCredit = payrollGiving * PG_CREDIT_RATE;
+
+    // Net tax bill
+    const netTax = Math.max(0, tax - ietc - pgCredit) + sl;
+
+    // 11. ACC
+    const accLiable = Math.min(taxable, ACC_CAP);
+    const acc = noAcc ? 0 : accLiable * ACC_RATE;
+
+    // 12. KiwiSaver (employee) — on prorated gross (typical employer practice)
+    const ks = taxable * ksRate;
+    const empKs = enrolled ? prorated * EMPLOYER_KS_RATE : 0;
+
+    // 13. After-tax subtotal (before non-tax deductions)
+    const afterTax = taxable - netTax;
+
+    // 14. Take-home (after ACC, KS, post-tax deductions)
+    const takeHome = afterTax - acc - ks - payrollGiving - childSupport - courtFines;
+
+    // Effective rate
+    const effRate = taxable > 0 ? ((tax + sl - ietc - pgCredit) / taxable * 100) : 0;
+
+    // --- Render ---
+    document.getElementById('r-package').textContent = fmt(prorated + empKs);
+    document.getElementById('r-gross').textContent = fmt(prorated);
+    document.getElementById('r-ot').textContent = '+' + fmt(otAnnual);
+    document.getElementById('r-raise').textContent = '+' + fmt(raiseAmt * (weeksWorked / weeksPerYear));
+    document.getElementById('r-hp').textContent = '+' + fmt(hpAnnual);
+    document.getElementById('r-taxable').textContent = fmt(taxable);
+    document.getElementById('lbl-tax').textContent = `Income Tax (PAYE, ${taxCode})`;
+    document.getElementById('r-tax').textContent = '-' + fmt(tax);
+    document.getElementById('r-sl').textContent = '-' + fmt(sl);
+    document.getElementById('r-ietc').textContent = '+' + fmt(ietc);
+    document.getElementById('r-pg-credit').textContent = '+' + fmt(pgCredit);
+    document.getElementById('r-after-tax').textContent = fmt(afterTax);
+    document.getElementById('r-acc').textContent = noAcc ? '$0' : '-' + fmt(acc);
+    document.getElementById('r-ks').textContent = ks > 0 ? '-' + fmt(ks) : '$0';
+    document.getElementById('r-pg').textContent = '-' + fmt(payrollGiving);
+    document.getElementById('r-cs').textContent = '-' + fmt(childSupport);
+    document.getElementById('r-cf').textContent = '-' + fmt(courtFines);
+    document.getElementById('r-takehome').textContent = fmt(takeHome);
+    document.getElementById('r-emp-ks').textContent = '+' + fmt(empKs);
+    document.getElementById('r-eff-rate').textContent = effRate.toFixed(1) + '%';
+
+    // Per-period
+    document.getElementById('r-monthly').textContent = fmt(takeHome / 12);
+    document.getElementById('r-fortnightly').textContent = fmt(takeHome / (weeksPerYear / 2));
+    document.getElementById('r-weekly').textContent = fmt(takeHome / weeksPerYear);
+    document.getElementById('r-hourly-gross').textContent = fmt(taxable / (hrs * weeksPerYear));
+    document.getElementById('r-hourly-net').textContent = fmt(takeHome / (hrs * weeksPerYear));
+
+    // Conditional rows
+    showRow('row-ot', otHours > 0);
+    showRow('row-raise', raisePct !== 0);
+    showRow('row-hp', holidayPay);
+    showRow('row-sl', sl > 0);
+    showRow('row-ietc', ietc > 0);
+    showRow('row-pg-credit', pgCredit > 0);
+    showRow('row-pg', payrollGiving > 0);
+    showRow('row-cs', childSupport > 0);
+    showRow('row-cf', courtFines > 0);
+
+    // Min wage check
+    const grossHourly = taxable / (hrs * weeksWorked);
+    const mw = document.getElementById('minwage-hint');
+    if (raw > 0 && grossHourly > 0) {
+      if (grossHourly < NZ_MIN_WAGE) {
+        mw.innerHTML = `⚠️ Hourly equivalent <strong>$${grossHourly.toFixed(2)}</strong> is below the NZ adult minimum wage ($${NZ_MIN_WAGE.toFixed(2)}/hr).`;
+        mw.style.color = '#dc2626';
+      } else {
+        mw.innerHTML = `✅ Hourly equivalent <strong>$${grossHourly.toFixed(2)}</strong> is above the NZ adult minimum wage ($${NZ_MIN_WAGE.toFixed(2)}/hr).`;
+        mw.style.color = 'var(--muted)';
+      }
+    } else {
+      mw.textContent = '';
+    }
+  }
+
+  function toggleFaq(el) {
+    el.nextElementSibling.classList.toggle('open');
+    el.querySelector('.faq-arrow').classList.toggle('open');
+  }
+
+  calculate();
+</script>
+</body>
+</html>

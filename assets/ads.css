@@ -1,0 +1,74 @@
+/* AdSense slot reservations — CLS-safe.
+   Slots are inert divs until <ins class="adsbygoogle"> is pasted in.
+   min-height matches the standard AdSense unit so layout never shifts when ads load. */
+
+.ad-slot {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+  background: transparent;
+}
+
+/* Top leaderboard — 728x90 desktop / 320x100 mobile */
+.ad-top {
+  max-width: 728px;
+  min-height: 90px;
+  margin: 16px auto 8px;
+}
+@media (max-width: 768px) {
+  .ad-top { max-width: 320px; min-height: 100px; }
+}
+
+/* In-article rectangle — 336x280 desktop / 300x250 mobile */
+.ad-in-article {
+  max-width: 336px;
+  min-height: 280px;
+  margin: 24px auto;
+}
+@media (max-width: 768px) {
+  .ad-in-article { max-width: 300px; min-height: 250px; }
+}
+
+/* Sidebar MPU — 300x250, desktop only */
+.ad-sidebar {
+  max-width: 300px;
+  min-height: 250px;
+  margin-bottom: 16px;
+}
+@media (max-width: 768px) { .ad-sidebar { display: none; } }
+
+/* Sticky-footer anchor — 320x50 mobile only */
+.ad-sticky-footer {
+  display: none;
+}
+@media (max-width: 768px) {
+  .ad-sticky-footer {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: none;
+    min-height: 50px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    z-index: 100;
+    margin: 0;
+  }
+  /* Lift footer above sticky ad so it isn't covered */
+  body { padding-bottom: 50px; }
+}
+
+/* Visible-when-empty styling so devs can spot reserved slots in dev */
+.ad-slot:empty::before {
+  content: "Ad";
+  display: inline-block;
+  font-size: 10px;
+  color: #c0bdb6;
+  letter-spacing: 0.1em;
+  padding-top: 8px;
+  font-family: 'DM Sans', sans-serif;
+}

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KiwiSaver Calculator NZ — Retirement Projection | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Project your KiwiSaver balance at age 65. NZ KiwiSaver calculator with employer 3.5% (from Apr 2026), government contribution $260.72, and investment return assumptions.">
+  <meta name="keywords" content="KiwiSaver calculator NZ, KiwiSaver projection, KiwiSaver retirement, KiwiSaver employer contribution, KiwiSaver government contribution">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/finance/kiwisaver-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Finance","item":"https://onlinecalculator.co.nz/finance/"},
+    {"@type":"ListItem","position":3,"name":"KiwiSaver Calculator","item":"https://onlinecalculator.co.nz/finance/kiwisaver-calculator/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/finance/">Finance</a> <span>›</span> <span>KiwiSaver Calculator</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">🥝</span>
+          <h1>KiwiSaver Calculator <span class="nz-badge">🇳🇿 NZ</span></h1>
+        </div>
+        <p>Project your KiwiSaver balance at retirement (age 65).</p>
+      </div>
+      <div class="calc-body">
+
+        <div class="input-row">
+          <div class="field-group">
+            <label for="age">Your Age</label>
+            <input type="number" id="age" value="35" min="18" max="64" oninput="calculate()" autofocus>
+          </div>
+          <div class="field-group">
+            <label for="balance">Current Balance</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="balance" class="has-prefix" value="20000" min="0" step="1000" oninput="calculate()"></div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="salary">Annual Salary (before tax)</label>
+          <div class="input-group"><span class="input-prefix">$</span><input type="number" id="salary" class="has-prefix" value="80000" min="0" step="1000" oninput="calculate()"></div>
+        </div>
+
+        <div class="input-row">
+          <div class="field-group">
+            <label for="emp-rate">Your Contribution</label>
+            <select id="emp-rate" onchange="calculate()">
+              <option value="0.035" selected>3.5% (minimum)</option>
+              <option value="0.04">4%</option>
+              <option value="0.06">6%</option>
+              <option value="0.08">8%</option>
+              <option value="0.10">10%</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="fund-return">Expected Return (%)</label>
+            <input type="number" id="fund-return" value="5.5" min="0" max="15" step="0.1" oninput="calculate()">
+          </div>
+        </div>
+
+        <div class="check-row">
+          <input type="checkbox" id="govt" checked onchange="calculate()">
+          <label for="govt">Include $260.72/yr government contribution</label>
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-header">Projection at Age 65</div>
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row">
+              <span class="breakdown-label">Projected Balance</span>
+              <span class="breakdown-value" id="r-final">$0</span>
+            </div>
+            <div class="breakdown-row"><span class="breakdown-label">Your Contributions</span><span class="breakdown-value" id="r-your">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Employer (3.5%)</span><span class="breakdown-value" id="r-emp">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Government Contributions</span><span class="breakdown-value" id="r-govt">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Investment Growth</span><span class="breakdown-value" id="r-growth">$0</span></div>
+          </div>
+        </div>
+        <div class="action-row">
+          <button class="btn btn-primary" id="copy-btn" onclick="copyResult()">Copy Balance</button>
+          <button class="btn btn-ghost" onclick="clearCalc()">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>How KiwiSaver Works</h2>
+      <p>KiwiSaver is New Zealand's workplace retirement savings scheme. As an employee you contribute a chosen percentage of your gross salary, your employer matches at least 3.5% (from 1 April 2026), and the government tops up your account by up to $260.72 per year.</p>
+      <h3>The Three Sources of Contributions</h3>
+      <p><strong>1. You:</strong> Choose 3.5%, 4%, 6%, 8% or 10% of your gross salary, deducted via PAYE. The minimum rose from 3% to 3.5% on 1 April 2026.</p>
+      <p><strong>2. Your employer:</strong> Must contribute at least 3.5% of your gross salary (less ESCT tax) from 1 April 2026.</p>
+      <p><strong>3. The government:</strong> Pays 50¢ for every $1 you contribute, up to $260.72 per year. To maximise this, contribute at least $521.44 yourself between 1 July and 30 June each year.</p>
+      <h3>Default Funds and Returns</h3>
+      <p>Choosing the right fund type matters enormously over 30+ years. Conservative funds typically return 3–4% p.a. after fees; balanced funds 4–6%; growth funds 6–8%. A 1% higher annual return over 30 years roughly doubles your final balance.</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">When can I withdraw KiwiSaver? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">From age 65, or earlier for first-home purchase (after 3 years of membership), significant financial hardship, serious illness, or permanent emigration.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I use KiwiSaver for my first home? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Yes. After 3 years of contributions, you can withdraw all but $1,000 of your KiwiSaver balance (excluding government contributions) toward a first-home deposit. You may also qualify for a First Home Grant of up to $10,000.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if I'm self-employed? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Self-employed and non-earners can still join KiwiSaver and contribute voluntarily. Contributing at least $521.44 per year still earns you the full $260.72 government contribution.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🇳🇿 Finance Tools</h3>
+      <a href="/finance/paye-calculator/" class="related-link">💰 PAYE / Salary</a>
+      <a href="/finance/compound-interest/" class="related-link">📈 Compound Interest</a>
+      <a href="/finance/mortgage-calculator/" class="related-link">🏦 Mortgage</a>
+      <a href="/finance/gst-calculator/" class="related-link">🧾 GST</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>💡 Free Money Tip</h3>
+      <div class="tip-box">
+        Contributing less than $521.44 per KiwiSaver year (1 Jul–30 Jun)? You're leaving free money on the table. The government matches 50¢ per $1 up to a max of <strong>$260.72</strong>.
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/finance/">Finance</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Projections are estimates. Consult your KiwiSaver provider or financial adviser.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-NZ'); }
+  function calculate() {
+    const age = parseInt(document.getElementById('age').value) || 0;
+    const balance = parseFloat(document.getElementById('balance').value) || 0;
+    const salary = parseFloat(document.getElementById('salary').value) || 0;
+    const empRate = parseFloat(document.getElementById('emp-rate').value);
+    const annualReturn = (parseFloat(document.getElementById('fund-return').value) || 0) / 100;
+    const includeGovt = document.getElementById('govt').checked;
+    const years = Math.max(0, 65 - age);
+
+    let bal = balance;
+    let yourTotal = 0, empTotal = 0, govtTotal = 0;
+    for (let y = 0; y < years; y++) {
+      const yourC = salary * empRate;
+      const empC = salary * 0.035;
+      const yourAnnualContrib = yourC;
+      const govtMatch = includeGovt ? Math.min(260.72, yourAnnualContrib * 0.5) : 0;
+      bal = (bal + yourC + empC + govtMatch) * (1 + annualReturn);
+      yourTotal += yourC;
+      empTotal += empC;
+      govtTotal += govtMatch;
+    }
+    const totalContrib = balance + yourTotal + empTotal + govtTotal;
+    const growth = bal - totalContrib;
+    document.getElementById('r-final').textContent = fmt(bal);
+    document.getElementById('r-your').textContent = fmt(yourTotal);
+    document.getElementById('r-emp').textContent = fmt(empTotal);
+    document.getElementById('r-govt').textContent = fmt(govtTotal);
+    document.getElementById('r-growth').textContent = fmt(growth);
+  }
+  function clearCalc() {
+    document.getElementById('age').value = 35;
+    document.getElementById('balance').value = 20000;
+    document.getElementById('salary').value = 80000;
+    document.getElementById('emp-rate').value = '0.035';
+    document.getElementById('fund-return').value = 5.5;
+    document.getElementById('govt').checked = true;
+    calculate();
+  }
+  function copyResult() {
+    const v = document.getElementById('r-final').textContent;
+    navigator.clipboard.writeText(v.replace('$', '')).catch(() => {});
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ Copied!'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy Balance'; btn.classList.remove('copied'); }, 2000);
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>

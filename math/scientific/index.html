@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Calculator — Free Online with Keyboard Support | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free online scientific calculator. Trigonometry, logarithms, powers, roots, factorial, constants. Works offline once loaded. Keyboard shortcuts.">
+  <meta name="keywords" content="scientific calculator, online scientific calculator, trig calculator, log calculator, sin cos tan calculator">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/math/scientific/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <style>
+    :root { --accent: #7c3aed; --accent-light: #f5f3ff; --accent-dark: #5b21b6; }
+    .sci-display { background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 14px; text-align: right; font-family: 'DM Mono', monospace; min-height: 70px; }
+    .sci-history { font-size: 13px; color: var(--muted); min-height: 18px; word-break: break-all; }
+    .sci-value { font-size: 28px; font-weight: 700; color: var(--text); word-break: break-all; }
+    .sci-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+    .sci-btn { padding: 14px 0; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; border: 1.5px solid var(--border); background: var(--surface); color: var(--text); border-radius: 8px; cursor: pointer; transition: all 0.1s; }
+    .sci-btn:hover { background: var(--bg); }
+    .sci-btn:active { transform: scale(0.97); }
+    .sci-btn.op { background: var(--accent-light); color: var(--accent-dark); }
+    .sci-btn.eq { background: var(--accent); color: white; border-color: var(--accent); grid-column: span 2; }
+    .sci-btn.fn { font-size: 12px; }
+    .sci-btn.clr { background: #fee2e2; color: #991b1b; }
+    @media (max-width: 480px) { .sci-btn { font-size: 13px; padding: 12px 0; } }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Maths","item":"https://onlinecalculator.co.nz/math/"},
+    {"@type":"ListItem","position":3,"name":"Scientific Calculator","item":"https://onlinecalculator.co.nz/math/scientific/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/math/">Maths</a> <span>›</span> <span>Scientific</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">📐</span>
+          <h1>Scientific Calculator</h1>
+        </div>
+        <p>Trig, logs, powers, factorial. Keyboard shortcuts work.</p>
+      </div>
+      <div class="calc-body">
+
+        <div class="sci-display">
+          <div class="sci-history" id="history">&nbsp;</div>
+          <div class="sci-value" id="value">0</div>
+        </div>
+
+        <div class="mode-toggle" style="margin-bottom:10px">
+          <button class="mode-btn active" id="btn-deg" onclick="setAngle('deg')">DEG</button>
+          <button class="mode-btn" id="btn-rad" onclick="setAngle('rad')">RAD</button>
+        </div>
+
+        <div class="sci-grid">
+          <button class="sci-btn fn" onclick="op('sin')">sin</button>
+          <button class="sci-btn fn" onclick="op('cos')">cos</button>
+          <button class="sci-btn fn" onclick="op('tan')">tan</button>
+          <button class="sci-btn fn" onclick="op('ln')">ln</button>
+          <button class="sci-btn fn" onclick="op('log')">log</button>
+
+          <button class="sci-btn fn" onclick="op('asin')">sin⁻¹</button>
+          <button class="sci-btn fn" onclick="op('acos')">cos⁻¹</button>
+          <button class="sci-btn fn" onclick="op('atan')">tan⁻¹</button>
+          <button class="sci-btn fn" onclick="op('exp')">eˣ</button>
+          <button class="sci-btn fn" onclick="op('pow10')">10ˣ</button>
+
+          <button class="sci-btn op" onclick="append('(')">(</button>
+          <button class="sci-btn op" onclick="append(')')">)</button>
+          <button class="sci-btn fn" onclick="op('sqrt')">√</button>
+          <button class="sci-btn op" onclick="append('^')">xʸ</button>
+          <button class="sci-btn fn" onclick="op('fact')">x!</button>
+
+          <button class="sci-btn clr" onclick="clearAll()">AC</button>
+          <button class="sci-btn" onclick="back()">⌫</button>
+          <button class="sci-btn op" onclick="append('%')">%</button>
+          <button class="sci-btn op" onclick="append('π')">π</button>
+          <button class="sci-btn op" onclick="append('e')">e</button>
+
+          <button class="sci-btn" onclick="append('7')">7</button>
+          <button class="sci-btn" onclick="append('8')">8</button>
+          <button class="sci-btn" onclick="append('9')">9</button>
+          <button class="sci-btn op" onclick="append('/')">÷</button>
+          <button class="sci-btn op" onclick="append('*')">×</button>
+
+          <button class="sci-btn" onclick="append('4')">4</button>
+          <button class="sci-btn" onclick="append('5')">5</button>
+          <button class="sci-btn" onclick="append('6')">6</button>
+          <button class="sci-btn op" onclick="append('-')">−</button>
+          <button class="sci-btn op" onclick="append('+')">+</button>
+
+          <button class="sci-btn" onclick="append('1')">1</button>
+          <button class="sci-btn" onclick="append('2')">2</button>
+          <button class="sci-btn" onclick="append('3')">3</button>
+          <button class="sci-btn" onclick="append('.')">.</button>
+          <button class="sci-btn eq" onclick="equals()">=</button>
+
+          <button class="sci-btn" onclick="append('0')" style="grid-column:span 2">0</button>
+          <button class="sci-btn" onclick="negate()">±</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>Keyboard Shortcuts</h2>
+      <p>Digits, <code>+ − * / ^ ( ) .</code> work directly. Enter or <code>=</code> evaluates. Backspace deletes. <code>Esc</code> clears.</p>
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does this work offline? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Yes — once the page is loaded, all calculations run in your browser with no internet needed. Bookmark the page for quick access.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">DEG vs RAD? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Trigonometry can use degrees (DEG: a full circle = 360°) or radians (RAD: full circle = 2π). NCEA Level 1–2 maths uses degrees by default; calculus and physics often use radians.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🔢 Maths Tools</h3>
+      <a href="/math/fraction-calculator/" class="related-link">½ Fraction Calculator</a>
+      <a href="/math/age-calculator/" class="related-link">🎂 Age Calculator</a>
+      <a href="/finance/percentage-calculator/" class="related-link">% Percentage</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/math/">Maths</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  let expr = '';
+  let angleMode = 'deg';
+  const valEl = document.getElementById('value');
+  const histEl = document.getElementById('history');
+  function setAngle(m) {
+    angleMode = m;
+    document.getElementById('btn-deg').classList.toggle('active', m === 'deg');
+    document.getElementById('btn-rad').classList.toggle('active', m === 'rad');
+  }
+  function append(c) { expr += c; render(); }
+  function back() { expr = expr.slice(0, -1); render(); }
+  function clearAll() { expr = ''; histEl.textContent = ' '; valEl.textContent = '0'; }
+  function negate() {
+    if (!expr) { expr = '-'; render(); return; }
+    if (expr.startsWith('-')) expr = expr.slice(1); else expr = '-' + expr;
+    render();
+  }
+  function render() { valEl.textContent = expr || '0'; }
+  function fact(n) { if (n < 0 || !Number.isInteger(n) || n > 170) return NaN; let r = 1; for (let i = 2; i <= n; i++) r *= i; return r; }
+  function deg2rad(d) { return d * Math.PI / 180; }
+  function op(fn) {
+    // Apply a function to current expression value
+    try {
+      const v = evaluate(expr || '0');
+      let r;
+      const angle = angleMode === 'deg' ? deg2rad(v) : v;
+      if (fn === 'sin') r = Math.sin(angle);
+      else if (fn === 'cos') r = Math.cos(angle);
+      else if (fn === 'tan') r = Math.tan(angle);
+      else if (fn === 'asin') r = angleMode === 'deg' ? Math.asin(v) * 180 / Math.PI : Math.asin(v);
+      else if (fn === 'acos') r = angleMode === 'deg' ? Math.acos(v) * 180 / Math.PI : Math.acos(v);
+      else if (fn === 'atan') r = angleMode === 'deg' ? Math.atan(v) * 180 / Math.PI : Math.atan(v);
+      else if (fn === 'ln') r = Math.log(v);
+      else if (fn === 'log') r = Math.log10(v);
+      else if (fn === 'exp') r = Math.exp(v);
+      else if (fn === 'pow10') r = Math.pow(10, v);
+      else if (fn === 'sqrt') r = Math.sqrt(v);
+      else if (fn === 'fact') r = fact(v);
+      histEl.textContent = fn + '(' + (expr || '0') + ')';
+      expr = String(r);
+      render();
+    } catch (e) { valEl.textContent = 'Error'; }
+  }
+  function evaluate(s) {
+    let js = s.replace(/π/g, Math.PI).replace(/(?<![a-zA-Z])e(?![a-zA-Z0-9])/g, Math.E)
+              .replace(/\^/g, '**').replace(/×/g, '*').replace(/÷/g, '/');
+    // Percent: replace X% inline with (X/100)
+    js = js.replace(/(\d+(?:\.\d+)?)%/g, '($1/100)');
+    return Function('"use strict"; return (' + js + ')')();
+  }
+  function equals() {
+    try {
+      const r = evaluate(expr);
+      histEl.textContent = expr + ' =';
+      expr = String(r);
+      render();
+    } catch (e) { valEl.textContent = 'Error'; }
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key >= '0' && e.key <= '9') append(e.key);
+    else if ('+-*/().^%'.includes(e.key)) append(e.key);
+    else if (e.key === 'Enter' || e.key === '=') { e.preventDefault(); equals(); }
+    else if (e.key === 'Backspace') back();
+    else if (e.key === 'Escape') clearAll();
+    else if (e.key === '.') append('.');
+  });
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+</script>
+</body>
+</html>

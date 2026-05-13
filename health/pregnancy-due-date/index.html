@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pregnancy Due Date Calculator NZ — Estimated Due Date | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free NZ pregnancy due date calculator. Estimate your due date and current pregnancy week from your last menstrual period (LMP) using Naegele's rule.">
+  <meta name="keywords" content="due date calculator NZ, pregnancy calculator, EDD calculator New Zealand, weeks pregnant calculator">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/health/pregnancy-due-date/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <style>:root { --accent: #dc2626; --accent-light: #fef2f2; --accent-dark: #991b1b; }</style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Health","item":"https://onlinecalculator.co.nz/health/"},
+    {"@type":"ListItem","position":3,"name":"Pregnancy Due Date","item":"https://onlinecalculator.co.nz/health/pregnancy-due-date/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/health/">Health</a> <span>›</span> <span>Pregnancy Due Date</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">🤱</span>
+          <h1>Pregnancy Due Date <span class="nz-badge">🇳🇿 NZ</span></h1>
+        </div>
+        <p>Estimate your due date from your last menstrual period (LMP).</p>
+      </div>
+      <div class="calc-body">
+
+        <div class="field-group">
+          <label for="lmp">First day of last period (LMP)</label>
+          <input type="date" id="lmp" oninput="calculate()">
+        </div>
+        <div class="field-group">
+          <label for="cycle">Cycle length (days)</label>
+          <input type="number" id="cycle" value="28" min="20" max="45" step="1" oninput="calculate()">
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row"><span class="breakdown-label">Estimated Due Date</span><span class="breakdown-value" id="r-due">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Currently</span><span class="breakdown-value" id="r-current">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Trimester</span><span class="breakdown-value" id="r-tri">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Conception (approx.)</span><span class="breakdown-value" id="r-conception">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Days Remaining</span><span class="breakdown-value" id="r-remaining">—</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-action" aria-hidden="true"></div>
+
+    <div class="info-section">
+      <h2>How Due Date Is Calculated</h2>
+      <p>The most common method is <strong>Naegele's rule</strong>: add 280 days (40 weeks) to the first day of your last menstrual period (LMP). This assumes a 28-day cycle and conception roughly 2 weeks after LMP. We adjust automatically if your cycle is longer or shorter.</p>
+      <h3>Trimesters</h3>
+      <p><strong>1st trimester:</strong> weeks 1–13. <strong>2nd trimester:</strong> weeks 14–27. <strong>3rd trimester:</strong> weeks 28–40+.</p>
+      <h3>NZ Maternity Care</h3>
+      <p>In NZ you can choose a Lead Maternity Carer (LMC) — usually a midwife — for free pregnancy and birth care. Register with one as early as possible. You may be entitled to paid parental leave (currently 26 weeks).</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How accurate is the due date? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Only ~5% of babies are born on their exact due date. About 80% arrive within 2 weeks of it. An early-pregnancy ultrasound dating scan (usually 8–13 weeks in NZ) gives the most accurate estimate.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if my periods are irregular? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">If your cycle isn't a regular 28 days, this calculator adjusts using your cycle length. For irregular cycles, an early dating ultrasound is the gold standard. Talk to your midwife or GP.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>❤️ Health Tools</h3>
+      <a href="/health/bmi-calculator/" class="related-link">⚖️ BMI Calculator</a>
+      <a href="/health/calorie-calculator/" class="related-link">🥗 Calorie Calculator</a>
+      <a href="/health/ideal-weight/" class="related-link">🏋️ Ideal Weight</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>🔗 NZ Resources</h3>
+      <div style="font-size:13px"><a href="https://www.healthnavigator.org.nz" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">healthnavigator.org.nz ↗</a></div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/health/">Health</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Estimate only. Confirm with your midwife or GP.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  function setDefault() {
+    const today = new Date();
+    today.setDate(today.getDate() - 60);
+    document.getElementById('lmp').value = today.toISOString().split('T')[0];
+  }
+  function calculate() {
+    const lmpVal = document.getElementById('lmp').value;
+    if (!lmpVal) return;
+    const cycle = parseFloat(document.getElementById('cycle').value) || 28;
+    const lmp = new Date(lmpVal);
+    const adj = cycle - 28;
+    const due = new Date(lmp);
+    due.setDate(due.getDate() + 280 + adj);
+    const today = new Date();
+    const daysFromLmp = Math.floor((today - lmp) / 86400000);
+    const adjDays = daysFromLmp - adj;
+    const weeks = Math.floor(adjDays / 7);
+    const days = adjDays % 7;
+    let tri = '—';
+    if (weeks < 1) tri = 'Pre-pregnancy';
+    else if (weeks <= 13) tri = '1st trimester';
+    else if (weeks <= 27) tri = '2nd trimester';
+    else tri = '3rd trimester';
+    const conception = new Date(lmp);
+    conception.setDate(conception.getDate() + 14 + adj);
+    const remaining = Math.floor((due - today) / 86400000);
+    document.getElementById('r-due').textContent = due.toLocaleDateString('en-NZ', { day: 'numeric', month: 'long', year: 'numeric' });
+    document.getElementById('r-current').textContent = weeks >= 0 ? (weeks + ' weeks, ' + days + ' days') : 'Not yet pregnant';
+    document.getElementById('r-tri').textContent = tri;
+    document.getElementById('r-conception').textContent = conception.toLocaleDateString('en-NZ', { day: 'numeric', month: 'long', year: 'numeric' });
+    document.getElementById('r-remaining').textContent = remaining >= 0 ? (remaining + ' days') : 'Past due date';
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  setDefault();
+  calculate();
+</script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Calculator NZ — Free Calculators for New Zealanders</title>
+  <meta name="description" content="Free NZ calculators: GST, PAYE salary, KiwiSaver, mortgage, BMI, concrete, and more. Fast, accurate tools built for New Zealanders. No signup required.">
+  <meta name="keywords" content="NZ calculator, GST calculator, PAYE calculator, KiwiSaver calculator, mortgage calculator New Zealand, BMI calculator NZ">
+  <meta property="og:title" content="Online Calculator NZ — Free Calculators for New Zealanders">
+  <meta property="og:description" content="Fast, accurate free calculators built for NZ. GST, PAYE, KiwiSaver, mortgage, BMI and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://onlinecalculator.co.nz">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Online Calculator NZ",
+    "url": "https://onlinecalculator.co.nz",
+    "description": "Free online calculators for New Zealanders — GST, PAYE, KiwiSaver, mortgage, BMI and more.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://onlinecalculator.co.nz/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <style>
+    .hero { background: var(--surface); border-bottom: 1px solid var(--border); padding: 48px 20px 44px; text-align: center; }
+    .hero-label { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-light); color: var(--accent-dark); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; letter-spacing: -0.8px; line-height: 1.2; margin-bottom: 12px; color: var(--text); }
+    .hero-sub { font-size: 16px; color: var(--muted); max-width: 520px; margin: 0 auto 24px; }
+    .search-wrap { max-width: 480px; margin: 0 auto; position: relative; }
+    .search-wrap input { width: 100%; padding: 12px 44px 12px 16px; border: 1.5px solid var(--border); border-radius: var(--radius); font-family: 'DM Sans', sans-serif; font-size: 15px; background: var(--bg); color: var(--text); outline: none; transition: border-color 0.15s; }
+    .search-wrap input:focus { border-color: var(--accent); background: white; }
+    .search-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+    #search-results { display: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 8px; overflow: hidden; box-shadow: var(--shadow-lg); text-align: left; position: absolute; width: 100%; z-index: 200; }
+    .search-result-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border); transition: background 0.1s; }
+    .search-result-item:last-child { border-bottom: none; }
+    .search-result-item:hover { background: var(--bg); }
+    .result-info .title { font-size: 14px; font-weight: 600; }
+    .result-info .path { font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace; }
+    main { max-width: 1100px; margin: 0 auto; padding: 28px 20px 60px; }
+    .stats-bar { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 24px; display: flex; align-items: center; gap: 28px; margin-bottom: 32px; overflow-x: auto; box-shadow: var(--shadow); }
+    .stat-item { text-align: center; flex-shrink: 0; }
+    .stat-num { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--text); font-family: 'DM Mono', monospace; }
+    .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+    .stat-divider { width: 1px; height: 32px; background: var(--border); flex-shrink: 0; }
+    .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+    @media (max-width: 640px) { .featured-grid { grid-template-columns: 1fr; } .nav-links { display: none; } }
+    .featured-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 10px; box-shadow: var(--shadow); transition: box-shadow 0.15s, transform 0.12s; }
+    .featured-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+    .featured-card .big-emoji { font-size: 36px; line-height: 1; }
+    .featured-card h3 { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
+    .featured-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .featured-card .try-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; color: var(--accent); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span>🧮</span> Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <ul class="nav-links">
+      <li><a href="/finance/">Finance</a></li>
+      <li><a href="/property/">Property</a></li>
+      <li><a href="/health/">Health</a></li>
+      <li><a href="/construction/">Construction</a></li>
+      <li><a href="/math/">Maths</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">🇳🇿 Built for New Zealand</div>
+  <h1>Fast, Free Calculators<br>for New Zealanders</h1>
+  <p class="hero-sub">NZ-specific tools for GST, PAYE, KiwiSaver, mortgage, BMI and more. No login required — just answers.</p>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search calculators — e.g. GST, BMI, mortgage…" autocomplete="off" aria-label="Search calculators">
+    <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <div id="search-results"></div>
+  </div>
+</div>
+
+<!-- AdSense slot: ad-top (728x90 desktop / 320x100 mobile)
+     Paste <ins class="adsbygoogle">…</ins> here when ca-pub-XXXX is ready -->
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<main>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">22</div><div class="stat-label">Calculators</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Free Forever</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-num">2026</div><div class="stat-label">Tax Rates</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-num">&lt;1s</div><div class="stat-label">Load Time</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-num">NZ$</div><div class="stat-label">NZD Currency</div></div>
+  </div>
+
+  <div class="section-header">
+    <div class="cat-icon" style="background:#fef9c3">⭐</div>
+    <h2>Most Popular</h2>
+  </div>
+  <div class="featured-grid">
+    <a href="/finance/gst-calculator/" class="featured-card">
+      <span class="big-emoji">🧾</span>
+      <h3>GST Calculator</h3>
+      <p>Add or remove 15% GST instantly. Essential for every NZ business and sole trader.</p>
+      <span class="try-btn">Use Calculator →</span>
+    </a>
+    <a href="/finance/paye-calculator/" class="featured-card">
+      <span class="big-emoji">💰</span>
+      <h3>PAYE / Net Salary Calculator</h3>
+      <p>2026 tax brackets, ACC levy, KiwiSaver. See what lands in your bank account.</p>
+      <span class="try-btn">Use Calculator →</span>
+    </a>
+  </div>
+
+  <div class="section-header">
+    <div class="cat-icon" style="background:var(--finance-light)">💼</div>
+    <h2 style="color:var(--finance)">Finance &amp; Tax</h2>
+    <span class="count">8 tools</span>
+  </div>
+  <div class="card-grid">
+    <a href="/finance/gst-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🧾</span><span class="card-badge badge-nz" style="background:var(--finance-light);color:var(--finance)">NZ</span></div>
+      <div class="card-title">GST Calculator</div>
+      <div class="card-desc">Add or remove 15% GST. Perfect for invoices and quotes.</div>
+    </a>
+    <a href="/finance/paye-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">💰</span><span class="card-badge badge-nz" style="background:var(--finance-light);color:var(--finance)">NZ</span></div>
+      <div class="card-title">PAYE Calculator</div>
+      <div class="card-desc">2026 tax brackets with ACC levy and KiwiSaver.</div>
+    </a>
+    <a href="/finance/kiwisaver-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🥝</span><span class="card-badge badge-popular">Popular</span></div>
+      <div class="card-title">KiwiSaver Projection</div>
+      <div class="card-desc">Project your balance at retirement with contribution modelling.</div>
+    </a>
+    <a href="/finance/mortgage-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🏦</span><span class="card-badge badge-popular">Popular</span></div>
+      <div class="card-title">Mortgage Calculator</div>
+      <div class="card-desc">Monthly repayments, total interest, and amortisation table.</div>
+    </a>
+    <a href="/finance/loan-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">📋</span></div>
+      <div class="card-title">Loan Repayment</div>
+      <div class="card-desc">Personal loan repayments and total interest cost.</div>
+    </a>
+    <a href="/finance/compound-interest/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">📈</span></div>
+      <div class="card-title">Compound Interest</div>
+      <div class="card-desc">Watch your investment grow over time.</div>
+    </a>
+    <a href="/finance/percentage-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">%</span></div>
+      <div class="card-title">Percentage Calculator</div>
+      <div class="card-desc">Percentage of, change, difference, and increase/decrease.</div>
+    </a>
+    <a href="/finance/currency-converter/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">💱</span></div>
+      <div class="card-title">Currency Converter</div>
+      <div class="card-desc">NZD to AUD, USD, GBP, EUR and more.</div>
+    </a>
+  </div>
+
+  <!-- AdSense slot: ad-in-article (336x280 desktop / 300x250 mobile) -->
+  <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="section-header">
+    <div class="cat-icon" style="background:var(--property-light)">🏘️</div>
+    <h2 style="color:var(--property)">Property &amp; Rental</h2>
+    <span class="count">4 tools</span>
+  </div>
+  <div class="card-grid">
+    <a href="/property/rental-yield/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🏠</span><span class="card-badge badge-nz" style="background:var(--property-light);color:var(--property)">NZ</span></div>
+      <div class="card-title">Rental Yield</div>
+      <div class="card-desc">Gross and net yield with NZ expenses factored in.</div>
+    </a>
+    <a href="/property/mortgage-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🏦</span><span class="card-badge badge-nz" style="background:var(--property-light);color:var(--property)">NZ</span></div>
+      <div class="card-title">LVR &amp; Deposit</div>
+      <div class="card-desc">Deposit needed, LVR explained, weekly repayments.</div>
+    </a>
+    <a href="/property/rent-vs-buy/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🔑</span></div>
+      <div class="card-title">Rent vs Buy</div>
+      <div class="card-desc">Should you rent or buy in NZ's current market?</div>
+    </a>
+    <a href="/property/bright-line-test/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">📜</span><span class="card-badge badge-nz" style="background:var(--property-light);color:var(--property)">NZ</span></div>
+      <div class="card-title">Bright-Line Test</div>
+      <div class="card-desc">Is your property sale within the 2-year bright-line rule?</div>
+    </a>
+  </div>
+
+  <div class="section-header">
+    <div class="cat-icon" style="background:var(--health-light)">❤️</div>
+    <h2 style="color:var(--health)">Health &amp; Fitness</h2>
+    <span class="count">4 tools</span>
+  </div>
+  <div class="card-grid">
+    <a href="/health/bmi-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">⚖️</span><span class="card-badge badge-popular">Popular</span></div>
+      <div class="card-title">BMI Calculator</div>
+      <div class="card-desc">Body mass index with NZ Ministry of Health guidelines.</div>
+    </a>
+    <a href="/health/calorie-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🥗</span></div>
+      <div class="card-title">Calorie Calculator</div>
+      <div class="card-desc">Daily calorie needs based on your activity level.</div>
+    </a>
+    <a href="/health/pregnancy-due-date/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🤱</span></div>
+      <div class="card-title">Pregnancy Due Date</div>
+      <div class="card-desc">Estimated due date plus trimester milestones.</div>
+    </a>
+    <a href="/health/ideal-weight/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🏋️</span></div>
+      <div class="card-title">Ideal Weight</div>
+      <div class="card-desc">Healthy weight range by height and gender.</div>
+    </a>
+  </div>
+
+  <div class="section-header">
+    <div class="cat-icon" style="background:var(--construction-light)">🏗️</div>
+    <h2 style="color:var(--construction)">Construction &amp; Home</h2>
+    <span class="count">3 tools</span>
+  </div>
+  <div class="card-grid">
+    <a href="/construction/concrete-volume/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🧱</span><span class="card-badge badge-popular">Popular</span></div>
+      <div class="card-title">Concrete Volume</div>
+      <div class="card-desc">Slabs, footings, and columns — bags or m³.</div>
+    </a>
+    <a href="/construction/paint-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🎨</span></div>
+      <div class="card-title">Paint Calculator</div>
+      <div class="card-desc">Litres needed for walls, ceiling, and trim.</div>
+    </a>
+    <a href="/construction/decking-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🪵</span><span class="card-badge badge-nz" style="background:var(--construction-light);color:var(--construction)">NZ</span></div>
+      <div class="card-title">Decking Calculator</div>
+      <div class="card-desc">Timber boards, joists, fixings for your NZ deck.</div>
+    </a>
+  </div>
+
+  <div class="section-header">
+    <div class="cat-icon" style="background:var(--math-light)">🔢</div>
+    <h2 style="color:var(--math)">Maths &amp; General</h2>
+    <span class="count">3 tools</span>
+  </div>
+  <div class="card-grid">
+    <a href="/math/scientific/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">📐</span></div>
+      <div class="card-title">Scientific Calculator</div>
+      <div class="card-desc">Trig, logs, powers, factorial. Keyboard support.</div>
+    </a>
+    <a href="/math/fraction-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">½</span></div>
+      <div class="card-title">Fraction Calculator</div>
+      <div class="card-desc">Add, subtract, multiply, divide fractions with steps.</div>
+    </a>
+    <a href="/math/age-calculator/" class="cat-card">
+      <div class="card-top"><span class="card-emoji">🎂</span></div>
+      <div class="card-title">Age Calculator</div>
+      <div class="card-desc">Exact age in years, months, and days.</div>
+    </a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="/finance/">Finance</a>
+    <a href="/property/">Property</a>
+    <a href="/health/">Health</a>
+    <a href="/construction/">Construction</a>
+    <a href="/math/">Maths</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="/disclaimer/">Disclaimer</a>
+    <a href="/sitemap.xml">Sitemap</a>
+  </div>
+  <p>© 2026 OnlineCalculator.co.nz — Information is general in nature and not financial, medical, or legal advice.</p>
+</footer>
+
+<!-- Mobile sticky-footer ad — 320x50, mobile only -->
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  const calculators = [
+    { title: "GST Calculator", path: "/finance/gst-calculator/", emoji: "🧾", cat: "Finance" },
+    { title: "PAYE / Net Salary Calculator", path: "/finance/paye-calculator/", emoji: "💰", cat: "Finance" },
+    { title: "KiwiSaver Projection", path: "/finance/kiwisaver-calculator/", emoji: "🥝", cat: "Finance" },
+    { title: "Mortgage Calculator", path: "/finance/mortgage-calculator/", emoji: "🏦", cat: "Finance" },
+    { title: "Loan Repayment Calculator", path: "/finance/loan-calculator/", emoji: "📋", cat: "Finance" },
+    { title: "Compound Interest Calculator", path: "/finance/compound-interest/", emoji: "📈", cat: "Finance" },
+    { title: "Percentage Calculator", path: "/finance/percentage-calculator/", emoji: "%", cat: "Finance" },
+    { title: "Currency Converter", path: "/finance/currency-converter/", emoji: "💱", cat: "Finance" },
+    { title: "Rental Yield Calculator", path: "/property/rental-yield/", emoji: "🏠", cat: "Property" },
+    { title: "LVR & Deposit Calculator", path: "/property/mortgage-calculator/", emoji: "🏦", cat: "Property" },
+    { title: "Rent vs Buy Calculator", path: "/property/rent-vs-buy/", emoji: "🔑", cat: "Property" },
+    { title: "Bright-Line Test Calculator", path: "/property/bright-line-test/", emoji: "📜", cat: "Property" },
+    { title: "BMI Calculator", path: "/health/bmi-calculator/", emoji: "⚖️", cat: "Health" },
+    { title: "Calorie Calculator", path: "/health/calorie-calculator/", emoji: "🥗", cat: "Health" },
+    { title: "Pregnancy Due Date", path: "/health/pregnancy-due-date/", emoji: "🤱", cat: "Health" },
+    { title: "Ideal Weight Calculator", path: "/health/ideal-weight/", emoji: "🏋️", cat: "Health" },
+    { title: "Concrete Volume Calculator", path: "/construction/concrete-volume/", emoji: "🧱", cat: "Construction" },
+    { title: "Paint Calculator", path: "/construction/paint-calculator/", emoji: "🎨", cat: "Construction" },
+    { title: "Decking Calculator", path: "/construction/decking-calculator/", emoji: "🪵", cat: "Construction" },
+    { title: "Scientific Calculator", path: "/math/scientific/", emoji: "📐", cat: "Maths" },
+    { title: "Fraction Calculator", path: "/math/fraction-calculator/", emoji: "½", cat: "Maths" },
+    { title: "Age Calculator", path: "/math/age-calculator/", emoji: "🎂", cat: "Maths" },
+  ];
+
+  const input = document.getElementById('search-input');
+  const results = document.getElementById('search-results');
+
+  input.addEventListener('input', () => {
+    const q = input.value.toLowerCase().trim();
+    if (!q) { results.style.display = 'none'; return; }
+    const matches = calculators.filter(c =>
+      c.title.toLowerCase().includes(q) || c.cat.toLowerCase().includes(q)
+    ).slice(0, 6);
+    if (!matches.length) { results.style.display = 'none'; return; }
+    results.innerHTML = matches.map(c => `
+      <a href="${c.path}" class="search-result-item">
+        <span style="font-size:20px">${c.emoji}</span>
+        <div class="result-info"><div class="title">${c.title}</div><div class="path">${c.path}</div></div>
+      </a>`).join('');
+    results.style.display = 'block';
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.search-wrap')) results.style.display = 'none';
+  });
+</script>
+</body>
+</html>

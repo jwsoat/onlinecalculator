@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rental Yield Calculator NZ — Gross &amp; Net Yield | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free NZ rental yield calculator. Work out gross and net rental yield with NZ-specific expenses: rates, insurance, property management, maintenance.">
+  <meta name="keywords" content="rental yield calculator NZ, gross yield, net yield, investment property NZ, rental return calculator">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/property/rental-yield/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <style>:root { --accent: #0e7490; --accent-light: #ecfeff; --accent-dark: #155e75; }</style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Property","item":"https://onlinecalculator.co.nz/property/"},
+    {"@type":"ListItem","position":3,"name":"Rental Yield","item":"https://onlinecalculator.co.nz/property/rental-yield/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/property/">Property</a> <span>›</span> <span>Rental Yield</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">🏠</span>
+          <h1>Rental Yield Calculator <span class="nz-badge">🇳🇿 NZ</span></h1>
+        </div>
+        <p>Gross and net yield with realistic NZ expenses factored in.</p>
+      </div>
+      <div class="calc-body">
+        <div class="input-row">
+          <div class="field-group">
+            <label for="price">Purchase Price</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="price" class="has-prefix" value="800000" min="0" step="10000" oninput="calculate()" autofocus></div>
+          </div>
+          <div class="field-group">
+            <label for="rent">Weekly Rent</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="rent" class="has-prefix" value="650" min="0" step="10" oninput="calculate()"></div>
+          </div>
+        </div>
+
+        <h3 style="font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin:8px 0 12px">Annual Expenses</h3>
+        <div class="input-row">
+          <div class="field-group">
+            <label for="rates">Council Rates</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="rates" class="has-prefix" value="3200" min="0" step="100" oninput="calculate()"></div>
+          </div>
+          <div class="field-group">
+            <label for="insurance">Insurance</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="insurance" class="has-prefix" value="1800" min="0" step="50" oninput="calculate()"></div>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="field-group">
+            <label for="mgmt">Property Management %</label>
+            <input type="number" id="mgmt" value="8" min="0" max="15" step="0.5" oninput="calculate()">
+          </div>
+          <div class="field-group">
+            <label for="maint">Maintenance</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="maint" class="has-prefix" value="2000" min="0" step="100" oninput="calculate()"></div>
+          </div>
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-header">Yield Summary</div>
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row"><span class="breakdown-label">Gross Yield</span><span class="breakdown-value" id="r-gross">0%</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Net Yield</span><span class="breakdown-value" id="r-net">0%</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Annual Rent</span><span class="breakdown-value" id="r-annual">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Total Annual Expenses</span><span class="breakdown-value negative" id="r-exp">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Net Annual Income</span><span class="breakdown-value" id="r-netincome">$0</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>Gross vs Net Yield</h2>
+      <p><strong>Gross yield</strong> = annual rent ÷ purchase price × 100. It's the "advertising" yield agents quote, but it ignores all costs.</p>
+      <p><strong>Net yield</strong> subtracts real-world holding costs: council rates, insurance, property management fees, maintenance, vacancies, and (sometimes) accountant fees. It's the true cash return before mortgage interest and tax.</p>
+      <h3>What's a Good Yield in NZ?</h3>
+      <p>Auckland and Wellington investors often accept 3–4% gross yield, betting on capital growth. Provincial markets like Invercargill, Whanganui, or Rotorua can offer 5–7% gross. Net yields are usually 1–2 percentage points lower.</p>
+      <h3>NZ Tax: Interest Deductibility</h3>
+      <p>From April 2024 onward, interest on residential investment loans is being progressively restored as a deductible expense, reaching 100% deductibility in the 2025–26 tax year. Consult an accountant — rules change.</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does net yield include the mortgage? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">No. Net yield is a property-level metric — it shows what the property returns regardless of how it's financed. Cash-on-cash return is a separate metric that includes mortgage interest.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What expenses should I include? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Rates, insurance, property management, maintenance/repairs (budget 1% of property value annually), vacancy allowance (~2 weeks/year), body corp (if apartment), water if landlord-paid, and accountancy fees.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🇳🇿 Property Tools</h3>
+      <a href="/property/mortgage-calculator/" class="related-link">🏦 LVR &amp; Deposit</a>
+      <a href="/property/rent-vs-buy/" class="related-link">🔑 Rent vs Buy</a>
+      <a href="/property/bright-line-test/" class="related-link">📜 Bright-Line Test</a>
+      <a href="/finance/mortgage-calculator/" class="related-link">💰 Mortgage Repayments</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>💡 Rule of Thumb</h3>
+      <div class="tip-box">
+        Subtract 1.5–2 percentage points from gross yield to estimate net. A property advertised at "5% gross yield" typically returns 3–3.5% net in NZ.
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/property/">Property</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Indicative only. Consult an accountant or financial adviser.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-NZ'); }
+  function calculate() {
+    const price = parseFloat(document.getElementById('price').value) || 0;
+    const weekly = parseFloat(document.getElementById('rent').value) || 0;
+    const rates = parseFloat(document.getElementById('rates').value) || 0;
+    const ins = parseFloat(document.getElementById('insurance').value) || 0;
+    const mgmtPct = (parseFloat(document.getElementById('mgmt').value) || 0) / 100;
+    const maint = parseFloat(document.getElementById('maint').value) || 0;
+    const annual = weekly * 52;
+    const mgmtFee = annual * mgmtPct;
+    const totalExp = rates + ins + mgmtFee + maint;
+    const netIncome = annual - totalExp;
+    const grossYield = price > 0 ? annual / price * 100 : 0;
+    const netYield = price > 0 ? netIncome / price * 100 : 0;
+    document.getElementById('r-gross').textContent = grossYield.toFixed(2) + '%';
+    document.getElementById('r-net').textContent = netYield.toFixed(2) + '%';
+    document.getElementById('r-annual').textContent = fmt(annual);
+    document.getElementById('r-exp').textContent = fmt(totalExp);
+    document.getElementById('r-netincome').textContent = fmt(netIncome);
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>

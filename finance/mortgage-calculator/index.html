@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Calculator NZ — Home Loan Repayments | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free NZ mortgage calculator. Work out weekly, fortnightly, or monthly home loan repayments, total interest paid, and amortisation summary. Built for New Zealand buyers.">
+  <meta name="keywords" content="mortgage calculator NZ, home loan calculator New Zealand, NZ mortgage repayments, weekly mortgage repayments NZ, principal and interest calculator">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/finance/mortgage-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Finance","item":"https://onlinecalculator.co.nz/finance/"},
+    {"@type":"ListItem","position":3,"name":"Mortgage Calculator","item":"https://onlinecalculator.co.nz/finance/mortgage-calculator/"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"HowTo","name":"How to calculate NZ mortgage repayments",
+   "step":[
+     {"@type":"HowToStep","text":"Enter your loan amount, interest rate, and term in years"},
+     {"@type":"HowToStep","text":"Choose your repayment frequency: weekly, fortnightly, or monthly"},
+     {"@type":"HowToStep","text":"See your repayment amount, total interest, and total repaid"}
+   ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/finance/">Finance</a> <span>›</span> <span>Mortgage Calculator</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">🏦</span>
+          <h1>Mortgage Calculator <span class="nz-badge">🇳🇿 NZ</span></h1>
+        </div>
+        <p>Work out your weekly, fortnightly or monthly NZ home-loan repayments.</p>
+      </div>
+      <div class="calc-body">
+
+        <div class="field-group">
+          <label for="loan">Loan Amount</label>
+          <div class="input-group">
+            <span class="input-prefix">$</span>
+            <input type="number" id="loan" class="has-prefix" placeholder="600,000" value="600000" min="0" step="10000" oninput="calculate()" autofocus>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="field-group">
+            <label for="rate">Interest Rate (%)</label>
+            <input type="number" id="rate" value="6.5" min="0" max="20" step="0.05" oninput="calculate()">
+          </div>
+          <div class="field-group">
+            <label for="term">Term (years)</label>
+            <input type="number" id="term" value="30" min="1" max="40" step="1" oninput="calculate()">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Repayment Frequency</label>
+          <div class="mode-toggle three">
+            <button class="mode-btn" id="btn-w" onclick="setFreq('weekly')">Weekly</button>
+            <button class="mode-btn" id="btn-f" onclick="setFreq('fortnightly')">Fortnightly</button>
+            <button class="mode-btn active" id="btn-m" onclick="setFreq('monthly')">Monthly</button>
+          </div>
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-header">Your Mortgage Summary</div>
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row">
+              <span class="breakdown-label" id="repay-label">Monthly Repayment</span>
+              <span class="breakdown-value" id="r-repay">$0</span>
+            </div>
+            <div class="breakdown-row"><span class="breakdown-label">Total Repaid</span><span class="breakdown-value" id="r-total">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Total Interest Paid</span><span class="breakdown-value negative" id="r-interest">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Interest as % of Loan</span><span class="breakdown-value" id="r-pct">0%</span></div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button class="btn btn-primary" id="copy-btn" onclick="copyResult()">Copy Repayment</button>
+          <button class="btn btn-ghost" onclick="clearCalc()">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>How NZ Mortgage Repayments Are Calculated</h2>
+      <p>NZ home loans typically use the standard principal-and-interest amortisation formula. Each repayment covers part of the interest charged plus a slice of the principal. Early on, most of the payment is interest; as the balance falls, more goes to principal.</p>
+      <h3>The Formula</h3>
+      <div class="formula-box">
+        <div><span>Monthly repayment:</span> M = P × r × (1 + r)<sup>n</sup> ÷ ((1 + r)<sup>n</sup> − 1)</div>
+        <div style="margin-top:8px;color:var(--muted)">where P = loan amount, r = monthly rate (annual ÷ 12), n = total months</div>
+      </div>
+      <h3>Tip: Pay Fortnightly</h3>
+      <p>Switching from monthly to fortnightly repayments and paying half the monthly amount each fortnight means you make <strong>26 fortnightly payments — equivalent to 13 monthly payments per year</strong>, instead of 12. On a 30-year loan this typically shaves 4–6 years off the term and tens of thousands off the interest bill.</p>
+      <h3>Current NZ Mortgage Rates</h3>
+      <p>NZ home loan rates fluctuate with the Reserve Bank's Official Cash Rate. As of 2026, advertised 1-year fixed rates from major banks range roughly between 5.5% and 6.8%. Always shop around — even a 0.2% difference matters over 30 years.</p>
+
+      <h2 style="margin-top:24px">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How much deposit do I need in NZ? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Most NZ banks require a 20% deposit on owner-occupied loans (LVR limit), though first-home buyers can sometimes get 5%–10% deposit loans via Kāinga Ora First Home Loan or Welcome Home Loan schemes. Investors typically need a 35%–40% deposit.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Should I fix or float? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Fixed rates give certainty for 1–5 years; floating rates change with the OCR. Many NZ borrowers split — fixing a portion for stability and floating a portion for flexibility (extra repayments without break fees).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How does my term affect total interest? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">A 25-year term has higher monthly payments but much less interest than 30 years. On a $600k loan at 6.5%, a 30-year term costs ~$764k in interest versus ~$615k over 25 years — a $149k saving.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🇳🇿 Related Tools</h3>
+      <a href="/finance/loan-calculator/" class="related-link">📋 Loan Repayment</a>
+      <a href="/finance/compound-interest/" class="related-link">📈 Compound Interest</a>
+      <a href="/property/rental-yield/" class="related-link">🏠 Rental Yield</a>
+      <a href="/property/rent-vs-buy/" class="related-link">🔑 Rent vs Buy</a>
+      <a href="/finance/paye-calculator/" class="related-link">💰 PAYE / Salary</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>💡 LVR Quick Guide</h3>
+      <div class="tip-box">
+        <strong>LVR = Loan ÷ Property Value.</strong> NZ banks generally cap owner-occupied LVR at 80% (20% deposit). Properties bought with &lt;20% deposit may incur Low-Equity Premium (LEP) of 0.25%–1.5% extra interest.
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/finance/">Finance</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Indicative only. Confirm with your bank or mortgage adviser.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  let freq = 'monthly';
+  const periodsPerYear = { weekly: 52, fortnightly: 26, monthly: 12 };
+  const labels = { weekly: 'Weekly Repayment', fortnightly: 'Fortnightly Repayment', monthly: 'Monthly Repayment' };
+  function setFreq(f) {
+    freq = f;
+    document.getElementById('btn-w').classList.toggle('active', f === 'weekly');
+    document.getElementById('btn-f').classList.toggle('active', f === 'fortnightly');
+    document.getElementById('btn-m').classList.toggle('active', f === 'monthly');
+    document.getElementById('repay-label').textContent = labels[f];
+    calculate();
+  }
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-NZ'); }
+  function fmtDec(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function calculate() {
+    const P = parseFloat(document.getElementById('loan').value) || 0;
+    const annualRate = (parseFloat(document.getElementById('rate').value) || 0) / 100;
+    const years = parseFloat(document.getElementById('term').value) || 0;
+    const n = periodsPerYear[freq];
+    const r = annualRate / n;
+    const total = years * n;
+    let payment = 0;
+    if (P > 0 && r > 0 && total > 0) payment = P * r * Math.pow(1 + r, total) / (Math.pow(1 + r, total) - 1);
+    else if (P > 0 && total > 0) payment = P / total;
+    const totalPaid = payment * total;
+    const interest = totalPaid - P;
+    const pct = P > 0 ? (interest / P * 100) : 0;
+    document.getElementById('r-repay').textContent = fmtDec(payment);
+    document.getElementById('r-total').textContent = fmt(totalPaid);
+    document.getElementById('r-interest').textContent = fmt(interest);
+    document.getElementById('r-pct').textContent = pct.toFixed(1) + '%';
+  }
+  function clearCalc() {
+    document.getElementById('loan').value = 600000;
+    document.getElementById('rate').value = 6.5;
+    document.getElementById('term').value = 30;
+    setFreq('monthly');
+  }
+  function copyResult() {
+    const v = document.getElementById('r-repay').textContent;
+    navigator.clipboard.writeText(v.replace('$', '')).catch(() => {});
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ Copied!'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy Repayment'; btn.classList.remove('copied'); }, 2000);
+  }
+  function toggleFaq(el) {
+    el.nextElementSibling.classList.toggle('open');
+    el.querySelector('.faq-arrow').classList.toggle('open');
+  }
+  calculate();
+</script>
+</body>
+</html>

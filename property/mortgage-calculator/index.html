@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LVR &amp; Deposit Calculator NZ — How Much Deposit Do I Need? | OnlineCalculator.co.nz</title>
+  <meta name="description" content="NZ LVR and home deposit calculator. Work out how much deposit you need, your loan-to-value ratio, and weekly mortgage repayments. Built for NZ first home buyers.">
+  <meta name="keywords" content="LVR calculator NZ, deposit calculator New Zealand, first home buyer NZ, loan to value ratio, NZ home deposit">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/property/mortgage-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <style>:root { --accent: #0e7490; --accent-light: #ecfeff; --accent-dark: #155e75; }</style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Property","item":"https://onlinecalculator.co.nz/property/"},
+    {"@type":"ListItem","position":3,"name":"LVR &amp; Deposit","item":"https://onlinecalculator.co.nz/property/mortgage-calculator/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/property/">Property</a> <span>›</span> <span>LVR &amp; Deposit</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">🏦</span>
+          <h1>LVR &amp; Deposit Calculator <span class="nz-badge">🇳🇿 NZ</span></h1>
+        </div>
+        <p>Work out your deposit, loan-to-value ratio, and weekly NZ home loan repayments.</p>
+      </div>
+      <div class="calc-body">
+        <div class="input-row">
+          <div class="field-group">
+            <label for="price">Property Price</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="price" class="has-prefix" value="800000" min="0" step="10000" oninput="calculate()" autofocus></div>
+          </div>
+          <div class="field-group">
+            <label for="deposit">Your Deposit</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="deposit" class="has-prefix" value="160000" min="0" step="5000" oninput="calculate()"></div>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="field-group">
+            <label for="rate">Interest Rate (%)</label>
+            <input type="number" id="rate" value="6.5" min="0" max="20" step="0.05" oninput="calculate()">
+          </div>
+          <div class="field-group">
+            <label for="term">Term (years)</label>
+            <input type="number" id="term" value="30" min="1" max="40" step="1" oninput="calculate()">
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="buyertype">Buyer Type</label>
+          <select id="buyertype" onchange="calculate()">
+            <option value="owner" selected>Owner-occupier</option>
+            <option value="investor">Investor</option>
+          </select>
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-header">Summary</div>
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row"><span class="breakdown-label">Loan-to-Value Ratio (LVR)</span><span class="breakdown-value" id="r-lvr">0%</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Loan Amount</span><span class="breakdown-value" id="r-loan">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Deposit %</span><span class="breakdown-value" id="r-dep-pct">0%</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Weekly Repayment</span><span class="breakdown-value" id="r-weekly">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Status</span><span class="breakdown-value" id="r-status" style="font-size:13px">—</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>NZ LVR Rules</h2>
+      <p>The Reserve Bank of New Zealand (RBNZ) sets loan-to-value ratio (LVR) restrictions limiting how much banks can lend on low-deposit loans.</p>
+      <h3>Current LVR Speed Limits</h3>
+      <p><strong>Owner-occupiers:</strong> Banks can lend no more than 20% of new lending to borrowers with deposits under 20% (LVR &gt; 80%).</p>
+      <p><strong>Investors:</strong> Maximum LVR is typically 65%–70% (deposit of 30%–35% required), though exemptions exist for new builds.</p>
+      <h3>First Home Buyer Help</h3>
+      <p><strong>Kāinga Ora First Home Loan:</strong> Lets eligible buyers get on the ladder with just 5% deposit.<br>
+      <strong>First Home Grant:</strong> Up to $10,000 toward your deposit (income and price caps apply).<br>
+      <strong>KiwiSaver withdrawal:</strong> After 3 years of contributions, withdraw all but $1,000 toward your first home.</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What is a "high LVR" loan? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">An LVR above 80% (deposit under 20%) is considered high. Banks often charge a Low-Equity Premium (LEP) of 0.25%–1.5% extra interest on high-LVR owner-occupier loans.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I use KiwiSaver and First Home Grant together? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Yes. You can combine a KiwiSaver first-home withdrawal with the First Home Grant and a Kāinga Ora First Home Loan if you meet each scheme's eligibility criteria.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🇳🇿 Property Tools</h3>
+      <a href="/property/rental-yield/" class="related-link">🏠 Rental Yield</a>
+      <a href="/property/rent-vs-buy/" class="related-link">🔑 Rent vs Buy</a>
+      <a href="/property/bright-line-test/" class="related-link">📜 Bright-Line Test</a>
+      <a href="/finance/mortgage-calculator/" class="related-link">💰 Mortgage Calculator</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/property/">Property</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Confirm details with your bank or mortgage adviser.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-NZ'); }
+  function fmtDec(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function calculate() {
+    const price = parseFloat(document.getElementById('price').value) || 0;
+    const deposit = parseFloat(document.getElementById('deposit').value) || 0;
+    const rate = (parseFloat(document.getElementById('rate').value) || 0) / 100;
+    const years = parseFloat(document.getElementById('term').value) || 0;
+    const buyer = document.getElementById('buyertype').value;
+    const loan = Math.max(0, price - deposit);
+    const lvr = price > 0 ? loan / price * 100 : 0;
+    const depPct = price > 0 ? deposit / price * 100 : 0;
+    // Weekly P&I
+    const r = rate / 52;
+    const n = years * 52;
+    let weekly = 0;
+    if (loan > 0 && r > 0 && n > 0) weekly = loan * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+    document.getElementById('r-lvr').textContent = lvr.toFixed(1) + '%';
+    document.getElementById('r-loan').textContent = fmt(loan);
+    document.getElementById('r-dep-pct').textContent = depPct.toFixed(1) + '%';
+    document.getElementById('r-weekly').textContent = fmtDec(weekly);
+    let status = '';
+    if (buyer === 'owner') {
+      if (lvr <= 80) status = '✅ Within standard LVR (≤80%)';
+      else if (lvr <= 90) status = '⚠️ High LVR — Low-Equity Premium likely';
+      else status = '⚠️ Very high LVR — limited bank options';
+    } else {
+      if (lvr <= 65) status = '✅ Within investor LVR (≤65%)';
+      else if (lvr <= 70) status = '⚠️ Edge of investor limits';
+      else status = '⚠️ Above standard investor LVR';
+    }
+    document.getElementById('r-status').textContent = status;
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>

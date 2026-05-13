@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NZD Currency Converter — Convert NZ Dollars to USD, AUD, GBP, EUR | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Convert New Zealand dollars (NZD) to USD, AUD, GBP, EUR, JPY and more. Quick NZD currency converter with indicative exchange rates.">
+  <meta name="keywords" content="NZD converter, NZ dollar to USD, NZD to AUD, currency converter NZ, New Zealand dollar exchange rate">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/finance/currency-converter/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Finance","item":"https://onlinecalculator.co.nz/finance/"},
+    {"@type":"ListItem","position":3,"name":"Currency Converter","item":"https://onlinecalculator.co.nz/finance/currency-converter/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/finance/">Finance</a> <span>›</span> <span>Currency Converter</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">💱</span>
+          <h1>NZD Currency Converter <span class="nz-badge">🇳🇿 NZD</span></h1>
+        </div>
+        <p>Convert NZ dollars to and from major world currencies (indicative rates).</p>
+      </div>
+      <div class="calc-body">
+
+        <div class="field-group">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" value="100" min="0" step="1" oninput="calculate()" autofocus>
+        </div>
+
+        <div class="input-row">
+          <div class="field-group">
+            <label for="from">From</label>
+            <select id="from" onchange="calculate()"></select>
+          </div>
+          <div class="field-group">
+            <label for="to">To</label>
+            <select id="to" onchange="calculate()"></select>
+          </div>
+        </div>
+        <div class="action-row" style="margin-top:0;margin-bottom:18px">
+          <button class="btn btn-ghost" onclick="swap()" style="width:100%">⇅ Swap</button>
+        </div>
+
+        <div class="results">
+          <div class="result-row highlight">
+            <span class="result-label" id="r-label">Converted</span>
+            <span class="result-value" id="r-value">0</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Rate</span>
+            <span class="result-value" id="r-rate">1.00</span>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:12px;text-align:center">Rates are indicative — last updated <span id="rate-date">May 2026</span>. For live rates use xe.com or your bank.</p>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>About the NZ Dollar</h2>
+      <p>The New Zealand dollar (NZD) — nicknamed the "Kiwi" — is the world's 10th-most-traded currency. It moves with dairy prices (Fonterra is a major exporter), the Reserve Bank's Official Cash Rate, and global risk sentiment (the NZD is a "risk-on" currency).</p>
+      <h3>Tip: Avoid Airport Currency Booths</h3>
+      <p>Airport bureaux often charge 5–10% spreads. Travel debit cards (Wise, Revolver, Air NZ OneSmart), most NZ bank debit/credit cards used abroad, and ATM withdrawals at the destination usually offer rates within 1% of mid-market.</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Are these rates live? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">No. The rates here are indicative reference values updated periodically. For booked-rate live conversion always check xe.com, Wise, or your bank app at the moment of transaction.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's the difference between mid-market and retail rate? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">The mid-market rate is the wholesale interbank rate. Banks and brokers add a spread (their margin), so the rate you receive when buying or selling is always slightly worse than mid-market. Spreads vary from 0.3% (online money transfer services) to 4%+ (airport bureaux).</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🇳🇿 Finance Tools</h3>
+      <a href="/finance/gst-calculator/" class="related-link">🧾 GST</a>
+      <a href="/finance/paye-calculator/" class="related-link">💰 PAYE / Salary</a>
+      <a href="/finance/percentage-calculator/" class="related-link">% Percentage</a>
+      <a href="/finance/compound-interest/" class="related-link">📈 Compound Interest</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/finance/">Finance</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Rates are indicative only.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  // Indicative rates: NZD = 1 base. Update periodically.
+  const rates = {
+    NZD: { name: 'NZ Dollar 🇳🇿', rate: 1 },
+    AUD: { name: 'Australian Dollar 🇦🇺', rate: 0.91 },
+    USD: { name: 'US Dollar 🇺🇸', rate: 0.60 },
+    GBP: { name: 'British Pound 🇬🇧', rate: 0.47 },
+    EUR: { name: 'Euro 🇪🇺', rate: 0.55 },
+    JPY: { name: 'Japanese Yen 🇯🇵', rate: 91.5 },
+    CAD: { name: 'Canadian Dollar 🇨🇦', rate: 0.82 },
+    SGD: { name: 'Singapore Dollar 🇸🇬', rate: 0.81 },
+    CNY: { name: 'Chinese Yuan 🇨🇳', rate: 4.32 },
+    INR: { name: 'Indian Rupee 🇮🇳', rate: 50.5 },
+    THB: { name: 'Thai Baht 🇹🇭', rate: 21.5 },
+    FJD: { name: 'Fijian Dollar 🇫🇯', rate: 1.36 }
+  };
+  const fromSel = document.getElementById('from');
+  const toSel = document.getElementById('to');
+  Object.keys(rates).forEach(k => {
+    fromSel.insertAdjacentHTML('beforeend', `<option value="${k}">${k} — ${rates[k].name}</option>`);
+    toSel.insertAdjacentHTML('beforeend', `<option value="${k}">${k} — ${rates[k].name}</option>`);
+  });
+  fromSel.value = 'NZD'; toSel.value = 'USD';
+
+  function fmt(n, code) {
+    const decimals = code === 'JPY' || code === 'INR' || code === 'THB' ? 0 : 2;
+    return n.toLocaleString('en-NZ', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + ' ' + code;
+  }
+  function calculate() {
+    const amount = parseFloat(document.getElementById('amount').value) || 0;
+    const from = fromSel.value, to = toSel.value;
+    // Convert to NZD, then to target
+    const inNzd = amount / rates[from].rate;
+    const result = inNzd * rates[to].rate;
+    const rate = rates[to].rate / rates[from].rate;
+    document.getElementById('r-label').textContent = `${amount} ${from} =`;
+    document.getElementById('r-value').textContent = fmt(result, to);
+    document.getElementById('r-rate').textContent = `1 ${from} = ${rate.toFixed(4)} ${to}`;
+  }
+  function swap() { const t = fromSel.value; fromSel.value = toSel.value; toSel.value = t; calculate(); }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>

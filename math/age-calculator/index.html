@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator — Exact Years, Months, Days, Hours | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free age calculator. Find your exact age in years, months, days, and hours. Also calculates days until your next birthday.">
+  <meta name="keywords" content="age calculator, exact age, age in days, days between dates, birthday countdown">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/math/age-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <style>:root { --accent: #7c3aed; --accent-light: #f5f3ff; --accent-dark: #5b21b6; }</style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Maths","item":"https://onlinecalculator.co.nz/math/"},
+    {"@type":"ListItem","position":3,"name":"Age Calculator","item":"https://onlinecalculator.co.nz/math/age-calculator/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/math/">Maths</a> <span>›</span> <span>Age Calculator</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">🎂</span>
+          <h1>Age Calculator</h1>
+        </div>
+        <p>Find your exact age in years, months, days, and hours.</p>
+      </div>
+      <div class="calc-body">
+
+        <div class="input-row">
+          <div class="field-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" oninput="calculate()">
+          </div>
+          <div class="field-group">
+            <label for="to">As Of</label>
+            <input type="date" id="to" oninput="calculate()">
+          </div>
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row"><span class="breakdown-label">Your Age</span><span class="breakdown-value" id="r-age">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Total Months</span><span class="breakdown-value" id="r-months">0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Total Weeks</span><span class="breakdown-value" id="r-weeks">0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Total Days</span><span class="breakdown-value" id="r-days">0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Total Hours</span><span class="breakdown-value" id="r-hours">0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Next Birthday In</span><span class="breakdown-value" id="r-bday">—</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>How Age Is Calculated</h2>
+      <p>This calculator counts complete years, then the leftover months, then the leftover days. It accounts for varying month lengths (28–31 days) and leap years correctly.</p>
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does this account for leap years? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Yes. The calculation uses native JavaScript Date objects, which handle leap years (1 day added to February every 4 years, except century years not divisible by 400).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I find time between any two dates? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Yes. The "Date of Birth" can be any date in the past, and "As Of" can be any future or past date.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🔢 Maths Tools</h3>
+      <a href="/math/scientific/" class="related-link">📐 Scientific Calculator</a>
+      <a href="/math/fraction-calculator/" class="related-link">½ Fraction Calculator</a>
+      <a href="/finance/percentage-calculator/" class="related-link">% Percentage</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/math/">Maths</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  function setDefaults() {
+    const today = new Date();
+    document.getElementById('to').value = today.toISOString().split('T')[0];
+    const dob = new Date(today); dob.setFullYear(today.getFullYear() - 30);
+    document.getElementById('dob').value = dob.toISOString().split('T')[0];
+  }
+  function calculate() {
+    const dobStr = document.getElementById('dob').value;
+    const toStr = document.getElementById('to').value;
+    if (!dobStr || !toStr) return;
+    const dob = new Date(dobStr);
+    const to = new Date(toStr);
+    if (to < dob) { document.getElementById('r-age').textContent = 'End date before start'; return; }
+
+    let years = to.getFullYear() - dob.getFullYear();
+    let months = to.getMonth() - dob.getMonth();
+    let days = to.getDate() - dob.getDate();
+    if (days < 0) {
+      months--;
+      const prev = new Date(to.getFullYear(), to.getMonth(), 0);
+      days += prev.getDate();
+    }
+    if (months < 0) { years--; months += 12; }
+    const totalMs = to - dob;
+    const totalDays = Math.floor(totalMs / 86400000);
+    const totalHours = Math.floor(totalMs / 3600000);
+    const totalWeeks = Math.floor(totalDays / 7);
+    const totalMonths = years * 12 + months;
+
+    // Next birthday
+    let nextBday = new Date(to.getFullYear(), dob.getMonth(), dob.getDate());
+    if (nextBday < to) nextBday.setFullYear(nextBday.getFullYear() + 1);
+    const daysToBday = Math.ceil((nextBday - to) / 86400000);
+
+    document.getElementById('r-age').textContent = years + ' yrs, ' + months + ' mo, ' + days + ' days';
+    document.getElementById('r-months').textContent = totalMonths.toLocaleString('en-NZ');
+    document.getElementById('r-weeks').textContent = totalWeeks.toLocaleString('en-NZ');
+    document.getElementById('r-days').textContent = totalDays.toLocaleString('en-NZ');
+    document.getElementById('r-hours').textContent = totalHours.toLocaleString('en-NZ');
+    document.getElementById('r-bday').textContent = daysToBday === 0 ? '🎉 Today!' : daysToBday + ' days';
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  setDefaults();
+  calculate();
+</script>
+</body>
+</html>

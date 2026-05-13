@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Repayment Calculator NZ — Personal Loan Calculator | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free NZ personal loan calculator. Work out weekly, fortnightly or monthly repayments and total interest on car loans, personal loans, and consolidation loans.">
+  <meta name="keywords" content="loan calculator NZ, personal loan calculator New Zealand, car loan repayments NZ, loan interest calculator">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/finance/loan-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Finance","item":"https://onlinecalculator.co.nz/finance/"},
+    {"@type":"ListItem","position":3,"name":"Loan Calculator","item":"https://onlinecalculator.co.nz/finance/loan-calculator/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/finance/">Finance</a> <span>›</span> <span>Loan Calculator</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">📋</span>
+          <h1>Loan Repayment Calculator <span class="nz-badge">🇳🇿 NZ</span></h1>
+        </div>
+        <p>Calculate repayments on a personal loan, car loan, or consolidation loan.</p>
+      </div>
+      <div class="calc-body">
+        <div class="field-group">
+          <label for="loan">Loan Amount</label>
+          <div class="input-group"><span class="input-prefix">$</span><input type="number" id="loan" class="has-prefix" value="20000" min="0" step="500" oninput="calculate()" autofocus></div>
+        </div>
+        <div class="input-row">
+          <div class="field-group">
+            <label for="rate">Interest Rate (%)</label>
+            <input type="number" id="rate" value="12.95" min="0" max="30" step="0.05" oninput="calculate()">
+          </div>
+          <div class="field-group">
+            <label for="term">Term (years)</label>
+            <input type="number" id="term" value="5" min="1" max="10" step="1" oninput="calculate()">
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Repayment Frequency</label>
+          <div class="mode-toggle three">
+            <button class="mode-btn" id="btn-w" onclick="setFreq('weekly')">Weekly</button>
+            <button class="mode-btn" id="btn-f" onclick="setFreq('fortnightly')">Fortnightly</button>
+            <button class="mode-btn active" id="btn-m" onclick="setFreq('monthly')">Monthly</button>
+          </div>
+        </div>
+        <div class="breakdown">
+          <div class="breakdown-header">Loan Summary</div>
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row"><span class="breakdown-label" id="repay-label">Monthly Repayment</span><span class="breakdown-value" id="r-repay">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Total Repaid</span><span class="breakdown-value" id="r-total">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Total Interest</span><span class="breakdown-value negative" id="r-interest">$0</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>About NZ Personal Loans</h2>
+      <p>Personal loan interest rates in New Zealand typically range from 7% (secured car loans from main banks) to 25%+ (unsecured loans from finance companies). Always compare the <strong>annual percentage rate (APR)</strong>, which includes fees, not just the headline rate.</p>
+      <h3>Secured vs Unsecured</h3>
+      <p><strong>Secured loans</strong> use an asset (usually a vehicle) as collateral, so rates are lower — typically 7%–12% in NZ. <strong>Unsecured personal loans</strong> have no collateral, so rates run 12%–22%.</p>
+      <h3>Watch the Total Cost</h3>
+      <p>A 5-year loan vs 3-year loan at the same rate can almost double the total interest paid. Shorter terms mean higher repayments but far less interest.</p>
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I pay off a loan early? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Most NZ personal loans allow extra repayments without penalty (check the contract). Paying $50–$100 extra each fortnight on a 5-year loan can shave months off the term and hundreds in interest.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does my credit score matter? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Yes — significantly. NZ lenders use Centrix or Equifax reports. A "good" or "excellent" score (700+) often qualifies for the lowest advertised rate; lower scores attract risk-based pricing.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🇳🇿 Finance Tools</h3>
+      <a href="/finance/mortgage-calculator/" class="related-link">🏦 Mortgage</a>
+      <a href="/finance/compound-interest/" class="related-link">📈 Compound Interest</a>
+      <a href="/finance/percentage-calculator/" class="related-link">% Percentage</a>
+      <a href="/finance/paye-calculator/" class="related-link">💰 PAYE / Salary</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/finance/">Finance</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Indicative only. Always confirm rates and fees with the lender.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  let freq = 'monthly';
+  const periodsPerYear = { weekly: 52, fortnightly: 26, monthly: 12 };
+  const labels = { weekly: 'Weekly Repayment', fortnightly: 'Fortnightly Repayment', monthly: 'Monthly Repayment' };
+  function setFreq(f) {
+    freq = f;
+    document.getElementById('btn-w').classList.toggle('active', f === 'weekly');
+    document.getElementById('btn-f').classList.toggle('active', f === 'fortnightly');
+    document.getElementById('btn-m').classList.toggle('active', f === 'monthly');
+    document.getElementById('repay-label').textContent = labels[f];
+    calculate();
+  }
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-NZ'); }
+  function fmtDec(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function calculate() {
+    const P = parseFloat(document.getElementById('loan').value) || 0;
+    const annualRate = (parseFloat(document.getElementById('rate').value) || 0) / 100;
+    const years = parseFloat(document.getElementById('term').value) || 0;
+    const n = periodsPerYear[freq];
+    const r = annualRate / n;
+    const total = years * n;
+    let payment = 0;
+    if (P > 0 && r > 0 && total > 0) payment = P * r * Math.pow(1 + r, total) / (Math.pow(1 + r, total) - 1);
+    else if (P > 0 && total > 0) payment = P / total;
+    const totalPaid = payment * total;
+    document.getElementById('r-repay').textContent = fmtDec(payment);
+    document.getElementById('r-total').textContent = fmt(totalPaid);
+    document.getElementById('r-interest').textContent = fmt(totalPaid - P);
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>

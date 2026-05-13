@@ -1,0 +1,8 @@
+# ads.txt — Authorised digital sellers
+# Replace pub-XXXXXXXXXXXXXXXX with your Google AdSense publisher ID
+# once your account is approved. Without this file, AdSense bidders
+# treat inventory as unverified and pay less (or skip).
+# If you later add additional networks (Ezoic, Mediavine, direct deals),
+# append new lines following the IAB ads.txt spec.
+
+google.com, pub-1450824284210811, DIRECT, f08c47fec0942fa0

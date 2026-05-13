@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percentage Calculator — % Of, % Change, % Increase/Decrease | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free percentage calculator. Find X% of a number, what % one number is of another, percentage change, increase or decrease. Fast and accurate.">
+  <meta name="keywords" content="percentage calculator, percent of, percentage change, percentage difference, percent increase decrease">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/finance/percentage-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Finance","item":"https://onlinecalculator.co.nz/finance/"},
+    {"@type":"ListItem","position":3,"name":"Percentage Calculator","item":"https://onlinecalculator.co.nz/finance/percentage-calculator/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/finance/">Finance</a> <span>›</span> <span>Percentage</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">%</span>
+          <h1>Percentage Calculator</h1>
+        </div>
+        <p>Three quick modes for the questions you actually ask.</p>
+      </div>
+      <div class="calc-body">
+
+        <div class="mode-toggle three">
+          <button class="mode-btn active" id="btn-pof" onclick="setMode('pof')">% of X</button>
+          <button class="mode-btn" id="btn-isp" onclick="setMode('isp')">X is what %</button>
+          <button class="mode-btn" id="btn-chg" onclick="setMode('chg')">% Change</button>
+        </div>
+
+        <div id="mode-pof">
+          <div class="input-row">
+            <div class="field-group">
+              <label>What is</label>
+              <input type="number" id="pof-pct" value="15" step="0.1" oninput="calculate()">
+            </div>
+            <div class="field-group">
+              <label>% of</label>
+              <input type="number" id="pof-num" value="200" step="1" oninput="calculate()">
+            </div>
+          </div>
+        </div>
+
+        <div id="mode-isp" style="display:none">
+          <div class="input-row">
+            <div class="field-group">
+              <label>What % of</label>
+              <input type="number" id="isp-total" value="200" step="1" oninput="calculate()">
+            </div>
+            <div class="field-group">
+              <label>is</label>
+              <input type="number" id="isp-part" value="30" step="1" oninput="calculate()">
+            </div>
+          </div>
+        </div>
+
+        <div id="mode-chg" style="display:none">
+          <div class="input-row">
+            <div class="field-group">
+              <label>From</label>
+              <input type="number" id="chg-from" value="100" step="1" oninput="calculate()">
+            </div>
+            <div class="field-group">
+              <label>To</label>
+              <input type="number" id="chg-to" value="125" step="1" oninput="calculate()">
+            </div>
+          </div>
+        </div>
+
+        <div class="results">
+          <div class="result-row highlight">
+            <span class="result-label" id="r-label">Answer</span>
+            <span class="result-value" id="r-value">0</span>
+          </div>
+        </div>
+        <div class="action-row">
+          <button class="btn btn-primary" id="copy-btn" onclick="copyResult()">Copy Answer</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>Percentage Formulas</h2>
+      <div class="formula-box">
+        <div><span>X% of Y:</span> Result = X ÷ 100 × Y</div>
+        <div style="margin-top:8px"><span>X is what % of Y:</span> Result = X ÷ Y × 100</div>
+        <div style="margin-top:8px"><span>% change from A to B:</span> Result = (B − A) ÷ A × 100</div>
+      </div>
+      <h3>Common Uses</h3>
+      <p><strong>Discounts:</strong> 25% off $80 = $20 off → pay $60. Use "% of X" mode.</p>
+      <p><strong>Tips and tax:</strong> 15% GST on $200 = $30 GST → total $230. (For NZ GST specifically use our <a href="/finance/gst-calculator/" style="color:var(--accent)">GST Calculator</a>.)</p>
+      <p><strong>Salary increases:</strong> Salary went from $65k to $72k → 10.8% pay rise. Use "% Change" mode.</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's the difference between % change and percentage points? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">If interest rates move from 5% to 7%, that's a 2 percentage point increase but a 40% relative change. They're often confused in headlines.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🇳🇿 Finance Tools</h3>
+      <a href="/finance/gst-calculator/" class="related-link">🧾 GST</a>
+      <a href="/finance/paye-calculator/" class="related-link">💰 PAYE / Salary</a>
+      <a href="/finance/compound-interest/" class="related-link">📈 Compound Interest</a>
+      <a href="/finance/currency-converter/" class="related-link">💱 Currency Converter</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/finance/">Finance</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  let mode = 'pof';
+  function setMode(m) {
+    mode = m;
+    ['pof','isp','chg'].forEach(k => {
+      document.getElementById('mode-' + k).style.display = (k === m) ? 'block' : 'none';
+      document.getElementById('btn-' + k).classList.toggle('active', k === m);
+    });
+    calculate();
+  }
+  function fmtNum(n) {
+    if (!isFinite(n)) return '—';
+    return n.toLocaleString('en-NZ', { maximumFractionDigits: 4 });
+  }
+  function calculate() {
+    let label = 'Answer', value = 0;
+    if (mode === 'pof') {
+      const p = parseFloat(document.getElementById('pof-pct').value) || 0;
+      const n = parseFloat(document.getElementById('pof-num').value) || 0;
+      value = p / 100 * n;
+      label = `${p}% of ${n}`;
+    } else if (mode === 'isp') {
+      const t = parseFloat(document.getElementById('isp-total').value) || 0;
+      const part = parseFloat(document.getElementById('isp-part').value) || 0;
+      value = t === 0 ? 0 : part / t * 100;
+      label = `${part} is X% of ${t}`;
+      document.getElementById('r-value').textContent = fmtNum(value) + '%';
+      document.getElementById('r-label').textContent = label;
+      return;
+    } else {
+      const a = parseFloat(document.getElementById('chg-from').value) || 0;
+      const b = parseFloat(document.getElementById('chg-to').value) || 0;
+      value = a === 0 ? 0 : (b - a) / a * 100;
+      label = `Change from ${a} to ${b}`;
+      const sign = value >= 0 ? '+' : '';
+      document.getElementById('r-value').textContent = sign + fmtNum(value) + '%';
+      document.getElementById('r-label').textContent = label;
+      return;
+    }
+    document.getElementById('r-value').textContent = fmtNum(value);
+    document.getElementById('r-label').textContent = label;
+  }
+  function copyResult() {
+    const v = document.getElementById('r-value').textContent;
+    navigator.clipboard.writeText(v).catch(() => {});
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ Copied!'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy Answer'; btn.classList.remove('copied'); }, 2000);
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>

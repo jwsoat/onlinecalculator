@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent vs Buy Calculator NZ — Should You Rent or Buy? | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free NZ rent vs buy calculator. Compare the true cost of renting versus buying with NZ-specific inputs: rates, insurance, mortgage interest, capital growth.">
+  <meta name="keywords" content="rent vs buy NZ, should I rent or buy New Zealand, rent or buy calculator, NZ buying first home">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/property/rent-vs-buy/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <style>:root { --accent: #0e7490; --accent-light: #ecfeff; --accent-dark: #155e75; }</style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Property","item":"https://onlinecalculator.co.nz/property/"},
+    {"@type":"ListItem","position":3,"name":"Rent vs Buy","item":"https://onlinecalculator.co.nz/property/rent-vs-buy/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/property/">Property</a> <span>›</span> <span>Rent vs Buy</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">🔑</span>
+          <h1>Rent vs Buy <span class="nz-badge">🇳🇿 NZ</span></h1>
+        </div>
+        <p>Compare the 10-year cost of renting vs buying a comparable home in NZ.</p>
+      </div>
+      <div class="calc-body">
+
+        <h3 style="font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin:8px 0 12px">If You Buy</h3>
+        <div class="input-row">
+          <div class="field-group">
+            <label for="price">Property Price</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="price" class="has-prefix" value="800000" min="0" step="10000" oninput="calculate()" autofocus></div>
+          </div>
+          <div class="field-group">
+            <label for="deposit">Deposit</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="deposit" class="has-prefix" value="160000" min="0" step="5000" oninput="calculate()"></div>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="field-group">
+            <label for="rate">Interest Rate (%)</label>
+            <input type="number" id="rate" value="6.5" min="0" max="20" step="0.05" oninput="calculate()">
+          </div>
+          <div class="field-group">
+            <label for="growth">Annual Capital Growth (%)</label>
+            <input type="number" id="growth" value="4" min="-5" max="20" step="0.5" oninput="calculate()">
+          </div>
+        </div>
+
+        <h3 style="font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin:16px 0 12px">If You Rent</h3>
+        <div class="input-row">
+          <div class="field-group">
+            <label for="rent">Weekly Rent</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="rent" class="has-prefix" value="650" min="0" step="10" oninput="calculate()"></div>
+          </div>
+          <div class="field-group">
+            <label for="rentgrowth">Rent Growth %/yr</label>
+            <input type="number" id="rentgrowth" value="3" min="0" max="15" step="0.5" oninput="calculate()">
+          </div>
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-header">10-Year Comparison</div>
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row"><span class="breakdown-label">Better Off</span><span class="breakdown-value" id="r-winner">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Net Cost of Buying</span><span class="breakdown-value" id="r-buy">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Net Cost of Renting</span><span class="breakdown-value" id="r-rent">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Property Value in 10 Years</span><span class="breakdown-value" id="r-future">$0</span></div>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:10px">Buying assumes mortgage interest, ~$5,000/yr rates &amp; insurance, 1% maintenance, minus equity built and capital growth. Renting assumes weekly rent growing each year, plus opportunity cost of the deposit invested at 5%.</p>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>The Rent vs Buy Decision in NZ</h2>
+      <p>NZ has historically rewarded buyers — property prices have roughly doubled every 10 years on average for decades. But the answer depends heavily on three things: how long you'll stay, capital growth, and what return you'd otherwise earn on the deposit.</p>
+      <h3>Hidden Costs of Buying</h3>
+      <p>Beyond the mortgage: legal fees ($1,500–$3,000), LIM and building inspection ($600–$1,200), council rates ($2,000–$4,500/yr), insurance ($1,500–$3,000/yr), maintenance (~1% of property value/yr), and selling costs of 3% if you eventually sell.</p>
+      <h3>Hidden Costs of Renting</h3>
+      <p>You miss out on capital growth, but also pay no rates, no insurance, no maintenance. The "opportunity cost" of a $160k deposit invested at 5% is ~$8,000/yr you'd earn instead.</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How long should I plan to stay to make buying worthwhile? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">As a rule of thumb in NZ: 5+ years for buying to break even on transaction costs alone. 7–10+ years for capital growth to clearly out-pace rent + opportunity cost. Shorter horizons usually favour renting.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does this account for tax? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">For your own home (owner-occupied), no capital gains tax applies in NZ. The opportunity cost of investing the deposit elsewhere would be taxed (PIE/RWT). This calculator simplifies tax treatment.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🇳🇿 Property Tools</h3>
+      <a href="/property/mortgage-calculator/" class="related-link">🏦 LVR &amp; Deposit</a>
+      <a href="/property/rental-yield/" class="related-link">🏠 Rental Yield</a>
+      <a href="/property/bright-line-test/" class="related-link">📜 Bright-Line Test</a>
+      <a href="/finance/kiwisaver-calculator/" class="related-link">🥝 KiwiSaver Projection</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/property/">Property</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Educational tool only, not financial advice.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-NZ'); }
+  function calculate() {
+    const price = parseFloat(document.getElementById('price').value) || 0;
+    const deposit = parseFloat(document.getElementById('deposit').value) || 0;
+    const rate = (parseFloat(document.getElementById('rate').value) || 0) / 100;
+    const growth = (parseFloat(document.getElementById('growth').value) || 0) / 100;
+    const weeklyRent = parseFloat(document.getElementById('rent').value) || 0;
+    const rentGrowth = (parseFloat(document.getElementById('rentgrowth').value) || 0) / 100;
+    const years = 10;
+
+    const loan = Math.max(0, price - deposit);
+    const monthlyRate = rate / 12;
+    const totalMonths = 30 * 12;
+    let monthlyPayment = 0;
+    if (loan > 0 && monthlyRate > 0) monthlyPayment = loan * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+
+    // 10-year buy cost: payments + rates/ins + maintenance - equity built - capital appreciation
+    let balance = loan, interestPaid = 0, principalPaid = 0;
+    for (let m = 0; m < years * 12; m++) {
+      const interest = balance * monthlyRate;
+      const principal = monthlyPayment - interest;
+      interestPaid += interest;
+      principalPaid += principal;
+      balance -= principal;
+    }
+    const ratesIns = 5000 * years;
+    const maintenance = price * 0.01 * years;
+    const futureValue = price * Math.pow(1 + growth, years);
+    const capitalGain = futureValue - price;
+    const buyCost = interestPaid + ratesIns + maintenance - capitalGain;
+
+    // 10-year rent cost: cumulative rent with growth + opportunity cost of deposit at 5%
+    let cumRent = 0, currentWeekly = weeklyRent;
+    for (let y = 0; y < years; y++) {
+      cumRent += currentWeekly * 52;
+      currentWeekly *= (1 + rentGrowth);
+    }
+    const opportunityCost = deposit > 0 ? (deposit * Math.pow(1.05, years) - deposit) : 0;
+    const rentCost = cumRent - opportunityCost;
+
+    document.getElementById('r-buy').textContent = fmt(buyCost);
+    document.getElementById('r-rent').textContent = fmt(rentCost);
+    document.getElementById('r-future').textContent = fmt(futureValue);
+    if (buyCost < rentCost) {
+      document.getElementById('r-winner').textContent = 'Buying — save ' + fmt(rentCost - buyCost);
+    } else {
+      document.getElementById('r-winner').textContent = 'Renting — save ' + fmt(buyCost - rentCost);
+    }
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paint Calculator NZ — Litres for Walls &amp; Ceiling | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free NZ paint calculator. Work out exactly how many litres of paint you need for walls, ceiling, and trim. Includes coat count and 10% waste allowance.">
+  <meta name="keywords" content="paint calculator NZ, paint coverage, litres of paint, Resene Dulux paint coverage, NZ painting">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/construction/paint-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <style>:root { --accent: #ea580c; --accent-light: #fff7ed; --accent-dark: #9a3412; }</style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Construction","item":"https://onlinecalculator.co.nz/construction/"},
+    {"@type":"ListItem","position":3,"name":"Paint Calculator","item":"https://onlinecalculator.co.nz/construction/paint-calculator/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/construction/">Construction</a> <span>›</span> <span>Paint Calculator</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">🎨</span>
+          <h1>Paint Calculator <span class="nz-badge">🇳🇿 NZ</span></h1>
+        </div>
+        <p>How many litres of paint do you need for your room?</p>
+      </div>
+      <div class="calc-body">
+
+        <h3 style="font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px">Room Dimensions</h3>
+        <div class="input-row">
+          <div class="field-group"><label>Length (m)</label><input type="number" id="l" value="4" min="0.5" step="0.1" oninput="calculate()" autofocus></div>
+          <div class="field-group"><label>Width (m)</label><input type="number" id="w" value="3" min="0.5" step="0.1" oninput="calculate()"></div>
+        </div>
+        <div class="field-group"><label>Wall Height (m)</label><input type="number" id="h" value="2.4" min="1" step="0.1" oninput="calculate()"></div>
+
+        <h3 style="font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin:18px 0 12px">Openings (subtract)</h3>
+        <div class="input-row">
+          <div class="field-group"><label># Doors (2 m²)</label><input type="number" id="doors" value="1" min="0" step="1" oninput="calculate()"></div>
+          <div class="field-group"><label># Windows (1.5 m²)</label><input type="number" id="windows" value="2" min="0" step="1" oninput="calculate()"></div>
+        </div>
+
+        <div class="input-row">
+          <div class="field-group">
+            <label for="coverage">Coverage (m²/L)</label>
+            <input type="number" id="coverage" value="12" min="6" max="20" step="1" oninput="calculate()">
+          </div>
+          <div class="field-group">
+            <label for="coats">Number of Coats</label>
+            <select id="coats" onchange="calculate()">
+              <option value="1">1 coat (touch-up)</option>
+              <option value="2" selected>2 coats (standard)</option>
+              <option value="3">3 coats (light over dark)</option>
+            </select>
+          </div>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" id="ceiling" onchange="calculate()">
+          <label for="ceiling">Include ceiling</label>
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row"><span class="breakdown-label">Paint Required (incl. 10% waste)</span><span class="breakdown-value" id="r-litres">0 L</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Wall Area</span><span class="breakdown-value" id="r-wallarea">0 m²</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Ceiling Area</span><span class="breakdown-value" id="r-ceilarea">0 m²</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Total Painted Area</span><span class="breakdown-value" id="r-totalarea">0 m²</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Suggested Tin Sizes</span><span class="breakdown-value" id="r-tins" style="font-size:13px">—</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>NZ Paint Coverage Rates</h2>
+      <p>Most quality NZ interior paints (Resene, Dulux, Wattyl) cover <strong>10–14 m² per litre</strong> on a smooth surface in one coat. Use the lower end for porous primer coats, textured surfaces, or rough timber. Use the higher end for second coats on already-primed walls.</p>
+      <h3>How Many Coats?</h3>
+      <p>Most jobs need 2 coats over a primer/undercoat. Painting a light colour over a dark colour often needs 3 coats or a tinted undercoat. Patch-touch-ups are usually fine with 1 coat if you have the original tin.</p>
+      <h3>Don't Forget Primer</h3>
+      <p>New gib, raw timber, MDF, and patches all need primer/sealer. Resene Quick Dry, Dulux 1Step or Wattyl Killrust are common NZ choices. Primer is in addition to topcoat litres.</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Should I roller or brush? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Roller for flat wall areas — much faster and a smoother finish. Brush (or a small "cut-in" brush) for edges, corners, trim, and around fittings. Spray for large external jobs or factory-style finishes.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What sheen for what room? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Matte/flat: ceilings, low-traffic walls. Low-sheen/eggshell: living rooms, bedrooms. Semi-gloss: kitchens, bathrooms, trim. Gloss: exterior trim, doors, durable surfaces.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🏗️ Construction Tools</h3>
+      <a href="/construction/concrete-volume/" class="related-link">🧱 Concrete Volume</a>
+      <a href="/construction/decking-calculator/" class="related-link">🪵 Decking</a>
+      <a href="/finance/gst-calculator/" class="related-link">🧾 GST Calculator</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/construction/">Construction</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Estimate only. Round up — leftover paint is useful for touch-ups.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  function calculate() {
+    const l = parseFloat(document.getElementById('l').value) || 0;
+    const w = parseFloat(document.getElementById('w').value) || 0;
+    const h = parseFloat(document.getElementById('h').value) || 0;
+    const doors = parseFloat(document.getElementById('doors').value) || 0;
+    const windows = parseFloat(document.getElementById('windows').value) || 0;
+    const cov = parseFloat(document.getElementById('coverage').value) || 12;
+    const coats = parseInt(document.getElementById('coats').value);
+    const ceiling = document.getElementById('ceiling').checked;
+    const wallArea = 2 * (l + w) * h - (doors * 2) - (windows * 1.5);
+    const ceilArea = ceiling ? l * w : 0;
+    const total = Math.max(0, wallArea) + ceilArea;
+    const litres = total * coats / cov * 1.1;
+    // Recommend tin sizes (NZ tins: 1L, 2L, 4L, 10L)
+    let tins = '';
+    let need = Math.ceil(litres);
+    while (need > 0) {
+      if (need >= 10) { tins += '1× 10L  '; need -= 10; }
+      else if (need >= 4) { tins += '1× 4L  '; need -= 4; }
+      else if (need >= 2) { tins += '1× 2L  '; need -= 2; }
+      else { tins += '1× 1L  '; need -= 1; }
+    }
+    document.getElementById('r-litres').textContent = litres.toFixed(1) + ' L';
+    document.getElementById('r-wallarea').textContent = Math.max(0, wallArea).toFixed(1) + ' m²';
+    document.getElementById('r-ceilarea').textContent = ceilArea.toFixed(1) + ' m²';
+    document.getElementById('r-totalarea').textContent = total.toFixed(1) + ' m²';
+    document.getElementById('r-tins').textContent = tins.trim() || '—';
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>

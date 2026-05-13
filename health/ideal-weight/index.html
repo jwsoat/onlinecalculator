@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ideal Weight Calculator NZ — Healthy Weight Range | OnlineCalculator.co.nz</title>
+  <meta name="description" content="NZ ideal weight calculator. Compare Devine, Robinson, Miller, and Hamwi formulas and see your healthy BMI weight range based on your height.">
+  <meta name="keywords" content="ideal weight calculator NZ, healthy weight range, Devine formula, Robinson formula, target weight">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/health/ideal-weight/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <style>:root { --accent: #dc2626; --accent-light: #fef2f2; --accent-dark: #991b1b; }</style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Health","item":"https://onlinecalculator.co.nz/health/"},
+    {"@type":"ListItem","position":3,"name":"Ideal Weight","item":"https://onlinecalculator.co.nz/health/ideal-weight/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/health/">Health</a> <span>›</span> <span>Ideal Weight</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">🏋️</span>
+          <h1>Ideal Weight Calculator <span class="nz-badge">🇳🇿 NZ</span></h1>
+        </div>
+        <p>Compare classic formulas and the healthy BMI range for your height.</p>
+      </div>
+      <div class="calc-body">
+
+        <div class="input-row">
+          <div class="field-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" value="175" min="100" max="250" step="1" oninput="calculate()" autofocus>
+          </div>
+          <div class="field-group">
+            <label for="sex">Sex</label>
+            <select id="sex" onchange="calculate()">
+              <option value="male" selected>Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-header">Healthy Weight Range</div>
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row"><span class="breakdown-label">BMI Healthy Range (18.5–24.9)</span><span class="breakdown-value" id="r-bmi">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Devine (1974)</span><span class="breakdown-value" id="r-devine">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Robinson (1983)</span><span class="breakdown-value" id="r-robinson">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Miller (1983)</span><span class="breakdown-value" id="r-miller">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Hamwi (1964)</span><span class="breakdown-value" id="r-hamwi">—</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>What "Ideal Weight" Really Means</h2>
+      <p>There's no single "perfect" weight. The four classic formulas (Devine, Robinson, Miller, Hamwi) were originally created for pharmaceutical dosing, not aesthetic targets. They tend to give a single number for each height + sex.</p>
+      <p>For most people the <strong>BMI healthy range</strong> (18.5–24.9) is more useful — it gives a range you can fall anywhere within, accounting for muscle and frame size. Athletes with high muscle mass may sit above the range while still being lean and healthy.</p>
+      <h3>Better Markers Than Weight Alone</h3>
+      <p>Waist circumference, waist-to-height ratio (should be &lt; 0.5), body composition (DXA scans available at some NZ clinics), and fitness markers like resting heart rate often track health better than weight on its own.</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Why do the four formulas give different answers? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">They were derived from different populations decades apart. Devine is the original; the others tried to improve fit for shorter and taller adults. None were designed for modern body-composition assessment.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>❤️ Health Tools</h3>
+      <a href="/health/bmi-calculator/" class="related-link">⚖️ BMI Calculator</a>
+      <a href="/health/calorie-calculator/" class="related-link">🥗 Calorie Calculator</a>
+      <a href="/health/pregnancy-due-date/" class="related-link">🤱 Pregnancy Due Date</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/health/">Health</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Indicative only, not medical advice.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  function fmtKg(n) { return n.toFixed(1) + ' kg'; }
+  function calculate() {
+    const cm = parseFloat(document.getElementById('height').value) || 0;
+    const sex = document.getElementById('sex').value;
+    const m = cm / 100;
+    const inchesOver5ft = Math.max(0, (cm - 152.4) / 2.54);
+    // Devine
+    const devine = sex === 'male' ? (50 + 2.3 * inchesOver5ft) : (45.5 + 2.3 * inchesOver5ft);
+    // Robinson
+    const robinson = sex === 'male' ? (52 + 1.9 * inchesOver5ft) : (49 + 1.7 * inchesOver5ft);
+    // Miller
+    const miller = sex === 'male' ? (56.2 + 1.41 * inchesOver5ft) : (53.1 + 1.36 * inchesOver5ft);
+    // Hamwi
+    const hamwi = sex === 'male' ? (48 + 2.7 * inchesOver5ft) : (45.5 + 2.2 * inchesOver5ft);
+    const minBMI = 18.5 * m * m, maxBMI = 24.9 * m * m;
+    document.getElementById('r-bmi').textContent = minBMI.toFixed(1) + ' – ' + maxBMI.toFixed(1) + ' kg';
+    document.getElementById('r-devine').textContent = fmtKg(devine);
+    document.getElementById('r-robinson').textContent = fmtKg(robinson);
+    document.getElementById('r-miller').textContent = fmtKg(miller);
+    document.getElementById('r-hamwi').textContent = fmtKg(hamwi);
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>

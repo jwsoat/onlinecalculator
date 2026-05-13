@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GST Calculator NZ — Add or Remove 15% GST Free | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free NZ GST calculator. Add 15% GST to a price or remove GST from a GST-inclusive amount instantly. Perfect for NZ businesses, invoices, and IRD returns.">
+  <meta name="keywords" content="GST calculator NZ, New Zealand GST, add GST, remove GST, 15% GST, GST inclusive exclusive, IRD GST">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/finance/gst-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Finance","item":"https://onlinecalculator.co.nz/finance/"},
+    {"@type":"ListItem","position":3,"name":"GST Calculator","item":"https://onlinecalculator.co.nz/finance/gst-calculator/"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"HowTo","name":"How to calculate NZ GST",
+   "description":"Calculate New Zealand GST (Goods and Services Tax) at 15%",
+   "step":[
+     {"@type":"HowToStep","text":"Enter the price amount in the field"},
+     {"@type":"HowToStep","text":"Choose whether your price already includes GST or not"},
+     {"@type":"HowToStep","text":"The GST amount and total are calculated instantly"}
+   ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is the current NZ GST rate?","acceptedAnswer":{"@type":"Answer","text":"New Zealand's GST rate is 15% and has been since 1 October 2010, when it was raised from 12.5%."}},
+    {"@type":"Question","name":"How do I calculate GST on an inclusive price?","acceptedAnswer":{"@type":"Answer","text":"Divide the GST-inclusive price by 1.15 to get the GST-exclusive price. Multiply that by 0.15 to get the GST component."}},
+    {"@type":"Question","name":"When do I have to register for GST?","acceptedAnswer":{"@type":"Answer","text":"You must register for GST with IRD when your turnover from taxable activities reaches $60,000 in any 12-month period."}}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/finance/">Finance</a> <span>›</span> <span>GST Calculator</span></div>
+  </div>
+</nav>
+
+<!-- AdSense slot: ad-top (728x90 desktop / 320x100 mobile) -->
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">🧾</span>
+          <h1>GST Calculator <span class="nz-badge">🇳🇿 NZ 15%</span></h1>
+        </div>
+        <p>Instantly add or remove New Zealand's 15% Goods and Services Tax from any amount.</p>
+      </div>
+      <div class="calc-body">
+
+        <div class="mode-toggle">
+          <button class="mode-btn active" id="btn-add" onclick="setMode('add')">➕ Add GST</button>
+          <button class="mode-btn" id="btn-remove" onclick="setMode('remove')">➖ Remove GST</button>
+        </div>
+
+        <label for="amount-input" id="amount-label">Enter amount (excl. GST)</label>
+        <div class="input-group" style="margin-bottom:20px">
+          <span class="input-prefix">$</span>
+          <input type="number" id="amount-input" class="has-prefix" placeholder="0.00" step="0.01" min="0" oninput="calculate()" autofocus>
+        </div>
+
+        <div class="results">
+          <div class="result-row">
+            <span class="result-label" id="ex-label">Excl. GST</span>
+            <span class="result-value" id="ex-amount">$0.00</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">GST (15%)</span>
+            <span class="result-value" id="gst-amount">$0.00</span>
+          </div>
+          <div class="result-row highlight">
+            <span class="result-label" id="inc-label">Incl. GST (Total)</span>
+            <span class="result-value" id="inc-amount">$0.00</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button class="btn btn-primary" id="copy-btn" onclick="copyResult()">Copy Total</button>
+          <button class="btn btn-ghost" onclick="clearCalc()">Clear</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AdSense slot: ad-in-article (336x280 desktop / 300x250 mobile) -->
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>How NZ GST Works</h2>
+      <p>New Zealand's Goods and Services Tax (GST) is a broad-based consumption tax of <strong>15%</strong>, introduced in 1986. It applies to almost all goods and services sold in New Zealand. Businesses registered for GST must collect it on sales and can claim it back on business expenses.</p>
+
+      <h3>GST Formulas</h3>
+      <div class="formula-box">
+        <div><span>Adding GST:</span> GST-inclusive price = Original × 1.15</div>
+        <div style="margin-top:8px"><span>Removing GST:</span> GST amount = Inclusive ÷ 1.15 × 0.15</div>
+        <div style="margin-top:8px"><span>GST portion:</span> Inclusive ÷ 1.15 = Excl. GST price</div>
+      </div>
+
+      <h3>Do You Need to Register for GST?</h3>
+      <p>You must register for GST with Inland Revenue (IRD) if your taxable turnover exceeds <strong>$60,000 in any 12-month period</strong>. Voluntary registration is available for businesses below this threshold.</p>
+
+      <h3>GST on Common Transactions</h3>
+      <p>Most goods and services attract GST at 15%. Key exceptions include:</p>
+      <p style="color:var(--text)">✅ <strong>Zero-rated (0%):</strong> Exports, financial services (some), donated goods sold by charities</p>
+      <p style="color:var(--text)">❌ <strong>Exempt:</strong> Residential rents, donations, certain financial services</p>
+
+      <h2 style="margin-top:28px">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What is the current NZ GST rate? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">New Zealand's GST rate is 15% and has been since 1 October 2010, when it was raised from 12.5%. There are no current plans to change this rate.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How do I calculate GST on an inclusive price? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Divide the GST-inclusive price by 1.15 to get the GST-exclusive price. Multiply that by 0.15 to get the GST component. For example: $115 ÷ 1.15 = $100 (excl. GST), and $100 × 0.15 = $15 (GST).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">When do I have to register for GST? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">You must register for GST with IRD when your turnover from taxable activities reaches $60,000 in any 12-month period. You can also register voluntarily below this threshold.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How often do I file GST returns? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">GST returns can be filed monthly, two-monthly, or six-monthly. Most businesses file every two months. If your turnover is over $24 million per year, you must file monthly.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <!-- AdSense slot: ad-sidebar (300x250 desktop only) -->
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="sidebar-card">
+      <h3>🇳🇿 NZ Finance Tools</h3>
+      <a href="/finance/paye-calculator/" class="related-link">💰 PAYE / Net Salary</a>
+      <a href="/finance/kiwisaver-calculator/" class="related-link">🥝 KiwiSaver Projection</a>
+      <a href="/finance/mortgage-calculator/" class="related-link">🏦 Mortgage Calculator</a>
+      <a href="/finance/percentage-calculator/" class="related-link">% Percentage Calculator</a>
+      <a href="/finance/compound-interest/" class="related-link">📈 Compound Interest</a>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>💡 GST Tip</h3>
+      <div class="tip-box">
+        Quick shortcut: to find the GST in a GST-inclusive price, multiply by <strong>3 ÷ 23</strong> (≈ 0.13043). Mathematically equivalent to ÷ 1.15 × 0.15.
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>📋 GST Return Dates</h3>
+      <div style="font-size:13px;color:var(--muted)">
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)"><span>Jan–Feb</span><span style="font-family:'DM Mono',monospace;color:var(--text)">28 Mar</span></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)"><span>Mar–Apr</span><span style="font-family:'DM Mono',monospace;color:var(--text)">28 May</span></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)"><span>May–Jun</span><span style="font-family:'DM Mono',monospace;color:var(--text)">28 Jul</span></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0"><span>Jul–Aug</span><span style="font-family:'DM Mono',monospace;color:var(--text)">28 Sep</span></div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="/">Home</a><a href="/finance/">Finance</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a>
+  </div>
+  <p>© 2026 OnlineCalculator.co.nz — For informational purposes only. Verify with your accountant or IRD.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  let mode = 'add';
+  function setMode(m) {
+    mode = m;
+    document.getElementById('btn-add').classList.toggle('active', m === 'add');
+    document.getElementById('btn-remove').classList.toggle('active', m === 'remove');
+    document.getElementById('amount-label').textContent = m === 'add' ? 'Enter amount (excl. GST)' : 'Enter amount (incl. GST)';
+    calculate();
+  }
+  function fmt(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function calculate() {
+    const val = parseFloat(document.getElementById('amount-input').value) || 0;
+    let excl, gst, incl;
+    if (mode === 'add') { excl = val; gst = val * 0.15; incl = val * 1.15; }
+    else { incl = val; excl = val / 1.15; gst = excl * 0.15; }
+    document.getElementById('ex-amount').textContent = fmt(excl);
+    document.getElementById('gst-amount').textContent = fmt(gst);
+    document.getElementById('inc-amount').textContent = fmt(incl);
+  }
+  function clearCalc() { document.getElementById('amount-input').value = ''; calculate(); }
+  function copyResult() {
+    const val = document.getElementById('inc-amount').textContent;
+    navigator.clipboard.writeText(val.replace('$', '')).catch(() => {});
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ Copied!'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy Total'; btn.classList.remove('copied'); }, 2000);
+  }
+  function toggleFaq(el) {
+    el.nextElementSibling.classList.toggle('open');
+    el.querySelector('.faq-arrow').classList.toggle('open');
+  }
+</script>
+</body>
+</html>

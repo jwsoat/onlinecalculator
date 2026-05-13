@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compound Interest Calculator NZ — Investment Growth | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free NZ compound interest calculator. See how your savings or investment grows over time with regular contributions. Daily, monthly, or annual compounding.">
+  <meta name="keywords" content="compound interest calculator NZ, investment calculator New Zealand, savings growth calculator, term deposit calculator">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/finance/compound-interest/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Finance","item":"https://onlinecalculator.co.nz/finance/"},
+    {"@type":"ListItem","position":3,"name":"Compound Interest","item":"https://onlinecalculator.co.nz/finance/compound-interest/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/finance/">Finance</a> <span>›</span> <span>Compound Interest</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">📈</span>
+          <h1>Compound Interest <span class="nz-badge">🇳🇿 NZ</span></h1>
+        </div>
+        <p>See how your investment grows with the magic of compounding.</p>
+      </div>
+      <div class="calc-body">
+        <div class="field-group">
+          <label for="principal">Starting Amount</label>
+          <div class="input-group"><span class="input-prefix">$</span><input type="number" id="principal" class="has-prefix" value="10000" min="0" step="500" oninput="calculate()" autofocus></div>
+        </div>
+        <div class="field-group">
+          <label for="contrib">Monthly Contribution</label>
+          <div class="input-group"><span class="input-prefix">$</span><input type="number" id="contrib" class="has-prefix" value="200" min="0" step="50" oninput="calculate()"></div>
+        </div>
+        <div class="input-row">
+          <div class="field-group">
+            <label for="rate">Annual Return (%)</label>
+            <input type="number" id="rate" value="6" min="0" max="30" step="0.1" oninput="calculate()">
+          </div>
+          <div class="field-group">
+            <label for="years">Years</label>
+            <input type="number" id="years" value="20" min="1" max="60" step="1" oninput="calculate()">
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="freq">Compounding Frequency</label>
+          <select id="freq" onchange="calculate()">
+            <option value="365">Daily</option>
+            <option value="12" selected>Monthly</option>
+            <option value="4">Quarterly</option>
+            <option value="1">Annually</option>
+          </select>
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-header">Projection</div>
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row"><span class="breakdown-label">Final Balance</span><span class="breakdown-value" id="r-final">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Starting Principal</span><span class="breakdown-value" id="r-principal">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Total Contributions</span><span class="breakdown-value" id="r-contrib">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Interest Earned</span><span class="breakdown-value" id="r-interest" style="color:var(--accent-dark)">$0</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>The Power of Compounding</h2>
+      <p>Compound interest is interest earned on both your original investment and on the interest already accumulated. Albert Einstein reportedly called it "the eighth wonder of the world." For long-term savers it transforms small regular contributions into large balances.</p>
+      <h3>The Formula</h3>
+      <div class="formula-box">
+        <div><span>A</span> = P × (1 + r/n)<sup>nt</sup></div>
+        <div style="margin-top:8px;color:var(--muted)">P = principal, r = annual rate, n = compounds per year, t = years</div>
+      </div>
+      <h3>NZ Term Deposit Rates</h3>
+      <p>Bank term deposit rates in NZ vary from ~3% (call accounts) to 5%–6% (1–5 year fixed). Returns are taxed as Resident Withholding Tax (RWT) at your marginal rate.</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is investment return taxed in NZ? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Yes. Interest is taxed as RWT at your marginal rate. KiwiSaver and PIE funds are taxed at your Prescribed Investor Rate (PIR), capped at 28%. Capital gains on shares held long-term are generally not taxed for individuals.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's a realistic return assumption? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Conservative funds: 3–4% p.a. after fees. Balanced: 4–6%. Growth/share funds: 6–8% long-term average. Past performance isn't a guarantee — markets are volatile year-to-year.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🇳🇿 Finance Tools</h3>
+      <a href="/finance/kiwisaver-calculator/" class="related-link">🥝 KiwiSaver Projection</a>
+      <a href="/finance/mortgage-calculator/" class="related-link">🏦 Mortgage</a>
+      <a href="/finance/percentage-calculator/" class="related-link">% Percentage</a>
+      <a href="/finance/loan-calculator/" class="related-link">📋 Loan</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/finance/">Finance</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Projections only. Not financial advice.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-NZ'); }
+  function calculate() {
+    const P = parseFloat(document.getElementById('principal').value) || 0;
+    const C = parseFloat(document.getElementById('contrib').value) || 0;
+    const r = (parseFloat(document.getElementById('rate').value) || 0) / 100;
+    const t = parseFloat(document.getElementById('years').value) || 0;
+    const n = parseInt(document.getElementById('freq').value);
+    // Future value of principal + future value of monthly contributions
+    const monthlyRate = r / 12;
+    const months = t * 12;
+    const compoundPerPeriod = r / n;
+    const totalPeriods = n * t;
+    const fvPrincipal = P * Math.pow(1 + compoundPerPeriod, totalPeriods);
+    let fvContrib = 0;
+    if (monthlyRate > 0 && C > 0) {
+      fvContrib = C * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+    } else {
+      fvContrib = C * months;
+    }
+    const final = fvPrincipal + fvContrib;
+    const totalContrib = C * months;
+    const interest = final - P - totalContrib;
+    document.getElementById('r-final').textContent = fmt(final);
+    document.getElementById('r-principal').textContent = fmt(P);
+    document.getElementById('r-contrib').textContent = fmt(totalContrib);
+    document.getElementById('r-interest').textContent = fmt(interest);
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>

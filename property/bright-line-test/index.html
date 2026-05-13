@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bright-Line Test Calculator NZ — Property Sale Tax | OnlineCalculator.co.nz</title>
+  <meta name="description" content="Free NZ bright-line test calculator. Find out if your residential property sale is within the 2-year bright-line period and estimate the taxable gain.">
+  <meta name="keywords" content="bright-line test NZ, bright-line calculator, NZ property sale tax, 2-year bright-line rule, residential land tax NZ">
+  <link rel="canonical" href="https://onlinecalculator.co.nz/property/bright-line-test/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/assets/ads.css">
+  <style>:root { --accent: #0e7490; --accent-light: #ecfeff; --accent-dark: #155e75; }</style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
+    {"@type":"ListItem","position":2,"name":"Property","item":"https://onlinecalculator.co.nz/property/"},
+    {"@type":"ListItem","position":3,"name":"Bright-Line Test","item":"https://onlinecalculator.co.nz/property/bright-line-test/"}
+  ]}
+  </script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">🧮 Online<span class="logo-dot">Calculator</span><span style="color:var(--muted);font-weight:400">.co.nz</span></a>
+    <div class="breadcrumb"><a href="/property/">Property</a> <span>›</span> <span>Bright-Line Test</span></div>
+  </div>
+</nav>
+
+<div class="ad-slot ad-top" data-slot="ad-top">
+    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<div class="page-wrap">
+  <div>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="calc-header-top">
+          <span class="calc-emoji">📜</span>
+          <h1>Bright-Line Test <span class="nz-badge">🇳🇿 2-yr rule</span></h1>
+        </div>
+        <p>Is your residential property sale within the bright-line period? Estimate the tax.</p>
+      </div>
+      <div class="calc-body">
+
+        <div class="input-row">
+          <div class="field-group">
+            <label for="purchase-date">Purchase Date</label>
+            <input type="date" id="purchase-date" value="2024-09-01" oninput="calculate()">
+          </div>
+          <div class="field-group">
+            <label for="sale-date">Sale Date</label>
+            <input type="date" id="sale-date" value="2026-05-14" oninput="calculate()">
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="field-group">
+            <label for="purchase-price">Purchase Price</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="purchase-price" class="has-prefix" value="700000" min="0" step="10000" oninput="calculate()"></div>
+          </div>
+          <div class="field-group">
+            <label for="sale-price">Sale Price</label>
+            <div class="input-group"><span class="input-prefix">$</span><input type="number" id="sale-price" class="has-prefix" value="850000" min="0" step="10000" oninput="calculate()"></div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="costs">Costs to Add to Cost Base (legal, improvements, selling fees)</label>
+          <div class="input-group"><span class="input-prefix">$</span><input type="number" id="costs" class="has-prefix" value="25000" min="0" step="1000" oninput="calculate()"></div>
+        </div>
+
+        <div class="field-group">
+          <label for="tax-rate">Your Marginal Tax Rate</label>
+          <select id="tax-rate" onchange="calculate()">
+            <option value="0.105">10.5%</option>
+            <option value="0.175">17.5%</option>
+            <option value="0.30">30%</option>
+            <option value="0.33" selected>33%</option>
+            <option value="0.39">39%</option>
+          </select>
+        </div>
+
+        <div class="breakdown">
+          <div class="breakdown-header">Result</div>
+          <div class="breakdown-table">
+            <div class="breakdown-row take-home-row"><span class="breakdown-label">Bright-Line Applies?</span><span class="breakdown-value" id="r-applies" style="font-size:14px">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Days Held</span><span class="breakdown-value" id="r-days">0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Capital Gain</span><span class="breakdown-value" id="r-gain">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Estimated Tax</span><span class="breakdown-value negative" id="r-tax">$0</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Net After Tax</span><span class="breakdown-value" id="r-net">$0</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-in-article" data-slot="ad-in-article">
+    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+    <div class="info-section">
+      <h2>The NZ Bright-Line Test</h2>
+      <p>The bright-line test taxes profits on residential property sold within a set period of buying it, even if the seller wasn't running a property business. It's not capital gains tax — it's added to your normal income and taxed at your marginal rate.</p>
+      <h3>The 2-Year Rule (from 1 July 2024)</h3>
+      <p>For residential property acquired <strong>on or after 1 July 2024</strong>, the bright-line period is 2 years. Sold within 2 years of purchase? Any gain is taxable. Sold after 2 years? No bright-line tax.</p>
+      <h3>Previous Rules</h3>
+      <p>Property bought between 27 March 2021 and 30 June 2024 was caught by a 10-year (5-year for new builds) bright-line test, since wound back to 2 years. The rule that applies depends on the date you <em>acquired</em> the property.</p>
+      <h3>Main Home Exclusion</h3>
+      <p>Your main home is usually exempt — but only if you've lived in it for most of the bright-line period. Investors and bach owners aren't covered by this exclusion.</p>
+
+      <h2 style="margin-top:24px">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">When does the "acquisition date" start? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Usually the date the title transferred to you (settlement). For off-the-plan purchases the date of the binding contract may apply. Get tax advice for complex situations.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if I lose money on the sale? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Losses within the bright-line period can be ring-fenced — they only offset gains on other bright-line property sales, not your wages.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does this calculator replace tax advice? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">No. This is an indicative calculator. Bright-line rules have exemptions, special cases (relationship property, inheritance, subdivision) and rolling rules that require an accountant or IRD-published guidance.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="ad-slot ad-sidebar" data-slot="ad-sidebar">
+    <!-- AdSense unit: ad-sidebar — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+    <div class="sidebar-card">
+      <h3>🇳🇿 Property Tools</h3>
+      <a href="/property/rental-yield/" class="related-link">🏠 Rental Yield</a>
+      <a href="/property/mortgage-calculator/" class="related-link">🏦 LVR &amp; Deposit</a>
+      <a href="/property/rent-vs-buy/" class="related-link">🔑 Rent vs Buy</a>
+      <a href="/finance/paye-calculator/" class="related-link">💰 PAYE Calculator</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>🔗 IRD Guidance</h3>
+      <div style="font-size:13px"><a href="https://www.ird.govt.nz/property" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">ird.govt.nz/property ↗</a></div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Home</a><a href="/property/">Property</a><a href="/privacy/">Privacy</a><a href="/disclaimer/">Disclaimer</a></div>
+  <p>© 2026 OnlineCalculator.co.nz — Not tax advice. Consult an accountant.</p>
+</footer>
+
+<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
+    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-1450824284210811"
+         data-ad-slot="4444444444"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+<script>
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-NZ'); }
+  function calculate() {
+    const purchase = new Date(document.getElementById('purchase-date').value);
+    const sale = new Date(document.getElementById('sale-date').value);
+    const pp = parseFloat(document.getElementById('purchase-price').value) || 0;
+    const sp = parseFloat(document.getElementById('sale-price').value) || 0;
+    const costs = parseFloat(document.getElementById('costs').value) || 0;
+    const taxRate = parseFloat(document.getElementById('tax-rate').value);
+
+    const days = Math.max(0, Math.round((sale - purchase) / 86400000));
+    const within = days < 730;  // 2 years = 730 days approx
+    const acquiredPostRule = purchase >= new Date('2024-07-01');
+    let applies, msg;
+    if (!acquiredPostRule) {
+      applies = false;
+      msg = '⚠️ Property acquired before 1 Jul 2024 — different rules apply';
+    } else if (within) {
+      applies = true;
+      msg = '⚠️ Yes — within 2-year bright-line period';
+    } else {
+      applies = false;
+      msg = '✅ No — held more than 2 years';
+    }
+    const gain = Math.max(0, sp - pp - costs);
+    const tax = applies ? gain * taxRate : 0;
+    const net = sp - pp - costs - tax;
+
+    document.getElementById('r-applies').textContent = msg;
+    document.getElementById('r-days').textContent = days.toLocaleString('en-NZ');
+    document.getElementById('r-gain').textContent = fmt(gain);
+    document.getElementById('r-tax').textContent = fmt(tax);
+    document.getElementById('r-net').textContent = fmt(net);
+  }
+  function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
+  calculate();
+</script>
+</body>
+</html>
