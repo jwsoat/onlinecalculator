@@ -1,0 +1,20 @@
+{
+  "name": "Online Calculator NZ",
+  "short_name": "Calc NZ",
+  "description": "Free calculators built for New Zealanders — GST, PAYE, KiwiSaver, mortgage, BMI and more.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "en-NZ",
+  "categories": ["finance", "productivity", "utilities", "education"],
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

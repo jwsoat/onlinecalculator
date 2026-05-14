@@ -1,6 +1,33 @@
+# robots.txt for onlinecalculator.co.nz
+# https://developers.google.com/search/docs/crawling-indexing/robots/intro
+
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /draft/
+Disallow: /*?q=
+Disallow: /404.html
+
+# Allow AdSense and AdsBot to crawl ad-bearing pages
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+# Allow all major search engines explicitly
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
 
 Sitemap: https://onlinecalculator.co.nz/sitemap.xml
+Host: https://onlinecalculator.co.nz

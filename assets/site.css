@@ -155,3 +155,26 @@ footer.site-footer { background: var(--surface); border-top: 1px solid var(--bor
 footer.site-footer a { color: var(--muted); text-decoration: none; }
 footer.site-footer a:hover { color: var(--text); }
 .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; flex-wrap: wrap; }
+
+/* LOGO ICON */
+.logo-icon { flex-shrink: 0; vertical-align: -4px; margin-right: 2px; }
+
+/* SHARE BAR — appears above each calculator */
+.share-bar { margin: 0 0 16px; }
+.share-inner { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px; box-shadow: var(--shadow); }
+.share-label { font-size: 12px; font-weight: 600; color: var(--text); letter-spacing: -0.1px; margin-bottom: 8px; }
+.share-label .share-sub { display: inline; font-size: 11px; font-weight: 400; color: var(--muted); margin-left: 6px; }
+.share-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+@media (max-width: 520px) { .share-label .share-sub { display: block; margin-left: 0; margin-top: 1px; } }
+.share-btn { display: inline-flex; align-items: center; gap: 6px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; cursor: pointer; text-decoration: none; transition: background 0.15s, border-color 0.15s, transform 0.08s; }
+.share-btn:hover { background: var(--surface); border-color: var(--text); transform: translateY(-1px); }
+.share-btn:active { transform: translateY(0); }
+.share-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+.share-btn.share-copy.copied { background: var(--accent-light); border-color: var(--accent); color: var(--accent-dark); }
+.share-btn.share-x:hover { background: #000; color: #fff; border-color: #000; }
+.share-btn.share-fb:hover { background: #1877f2; color: #fff; border-color: #1877f2; }
+.share-btn.share-li:hover { background: #0a66c2; color: #fff; border-color: #0a66c2; }
+.share-btn.share-wa:hover { background: #25d366; color: #fff; border-color: #25d366; }
+.share-btn.share-rd:hover { background: #ff4500; color: #fff; border-color: #ff4500; }
+.share-btn.share-em:hover { background: var(--text); color: var(--surface); border-color: var(--text); }
+@media (max-width: 480px) { .share-btn { font-size: 12px; padding: 7px 10px; } }

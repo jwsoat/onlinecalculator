@@ -1,52 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- Homepage -->
   <url>
     <loc>https://onlinecalculator.co.nz/</loc>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://onlinecalculator.co.nz/assets/og-image.png</image:loc>
+      <image:title>Online Calculator NZ — free calculators for New Zealanders</image:title>
+    </image:image>
   </url>
 
   <!-- Finance -->
-  <url><loc>https://onlinecalculator.co.nz/finance/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/finance/gst-calculator/</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/finance/paye-calculator/</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/finance/kiwisaver-calculator/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/finance/mortgage-calculator/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/finance/loan-calculator/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/finance/compound-interest/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/finance/percentage-calculator/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/finance/currency-converter/</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/finance/</loc><lastmod>2026-05-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/finance/gst-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/finance/paye-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/finance/kiwisaver-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/finance/mortgage-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/finance/loan-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/finance/compound-interest/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/finance/percentage-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/finance/currency-converter/</loc><lastmod>2026-05-14</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
 
   <!-- Property -->
-  <url><loc>https://onlinecalculator.co.nz/property/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/property/rental-yield/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/property/mortgage-calculator/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/property/rent-vs-buy/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/property/bright-line-test/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/property/</loc><lastmod>2026-05-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/property/rental-yield/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/property/mortgage-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/property/rent-vs-buy/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/property/bright-line-test/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
 
   <!-- Health -->
-  <url><loc>https://onlinecalculator.co.nz/health/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/health/bmi-calculator/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/health/calorie-calculator/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/health/pregnancy-due-date/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/health/ideal-weight/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/health/</loc><lastmod>2026-05-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/health/bmi-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/health/calorie-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/health/pregnancy-due-date/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/health/ideal-weight/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Construction -->
-  <url><loc>https://onlinecalculator.co.nz/construction/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/construction/concrete-volume/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/construction/paint-calculator/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/construction/decking-calculator/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/construction/</loc><lastmod>2026-05-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/construction/concrete-volume/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/construction/paint-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/construction/decking-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Math -->
-  <url><loc>https://onlinecalculator.co.nz/math/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/math/scientific/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/math/age-calculator/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/math/fraction-calculator/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Maths -->
+  <url><loc>https://onlinecalculator.co.nz/math/</loc><lastmod>2026-05-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/math/scientific/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/math/age-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/math/fraction-calculator/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Supporting -->
-  <url><loc>https://onlinecalculator.co.nz/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://onlinecalculator.co.nz/disclaimer/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/privacy/</loc><lastmod>2026-05-14</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://onlinecalculator.co.nz/disclaimer/</loc><lastmod>2026-05-14</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
 </urlset>

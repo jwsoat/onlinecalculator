@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.08" fill="#22d3ee" font-family="ui-monospace,Menlo,monospace" font-size="40" font-weight="700">
+    <text x="60" y="120">15%</text><text x="900" y="150">$60,000</text>
+    <text x="120" y="540">BMI 24.9</text><text x="820" y="560">3% KS</text>
+  </g>
+  <g transform="translate(80,200)">
+    <rect width="140" height="170" rx="22" fill="#0ea5e9"/>
+    <rect x="14" y="18" width="112" height="40" rx="6" fill="#0f172a"/>
+    <text x="120" y="48" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="22" font-weight="700" fill="#22d3ee">1,234.56</text>
+    <g fill="#ffffff">
+      <circle cx="32" cy="84"  r="9"/><circle cx="70" cy="84"  r="9"/><circle cx="108" cy="84"  r="9"/>
+      <circle cx="32" cy="116" r="9"/><circle cx="70" cy="116" r="9"/><circle cx="108" cy="116" r="9"/>
+      <circle cx="32" cy="148" r="9"/><circle cx="70" cy="148" r="9"/><circle cx="108" cy="148" r="9"/>
+    </g>
+  </g>
+  <g font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif" fill="#f8fafc">
+    <text x="260" y="240" font-size="32" font-weight="500" fill="#94a3b8" letter-spacing="2">ONLINECALCULATOR.CO.NZ</text>
+    <text x="260" y="320" font-size="68" font-weight="800" letter-spacing="-2">Free NZ Calculators</text>
+    <text x="260" y="385" font-size="40" font-weight="600" fill="url(#accent)">GST · PAYE · KiwiSaver · Mortgage · BMI</text>
+    <text x="260" y="460" font-size="26" font-weight="400" fill="#cbd5e1">Fast · Accurate · No signup · 2026 tax rates</text>
+  </g>
+  <g transform="translate(80,520)" font-family="system-ui,sans-serif" fill="#f8fafc">
+    <rect x="0" y="0" width="180" height="50" rx="25" fill="#1e293b" stroke="#334155"/>
+    <text x="90" y="32" text-anchor="middle" font-size="20" font-weight="600">Built for NZ</text>
+    <rect x="200" y="0" width="180" height="50" rx="25" fill="#1e293b" stroke="#334155"/>
+    <text x="290" y="32" text-anchor="middle" font-size="20" font-weight="600">22 calculators</text>
+    <rect x="400" y="0" width="180" height="50" rx="25" fill="#1e293b" stroke="#334155"/>
+    <text x="490" y="32" text-anchor="middle" font-size="20" font-weight="600">100% free</text>
+  </g>
+</svg>
