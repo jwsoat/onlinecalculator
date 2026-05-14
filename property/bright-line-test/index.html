@@ -33,10 +33,13 @@
   <link rel="manifest" href="/assets/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/site.css?v=2">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="dns-prefetch" href="https://analytics.ahrefs.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="/assets/site.css?v=2" fetchpriority="high">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/assets/ads.css?v=2">
+  <link rel="preload" as="style" href="/assets/ads.css?v=2" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/ads.css?v=2"></noscript>
   <style>:root { --accent: #0e7490; --accent-light: #ecfeff; --accent-dark: #155e75; }</style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -48,8 +51,6 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"Bright-Line Test Calculator","url":"https://onlinecalculator.co.nz/property/bright-line-test/","applicationCategory":"FinanceApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript. Works in any modern browser.","inLanguage":"en-NZ","isAccessibleForFree":true,"description":"Check whether your NZ property sale falls within the bright-line test.","keywords":"bright-line, property tax, IRD, capital gains","offers":{"@type":"Offer","price":"0","priceCurrency":"NZD"},"publisher":{"@type":"Organization","name":"OnlineCalculator.co.nz","url":"https://onlinecalculator.co.nz/"},"image":"https://onlinecalculator.co.nz/assets/og-image.png"}
   </script>
-
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="TavfbHhAWnNnA9JIzlyjNQ" async></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When does the \"acquisition date\" start?","acceptedAnswer":{"@type":"Answer","text":"Usually the date the title transferred to you (settlement). For off-the-plan purchases the date of the binding contract may apply. Get tax advice for complex situations."}},{"@type":"Question","name":"What if I lose money on the sale?","acceptedAnswer":{"@type":"Answer","text":"Losses within the bright-line period can be ring-fenced — they only offset gains on other bright-line property sales, not your wages."}},{"@type":"Question","name":"Does this calculator replace tax advice?","acceptedAnswer":{"@type":"Answer","text":"No. This is an indicative calculator. Bright-line rules have exemptions, special cases (relationship property, inheritance, subdivision) and rolling rules that require an accountant or IRD-published guidance."}}]}
   </script>
@@ -315,5 +316,6 @@
   function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
   calculate();
 </script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="TavfbHhAWnNnA9JIzlyjNQ" async></script>
 </body>
 </html>

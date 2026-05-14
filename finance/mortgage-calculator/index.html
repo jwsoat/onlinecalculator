@@ -33,10 +33,13 @@
   <link rel="manifest" href="/assets/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/site.css?v=2">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="dns-prefetch" href="https://analytics.ahrefs.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="/assets/site.css?v=2" fetchpriority="high">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/assets/ads.css?v=2">
+  <link rel="preload" as="style" href="/assets/ads.css?v=2" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/ads.css?v=2"></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
@@ -55,8 +58,6 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"NZ Mortgage Calculator","url":"https://onlinecalculator.co.nz/finance/mortgage-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript. Works in any modern browser.","inLanguage":"en-NZ","isAccessibleForFree":true,"description":"NZ mortgage repayment calculator — weekly, fortnightly or monthly + total interest.","keywords":"mortgage, home loan, repayment, interest, NZ","offers":{"@type":"Offer","price":"0","priceCurrency":"NZD"},"publisher":{"@type":"Organization","name":"OnlineCalculator.co.nz","url":"https://onlinecalculator.co.nz/"},"image":"https://onlinecalculator.co.nz/assets/og-image.png"}
   </script>
-
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="TavfbHhAWnNnA9JIzlyjNQ" async></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much deposit do I need in NZ?","acceptedAnswer":{"@type":"Answer","text":"Most NZ banks require a 20% deposit on owner-occupied loans (LVR limit), though first-home buyers can sometimes get 5%–10% deposit loans via Kāinga Ora First Home Loan or Welcome Home Loan schemes. Investors typically need a 35%–40% deposit."}},{"@type":"Question","name":"Should I fix or float?","acceptedAnswer":{"@type":"Answer","text":"Fixed rates give certainty for 1–5 years; floating rates change with the OCR. Many NZ borrowers split — fixing a portion for stability and floating a portion for flexibility (extra repayments without break fees)."}},{"@type":"Question","name":"How does my term affect total interest?","acceptedAnswer":{"@type":"Answer","text":"A 25-year term has higher monthly payments but much less interest than 30 years. On a $600k loan at 6.5%, a 30-year term costs ~$764k in interest versus ~$615k over 25 years — a $149k saving."}}]}
   </script>
@@ -339,5 +340,6 @@
   }
   calculate();
 </script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="TavfbHhAWnNnA9JIzlyjNQ" async></script>
 </body>
 </html>

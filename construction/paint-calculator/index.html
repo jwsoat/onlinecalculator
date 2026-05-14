@@ -33,10 +33,13 @@
   <link rel="manifest" href="/assets/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/site.css?v=2">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="dns-prefetch" href="https://analytics.ahrefs.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="/assets/site.css?v=2" fetchpriority="high">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/assets/ads.css?v=2">
+  <link rel="preload" as="style" href="/assets/ads.css?v=2" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/ads.css?v=2"></noscript>
   <style>:root { --accent: #ea580c; --accent-light: #fff7ed; --accent-dark: #9a3412; }</style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -48,8 +51,6 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"Paint Calculator","url":"https://onlinecalculator.co.nz/construction/paint-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript. Works in any modern browser.","inLanguage":"en-NZ","isAccessibleForFree":true,"description":"Litres of paint needed for walls, ceiling, and trim.","keywords":"paint, litres, wall, coverage, NZ","offers":{"@type":"Offer","price":"0","priceCurrency":"NZD"},"publisher":{"@type":"Organization","name":"OnlineCalculator.co.nz","url":"https://onlinecalculator.co.nz/"},"image":"https://onlinecalculator.co.nz/assets/og-image.png"}
   </script>
-
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="TavfbHhAWnNnA9JIzlyjNQ" async></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Should I roller or brush?","acceptedAnswer":{"@type":"Answer","text":"Roller for flat wall areas — much faster and a smoother finish. Brush (or a small \"cut-in\" brush) for edges, corners, trim, and around fittings. Spray for large external jobs or factory-style finishes."}},{"@type":"Question","name":"What sheen for what room?","acceptedAnswer":{"@type":"Answer","text":"Matte/flat: ceilings, low-traffic walls. Low-sheen/eggshell: living rooms, bedrooms. Semi-gloss: kitchens, bathrooms, trim. Gloss: exterior trim, doors, durable surfaces."}}]}
   </script>
@@ -294,5 +295,6 @@
   function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
   calculate();
 </script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="TavfbHhAWnNnA9JIzlyjNQ" async></script>
 </body>
 </html>

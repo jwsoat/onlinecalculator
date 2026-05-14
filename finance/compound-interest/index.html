@@ -33,10 +33,13 @@
   <link rel="manifest" href="/assets/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/site.css?v=2">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="dns-prefetch" href="https://analytics.ahrefs.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="/assets/site.css?v=2" fetchpriority="high">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/assets/ads.css?v=2">
+  <link rel="preload" as="style" href="/assets/ads.css?v=2" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/ads.css?v=2"></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
@@ -47,8 +50,6 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"Compound Interest Calculator","url":"https://onlinecalculator.co.nz/finance/compound-interest/","applicationCategory":"FinanceApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript. Works in any modern browser.","inLanguage":"en-NZ","isAccessibleForFree":true,"description":"See your savings grow with monthly contributions and compound interest.","keywords":"compound interest, savings, investment growth","offers":{"@type":"Offer","price":"0","priceCurrency":"NZD"},"publisher":{"@type":"Organization","name":"OnlineCalculator.co.nz","url":"https://onlinecalculator.co.nz/"},"image":"https://onlinecalculator.co.nz/assets/og-image.png"}
   </script>
-
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="TavfbHhAWnNnA9JIzlyjNQ" async></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is investment return taxed in NZ?","acceptedAnswer":{"@type":"Answer","text":"Yes. Interest is taxed as RWT at your marginal rate. KiwiSaver and PIE funds are taxed at your Prescribed Investor Rate (PIR), capped at 28%. Capital gains on shares held long-term are generally not taxed for individuals."}},{"@type":"Question","name":"What's a realistic return assumption?","acceptedAnswer":{"@type":"Answer","text":"Conservative funds: 3–4% p.a. after fees. Balanced: 4–6%. Growth/share funds: 6–8% long-term average. Past performance isn't a guarantee — markets are volatile year-to-year."}}]}
   </script>
@@ -289,5 +290,6 @@
   function toggleFaq(el) { el.nextElementSibling.classList.toggle('open'); el.querySelector('.faq-arrow').classList.toggle('open'); }
   calculate();
 </script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="TavfbHhAWnNnA9JIzlyjNQ" async></script>
 </body>
 </html>
