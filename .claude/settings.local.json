@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(git push *)",
+      "Read(//c/Users/Jwsoat/.ssh/**)",
+      "Read(//c/Users/Jwsoat/.ssh//**)",
+      "Bash(git commit -m ' *)",
+      "WebFetch(domain:developers.google.com)",
+      "Bash(dir /b /s *.html)",
+      "Bash(powershell -NoProfile -Command \"Get-ChildItem -Path . -Recurse -Filter '*.html' | Select-Object -ExpandProperty FullName\")",
+      "Bash(powershell -NoProfile -Command \"Get-ChildItem 'C:\\\\Users\\\\Jwsoat\\\\Documents\\\\Claude\\\\Online Calculator\\\\construction\\\\concrete-volume\\\\index.html' | Select-Object FullName, LastWriteTime\")"
+    ]
+  }
+}
