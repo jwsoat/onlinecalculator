@@ -12,12 +12,17 @@ services:
       - "traefik.docker.network=web"
       - "traefik.http.routers.calc.rule=Host(`onlinecalculator.co.nz`) || Host(`www.onlinecalculator.co.nz`)"
       - "traefik.http.routers.calc.entrypoints=websecure"
-      - "traefik.http.routers.calc.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.calc.tls=true"
       - "traefik.http.services.calc.loadbalancer.server.port=80"
       - "traefik.http.middlewares.calc-redirect.redirectregex.regex=^https?://www\\.onlinecalculator\\.co\\.nz/(.*)"
       - "traefik.http.middlewares.calc-redirect.redirectregex.replacement=https://onlinecalculator.co.nz/$${1}"
       - "traefik.http.middlewares.calc-redirect.redirectregex.permanent=true"
       - "traefik.http.routers.calc.middlewares=calc-redirect"
+      - "traefik.http.routers.calc-http.rule=Host(`onlinecalculator.co.nz`) || Host(`www.onlinecalculator.co.nz`)"
+      - "traefik.http.routers.calc-http.entrypoints=web"
+      - "traefik.http.routers.calc-http.middlewares=calc-https-redirect"
+      - "traefik.http.middlewares.calc-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.calc-https-redirect.redirectscheme.permanent=true"
 
 networks:
   web:
