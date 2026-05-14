@@ -57,12 +57,12 @@ Bing/Yandex/Naver/Seznam are notified of URL updates via [IndexNow](https://www.
 
 - Key: `f14f367cd310965f5fa459458e7540e7`
 - Verification file: [`/f14f367cd310965f5fa459458e7540e7.txt`](./f14f367cd310965f5fa459458e7540e7.txt) — must stay reachable at the site root
-- After a content deploy, ping all URLs (Windows PowerShell 5.1):
+- After a content deploy, ping all URLs (requires PowerShell 7 — install with `winget install Microsoft.PowerShell`):
 
   ```powershell
-  powershell -ExecutionPolicy Bypass -File .\tools\indexnow-ping.ps1
+  pwsh .\tools\indexnow-ping.ps1
   # or just the URLs that changed:
-  powershell -ExecutionPolicy Bypass -File .\tools\indexnow-ping.ps1 -Urls "https://onlinecalculator.co.nz/finance/gst-calculator/"
+  pwsh .\tools\indexnow-ping.ps1 -Urls "https://onlinecalculator.co.nz/finance/gst-calculator/"
   ```
 
 ## Project structure
