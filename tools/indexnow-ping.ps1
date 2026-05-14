@@ -3,9 +3,9 @@
 # IndexNow is supported by Bing, Yandex, Naver, Seznam, and Yep.
 # Google does NOT use IndexNow — they read sitemap.xml + Search Console.
 #
-# Usage:
-#   .\tools\indexnow-ping.ps1                # pings every URL in sitemap.xml
-#   .\tools\indexnow-ping.ps1 -Urls "https://onlinecalculator.co.nz/finance/gst-calculator/","https://onlinecalculator.co.nz/finance/paye-calculator/"
+# Usage (Windows PowerShell 5.1 — the default on Windows 10/11):
+#   powershell -ExecutionPolicy Bypass -File .\tools\indexnow-ping.ps1
+#   powershell -ExecutionPolicy Bypass -File .\tools\indexnow-ping.ps1 -Urls "https://onlinecalculator.co.nz/finance/gst-calculator/"
 #
 # Prerequisite: the key file must already be reachable at:
 #   https://onlinecalculator.co.nz/f14f367cd310965f5fa459458e7540e7.txt
@@ -20,6 +20,8 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+# Windows PowerShell 5.1 negotiates TLS 1.0 by default; IndexNow needs TLS 1.2.
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 if (-not $KeyLocation) { $KeyLocation = "https://$Host_/$Key.txt" }
 
 if (-not $Urls -or $Urls.Count -eq 0) {
