@@ -51,6 +51,20 @@ Required GitHub secrets:
 | `VPS_SSH_KEY` | Private SSH key (full file contents) |
 | `VPS_APP_DIR` | Path to the app directory on the VPS |
 
+## IndexNow
+
+Bing/Yandex/Naver/Seznam are notified of URL updates via [IndexNow](https://www.indexnow.org/). Google does **not** use IndexNow — it relies on `sitemap.xml` and Search Console.
+
+- Key: `f14f367cd310965f5fa459458e7540e7`
+- Verification file: [`/f14f367cd310965f5fa459458e7540e7.txt`](./f14f367cd310965f5fa459458e7540e7.txt) — must stay reachable at the site root
+- After a content deploy, ping all URLs:
+
+  ```powershell
+  pwsh .\tools\indexnow-ping.ps1
+  # or just the URLs that changed:
+  pwsh .\tools\indexnow-ping.ps1 -Urls "https://onlinecalculator.co.nz/finance/gst-calculator/"
+  ```
+
 ## Project structure
 
 ```
