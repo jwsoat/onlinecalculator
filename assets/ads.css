@@ -34,13 +34,12 @@
 
 /* ── Adsterra publisher referral ─────────────────────────────────────────── */
 .adsterra-ref {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   padding: 10px 20px 20px;
   font-size: 13px;
 }
 .adsterra-ref a {
-  display: block;
-  text-align: center;
   color: #6b6860;
   text-decoration: none;
   border-bottom: 1px dashed #c0bdb6;
