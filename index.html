@@ -32,13 +32,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="dns-prefetch" href="https://analytics.ahrefs.com">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"></noscript>
   <link rel="preload" href="/assets/site.css?v=3" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/site.css?v=3"></noscript>
   <style>:root{--bg:#f7f6f3;--surface:#fff;--border:#e4e2dc;--text:#1a1917;--muted:#6b6860;--accent:#1d6f42;--accent-light:#e8f5ee;--accent-dark:#155233;--finance:#1d6f42;--finance-light:#e8f5ee;--property:#0e7490;--property-light:#ecfeff;--health:#b91c1c;--health-light:#fef2f2;--construction:#9a3412;--construction-light:#fff7ed;--math:#7c3aed;--math-light:#f5f3ff;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.04);--shadow-lg:0 4px 6px rgba(0,0,0,.07),0 12px 32px rgba(0,0,0,.08)}body{background:var(--bg);color:var(--text)}</style>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1450824284210811" crossorigin="anonymous"></script>
 
   <script type="application/ld+json">
   {
@@ -143,20 +141,8 @@
     .featured-card h3 { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
     .featured-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
     .featured-card .try-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; color: var(--accent); margin-top: 4px; }
-    .ad-slot { display: block; width: 100%; margin: 0 auto; overflow: hidden; text-align: center; background: transparent; }
-    .ad-top { max-width: 728px; min-height: 90px; margin: 16px auto 8px; }
-    .ad-in-article { max-width: 336px; min-height: 280px; margin: 24px auto; }
-    .ad-sidebar { max-width: 300px; min-height: 250px; margin-bottom: 16px; }
-    .ad-sticky-footer { display: none; }
-    @media (max-width: 768px) {
-      .ad-top { max-width: 320px; min-height: 100px; }
-      .ad-in-article { max-width: 300px; min-height: 250px; }
-      .ad-sidebar { display: none; }
-      .ad-sticky-footer { display: block; position: fixed; left: 0; right: 0; bottom: 0; width: 100%; max-width: none; min-height: 50px; background: var(--surface); border-top: 1px solid var(--border); z-index: 100; margin: 0; }
-      body { padding-bottom: 50px; }
-    }
-    .ad-slot:empty::before { content: "Ad"; display: inline-block; font-size: 10px; color: #c0bdb6; letter-spacing: 0.1em; padding-top: 8px; font-family: 'DM Sans', sans-serif; }
   </style>
+  <link rel="preload" as="style" href="/assets/ads.css?v=3" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/ads.css?v=3"></noscript>
 </head>
 <body>
 
@@ -184,17 +170,6 @@
   </div>
 </div>
 
-<!-- AdSense slot: ad-top (728x90 desktop / 320x100 mobile)
-     Paste <ins class="adsbygoogle">…</ins> here when ca-pub-XXXX is ready -->
-<div class="ad-slot ad-top" data-slot="ad-top">
-    <!-- AdSense unit: ad-top — TODO replace data-ad-slot with the ID from your AdSense console -->
-    <ins class="adsbygoogle" style="display:block"
-         data-ad-client="ca-pub-1450824284210811"
-         data-ad-slot="1111111111"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-  </div>
 
 <main>
 
@@ -285,16 +260,6 @@
     </a>
   </div>
 
-  <!-- AdSense slot: ad-in-article (336x280 desktop / 300x250 mobile) -->
-  <div class="ad-slot ad-in-article" data-slot="ad-in-article">
-    <!-- AdSense unit: ad-in-article — TODO replace data-ad-slot with the ID from your AdSense console -->
-    <ins class="adsbygoogle" style="display:block"
-         data-ad-client="ca-pub-1450824284210811"
-         data-ad-slot="2222222222"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-  </div>
 
   <div class="section-header">
     <div class="cat-icon" style="background:var(--property-light)">🏘️</div>
@@ -425,13 +390,6 @@
 </footer>
 
 <!-- Mobile sticky-footer ad — 320x50, mobile only -->
-<div class="ad-slot ad-sticky-footer" data-slot="ad-sticky-footer">
-    <!-- AdSense unit: ad-sticky-footer — TODO replace data-ad-slot with the ID from your AdSense console -->
-    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px"
-         data-ad-client="ca-pub-1450824284210811"
-         data-ad-slot="4444444444"></ins>
-    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-  </div>
 
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="TavfbHhAWnNnA9JIzlyjNQ" async></script>
 <script>
@@ -486,5 +444,15 @@
     if (!e.target.closest('.search-wrap')) results.style.display = 'none';
   });
 </script>
+
+<!-- Adsterra side panels (160x600, desktop >=1500px only) -->
+<div class="atsp-left">
+<script>atOptions={'key':'a2e71b03b4165b01f76d08f85e2cf33b','format':'iframe','height':600,'width':160,'params':{}};</script>
+<script src="https://valuationappeared.com/a2e71b03b4165b01f76d08f85e2cf33b/invoke.js"></script>
+</div>
+<div class="atsp-right">
+<script>atOptions={'key':'a2e71b03b4165b01f76d08f85e2cf33b','format':'iframe','height':600,'width':160,'params':{}};</script>
+<script src="https://valuationappeared.com/a2e71b03b4165b01f76d08f85e2cf33b/invoke.js"></script>
+</div>
 </body>
 </html>
