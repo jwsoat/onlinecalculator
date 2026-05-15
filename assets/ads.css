@@ -31,3 +31,21 @@
   .atsp-left  { display: block; left: 15px; }
   .atsp-right { display: block; right: 15px; }
 }
+
+/* ── Adsterra publisher referral ─────────────────────────────────────────── */
+.adsterra-ref {
+  text-align: center;
+  padding: 10px 20px 20px;
+  font-size: 13px;
+}
+.adsterra-ref a {
+  display: inline-block;
+  color: #6b6860;
+  text-decoration: none;
+  border-bottom: 1px dashed #c0bdb6;
+  transition: color .15s, border-color .15s;
+}
+.adsterra-ref a:hover {
+  color: #1d6f42;
+  border-bottom-color: #1d6f42;
+}
