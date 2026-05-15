@@ -1,7 +1,22 @@
-/* Adsterra side panel ads — 160x600 wide skyscraper, desktop only.
-   Panels are fixed so they don't affect page flow or CLS.
-   Hidden on viewports narrower than 1500px (not enough room beside 1100px content). */
+/* ── Adsterra top banner: 468×60, centred below nav ───────────────────────── */
+.atop-banner {
+  text-align: center;
+  padding: 8px 0 4px;
+  overflow: hidden;
+}
+/* Hide 468px banner on small screens to avoid horizontal scroll */
+@media (max-width: 499px) { .atop-banner { display: none; } }
 
+/* ── Adsterra bottom banner: 728×90, centred above footer ─────────────────── */
+.abottom-banner {
+  text-align: center;
+  padding: 16px 0 8px;
+  overflow: hidden;
+}
+/* Hide 728px leaderboard on mobile/tablet */
+@media (max-width: 767px) { .abottom-banner { display: none; } }
+
+/* ── Adsterra side panels: 160×600, fixed left + right (desktop ≥1500px) ──── */
 .atsp-left,
 .atsp-right {
   display: none;
@@ -12,7 +27,6 @@
   z-index: 50;
   overflow: hidden;
 }
-
 @media (min-width: 1500px) {
   .atsp-left  { display: block; left: 15px; }
   .atsp-right { display: block; right: 15px; }
