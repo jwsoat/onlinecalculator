@@ -39,7 +39,8 @@
   font-size: 13px;
 }
 .adsterra-ref a {
-  display: inline-block;
+  display: block;
+  text-align: center;
   color: #6b6860;
   text-decoration: none;
   border-bottom: 1px dashed #c0bdb6;
