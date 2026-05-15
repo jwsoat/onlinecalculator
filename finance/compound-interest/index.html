@@ -40,7 +40,7 @@
   <link rel="preload" href="/assets/site.css?v=3" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/site.css?v=3"></noscript>
   <style>:root{--bg:#f7f6f3;--surface:#fff;--border:#e4e2dc;--text:#1a1917;--muted:#6b6860;--accent:#1d6f42;--accent-light:#e8f5ee;--accent-dark:#155233;--finance:#1d6f42;--finance-light:#e8f5ee;--property:#0e7490;--property-light:#ecfeff;--health:#b91c1c;--health-light:#fef2f2;--construction:#9a3412;--construction-light:#fff7ed;--math:#7c3aed;--math-light:#f5f3ff;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.04);--shadow-lg:0 4px 6px rgba(0,0,0,.07),0 12px 32px rgba(0,0,0,.08)}body{background:var(--bg);color:var(--text)}</style>
 
-  <link rel="preload" as="style" href="/assets/ads.css?v=4" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/ads.css?v=4"></noscript>
+  <link rel="preload" as="style" href="/assets/ads.css?v=5" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/ads.css?v=5"></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":"Home","item":"https://onlinecalculator.co.nz/"},
@@ -52,7 +52,7 @@
   {"@context":"https://schema.org","@type":"WebApplication","name":"Compound Interest Calculator","url":"https://onlinecalculator.co.nz/finance/compound-interest/","applicationCategory":"FinanceApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript. Works in any modern browser.","inLanguage":"en-NZ","isAccessibleForFree":true,"description":"See your savings grow with monthly contributions and compound interest.","keywords":"compound interest, savings, investment growth","offers":{"@type":"Offer","price":"0","priceCurrency":"NZD"},"publisher":{"@type":"Organization","name":"OnlineCalculator.co.nz","url":"https://onlinecalculator.co.nz/"},"image":"https://onlinecalculator.co.nz/assets/og-image.png"}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is investment return taxed in NZ?","acceptedAnswer":{"@type":"Answer","text":"Yes. Interest is taxed as RWT at your marginal rate. KiwiSaver and PIE funds are taxed at your Prescribed Investor Rate (PIR), capped at 28%. Capital gains on shares held long-term are generally not taxed for individuals."}},{"@type":"Question","name":"What's a realistic return assumption?","acceptedAnswer":{"@type":"Answer","text":"Conservative funds: 3–4% p.a. after fees. Balanced: 4–6%. Growth/share funds: 6–8% long-term average. Past performance isn't a guarantee — markets are volatile year-to-year."}}]}
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is investment return taxed in NZ?","acceptedAnswer":{"@type":"Answer","text":"Yes. Interest is taxed as RWT at your marginal rate. KiwiSaver and PIE funds are taxed at your Prescribed Investor Rate (PIR), capped at 28%. Capital gains on shares held long-term are generally not taxed for individuals."}},{"@type":"Question","name":"What's a realistic return assumption?","acceptedAnswer":{"@type":"Answer","text":"Conservative funds: 3–4% p.a. after fees. Balanced: 4–6%. Growth/share funds: 6–8% long-term average. Past performance isn't a guarantee — markets are volatile year-to-year."}},{"@type":"Question","name":"How often does compound interest compound?","acceptedAnswer":{"@type":"Answer","text":"The more frequently interest compounds, the faster your balance grows. Common frequencies are daily, monthly, quarterly, and annually. Most NZ savings accounts compound daily or monthly. Daily compounding earns slightly more than monthly, but the difference is small — a $10,000 deposit at 5% earns about $512 annually compounding daily vs $511 monthly."}}]}
   </script>
 </head>
 <body>
@@ -210,6 +210,10 @@
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">What's a realistic return assumption? <span class="faq-arrow">▾</span></div>
         <div class="faq-a">Conservative funds: 3–4% p.a. after fees. Balanced: 4–6%. Growth/share funds: 6–8% long-term average. Past performance isn't a guarantee — markets are volatile year-to-year.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How often does compound interest compound? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">The more frequently interest compounds, the faster your balance grows. Common frequencies are daily, monthly, quarterly, and annually. Most NZ savings accounts compound daily or monthly. Daily compounding earns slightly more than monthly, but the difference is small — a $10,000 deposit at 5% earns about $512 annually compounding daily vs $511 monthly.</div>
       </div>
     </div>
   </div>

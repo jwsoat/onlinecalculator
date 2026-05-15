@@ -3,6 +3,7 @@
   text-align: center;
   padding: 8px 0 4px;
   overflow: hidden;
+  min-height: 76px; /* reserves space before iframe loads — prevents CLS */
 }
 /* Hide 468px banner on small screens to avoid horizontal scroll */
 @media (max-width: 499px) { .atop-banner { display: none; } }
@@ -12,6 +13,7 @@
   text-align: center;
   padding: 16px 0 8px;
   overflow: hidden;
+  min-height: 114px; /* reserves space before iframe loads — prevents CLS */
 }
 /* Hide 728px leaderboard on mobile/tablet */
 @media (max-width: 767px) { .abottom-banner { display: none; } }
