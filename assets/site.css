@@ -1,5 +1,5 @@
 /* OnlineCalculator.co.nz — shared site styles
-   Loaded by every page. ~7 KB minified. Cached 1 year by nginx. */
+   Loaded by every page. ~7 KB minified. Cached 1 year by nginx. v3 */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -18,9 +18,9 @@
   --finance-light: #e8f5ee;
   --property: #0e7490;
   --property-light: #ecfeff;
-  --health: #dc2626;
+  --health: #b91c1c;
   --health-light: #fef2f2;
-  --construction: #ea580c;
+  --construction: #9a3412;
   --construction-light: #fff7ed;
   --math: #7c3aed;
   --math-light: #f5f3ff;
