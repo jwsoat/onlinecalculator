@@ -6,7 +6,6 @@ Allow: /
 Disallow: /admin/
 Disallow: /draft/
 Disallow: /*?q=
-Disallow: /404.html
 
 # Allow major search engines explicitly
 User-agent: Googlebot
